@@ -9,22 +9,22 @@ const steps = [
     index: '01',
     title: 'Kirim kebutuhan',
     body: 'Jenis pekerjaan, lokasi, foto kondisi bila ada, serta ukuran perkiraan.',
-    image: 'https://images.pexels.com/photos/8293699/pexels-photo-8293699.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    alt: 'Referensi visual teknisi melakukan inspeksi dan survey pada bukaan kaca',
+    image: 'https://images.pexels.com/photos/5691540/pexels-photo-5691540.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    alt: 'Referensi pekerjaan close-up tanpa wajah saat mengukur frame sebelum pemasangan',
   },
   {
     index: '02',
     title: 'Pilih sistem & material',
     body: 'Bahas jenis bukaan, frame, kaca, serta penyesuaian yang dibutuhkan di lokasi.',
-    image: 'https://images.pexels.com/photos/7937742/pexels-photo-7937742.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    alt: 'Referensi visual tim profesional meninjau konfigurasi pintu kaca pada bangunan modern',
+    image: 'https://images.pexels.com/photos/9729590/pexels-photo-9729590.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    alt: 'Referensi pekerjaan close-up tangan saat meninjau profil aluminium dan detail frame',
   },
   {
     index: '03',
     title: 'Fabrikasi & pasang',
     body: 'Pekerjaan dilanjutkan mengikuti detail yang telah disepakati.',
-    image: 'https://cdn.pixabay.com/photo/2018/10/24/18/50/glass-work-3770982_1280.jpg',
-    alt: 'Referensi visual pekerja membawa frame kaca sebagai bagian proses fabrikasi dan pemasangan',
+    image: 'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    alt: 'Referensi pekerjaan pemasangan panel kaca pada bangunan modern dengan pekerja terlihat dari jarak jauh',
   },
 ];
 
