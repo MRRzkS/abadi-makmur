@@ -2,6 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+function clamp(value: number, min = 0, max = 1) {
+  return Math.min(max, Math.max(min, value));
+}
+
 export function useHorizontalScrollTracker(itemCount: number) {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const frameRef = useRef<number | null>(null);
@@ -10,11 +14,7 @@ export function useHorizontalScrollTracker(itemCount: number) {
 
   const sync = useCallback(() => {
     const viewport = viewportRef.current;
-    if (!viewport) return;
-
-    const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
-    const ratio = maxScroll === 0 ? 0 : viewport.scrollLeft / maxScroll;
-    setProgress(itemCount <= 1 ? 1 : (1 + ratio * (itemCount - 1)) / itemCount);
+    if (!viewport || itemCount <= 0) return;
 
     const cards = Array.from(
       viewport.querySelectorAll<HTMLElement>('[data-carousel-item]'),
@@ -22,22 +22,42 @@ export function useHorizontalScrollTracker(itemCount: number) {
 
     if (!cards.length) {
       setActiveIndex(0);
+      setProgress(0);
       return;
     }
 
-    const viewportLeft = viewport.scrollLeft;
-    let nearest = 0;
-    let nearestDistance = Number.POSITIVE_INFINITY;
+    const viewportRect = viewport.getBoundingClientRect();
+    const firstRect = cards[0].getBoundingClientRect();
+    const lastRect = cards[cards.length - 1].getBoundingClientRect();
 
-    cards.forEach((card, index) => {
-      const distance = Math.abs(card.offsetLeft - viewportLeft);
-      if (distance < nearestDistance) {
-        nearest = index;
-        nearestDistance = distance;
-      }
-    });
+    const firstFullyVisible = firstRect.left >= viewportRect.left - 2;
+    const lastFullyVisible =
+      lastRect.right <= viewportRect.right + 2 &&
+      lastRect.left < viewportRect.right;
 
-    setActiveIndex(Math.min(nearest, itemCount - 1));
+    const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+    const rawRatio = maxScroll === 0 ? 0 : clamp(viewport.scrollLeft / maxScroll);
+
+    const visualRatio = lastFullyVisible
+      ? 1
+      : firstFullyVisible
+        ? 0
+        : rawRatio;
+
+    const index = lastFullyVisible
+      ? itemCount - 1
+      : firstFullyVisible
+        ? 0
+        : Math.round(visualRatio * (itemCount - 1));
+
+    setActiveIndex(clamp(index, 0, itemCount - 1));
+
+    const trackedProgress =
+      itemCount <= 1
+        ? 1
+        : (1 + visualRatio * (itemCount - 1)) / itemCount;
+
+    setProgress(clamp(trackedProgress));
   }, [itemCount]);
 
   useEffect(() => {
@@ -46,6 +66,7 @@ export function useHorizontalScrollTracker(itemCount: number) {
 
     const onScroll = () => {
       if (frameRef.current !== null) return;
+
       frameRef.current = window.requestAnimationFrame(() => {
         frameRef.current = null;
         sync();
@@ -56,43 +77,48 @@ export function useHorizontalScrollTracker(itemCount: number) {
     viewport.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
 
+    const resizeObserver = new ResizeObserver(onScroll);
+    resizeObserver.observe(viewport);
+
     return () => {
       viewport.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
-      if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
+      resizeObserver.disconnect();
+
+      if (frameRef.current !== null) {
+        window.cancelAnimationFrame(frameRef.current);
+      }
     };
   }, [sync]);
 
-  const scrollToIndex = useCallback((index: number) => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-    const card = viewport.querySelectorAll<HTMLElement>('[data-carousel-item]')[index];
-    if (!card) return;
+  const scrollToIndex = useCallback(
+    (index: number) => {
+      const viewport = viewportRef.current;
+      if (!viewport || itemCount <= 1) return;
 
-    viewport.scrollTo({
-      left: card.offsetLeft,
-      behavior: 'smooth',
-    });
-  }, []);
+      const targetIndex = Math.max(0, Math.min(itemCount - 1, index));
+      const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+      const ratio = targetIndex / (itemCount - 1);
 
-  const scrollByItem = useCallback((direction: -1 | 1) => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
+      viewport.scrollTo({
+        left: maxScroll * ratio,
+        behavior: 'smooth',
+      });
+    },
+    [itemCount],
+  );
 
-    const cards = Array.from(
-      viewport.querySelectorAll<HTMLElement>('[data-carousel-item]'),
-    );
-    const current = cards[activeIndex];
-    const next = cards[Math.max(0, Math.min(cards.length - 1, activeIndex + direction))];
+  const scrollByItem = useCallback(
+    (direction: -1 | 1) => {
+      const nextIndex = Math.max(
+        0,
+        Math.min(itemCount - 1, activeIndex + direction),
+      );
 
-    if (!next) return;
-
-    const fallback = current?.offsetWidth ?? viewport.clientWidth * 0.8;
-    viewport.scrollBy({
-      left: direction * Math.max(fallback + 16, Math.abs(next.offsetLeft - (current?.offsetLeft ?? 0))),
-      behavior: 'smooth',
-    });
-  }, [activeIndex]);
+      scrollToIndex(nextIndex);
+    },
+    [activeIndex, itemCount, scrollToIndex],
+  );
 
   return {
     viewportRef,
