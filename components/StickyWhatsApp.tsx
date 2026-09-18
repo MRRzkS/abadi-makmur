@@ -1,12 +1,15 @@
 'use client';
 
-import { defaultWhatsAppMessage, whatsappHref } from '@/lib/site';
+import { usePathname } from 'next/navigation';
+import { whatsappHref } from '@/lib/site';
 
 export function StickyWhatsApp() {
+  const pathname = usePathname();
+
   return (
     <a
       className="sticky-whatsapp"
-      href={whatsappHref(defaultWhatsAppMessage)}
+      href={whatsappHref({ sourcePath: pathname })}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat Abadi Makmur Aluminium melalui WhatsApp"

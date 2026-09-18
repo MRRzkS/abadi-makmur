@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { defaultWhatsAppMessage, whatsappHref } from '@/lib/site';
+import { whatsappHref } from '@/lib/site';
 
 const nav = [
   { href: '/', label: 'Beranda' },
@@ -47,7 +47,7 @@ export function Header() {
           ))}
         </nav>
 
-        <a className="nav-cta" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">
+        <a className="nav-cta" href={whatsappHref({ sourcePath: pathname })} target="_blank" rel="noreferrer">
           Konsultasi <span aria-hidden="true">↗</span>
         </a>
 
@@ -79,7 +79,7 @@ export function Header() {
                 {item.label}<span>↗</span>
               </Link>
             ))}
-            <a className="mobile-wa" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">
+            <a className="mobile-wa" href={whatsappHref({ sourcePath: pathname })} target="_blank" rel="noreferrer">
               Konsultasi WhatsApp
             </a>
           </motion.div>

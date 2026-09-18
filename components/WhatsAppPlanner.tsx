@@ -1,24 +1,29 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { whatsappHref } from '@/lib/site';
 
-const options = ['Pintu aluminium', 'Jendela aluminium', 'Kusen aluminium', 'Partisi kaca', 'Shower box', 'Lainnya'];
+const options = ['Pintu Aluminium', 'Jendela Aluminium', 'Kusen Aluminium', 'Partisi Kaca', 'Shower Box', 'Lainnya'];
 
-export function WhatsAppPlanner() {
-  const [service, setService] = useState(options[0]);
+export function WhatsAppPlanner({ defaultService }: { defaultService?: string }) {
+  const pathname = usePathname();
+  const [service, setService] = useState(defaultService || options[0]);
   const [location, setLocation] = useState('Tangerang');
   const [note, setNote] = useState('');
 
   const href = useMemo(() => {
-    const message = [
-      'Halo Abadi Makmur Aluminium, saya ingin konsultasi.',
-      `Kebutuhan: ${service}`,
-      `Lokasi: ${location || 'belum diisi'}`,
+    const details = [
+      `Lokasi proyek: ${location || 'belum diisi'}`,
       note ? `Catatan: ${note}` : '',
-    ].filter(Boolean).join('\n');
-    return whatsappHref(message);
-  }, [service, location, note]);
+    ].filter(Boolean);
+
+    return whatsappHref({
+      sourcePath: pathname,
+      service,
+      details,
+    });
+  }, [pathname, service, location, note]);
 
   return (
     <div className="planner glass-panel">

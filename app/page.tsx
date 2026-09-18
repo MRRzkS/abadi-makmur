@@ -4,7 +4,7 @@ import { LineGlyph } from '@/components/LineGlyph';
 import { PortfolioCarousel } from '@/components/PortfolioCarousel';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { services } from '@/lib/services';
-import { defaultWhatsAppMessage, siteConfig, whatsappHref } from '@/lib/site';
+import { siteConfig, whatsappHref } from '@/lib/site';
 
 const homeFaq = [
   {
@@ -66,7 +66,7 @@ export default function HomePage() {
               Pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box dengan pendekatan yang rapi, modern, dan sesuai kebutuhan lokasi.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">
+              <a className="button button-primary" href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">
                 Konsultasi WhatsApp <span>↗</span>
               </a>
               <Link className="button button-ghost" href="/layanan/">Lihat layanan <span>↗</span></Link>
@@ -125,7 +125,7 @@ export default function HomePage() {
               const kinds = ['door', 'window', 'frame', 'partition', 'shower'] as const;
               return (
                 <Reveal key={service.slug} className={`service-card service-card-${index + 1}`} delay={index * 0.04}>
-                  <Link href={`/jasa/${service.slug}/`}>
+                  <Link href={`/layanan/${service.slug}/`}>
                     <div className="service-card-top">
                       <LineGlyph kind={kinds[index]} />
                       <span className="service-index">0{index + 1}</span>
@@ -193,7 +193,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal className="keyword-panel glass-panel" delay={0.08}>
             {services.map((service, index) => (
-              <Link key={service.slug} href={`/jasa/${service.slug}/`}>
+              <Link key={service.slug} href={`/layanan/${service.slug}/`}>
                 <span>0{index + 1}</span>
                 <strong>{service.keyword}</strong>
                 <small>Tangerang</small>
@@ -237,7 +237,7 @@ export default function HomePage() {
           <Reveal>
             <p className="eyebrow light">ABADI MAKMUR ALUMINIUM · TANGERANG</p>
             <h2>Ruang yang lebih rapi<br />dimulai dari <em>detail.</em></h2>
-            <a className="button button-light" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">Konsultasi sekarang <span>↗</span></a>
+            <a className="button button-light" href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">Konsultasi sekarang <span>↗</span></a>
           </Reveal>
         </div>
       </section>

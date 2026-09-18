@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { services } from '@/lib/services';
-import { defaultWhatsAppMessage, siteConfig, whatsappHref } from '@/lib/site';
+import { siteConfig, whatsappHref } from '@/lib/site';
 
 export function Footer() {
   return (
@@ -12,7 +12,7 @@ export function Footer() {
           <p>Fabrikasi dan pemasangan aluminium & kaca untuk kebutuhan hunian dan komersial di Tangerang.</p>
           <div className="footer-contact">
             <a href={siteConfig.mapsUrl} target="_blank" rel="noreferrer">{siteConfig.address}</a>
-            <a href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">{siteConfig.whatsappDisplay}</a>
+            <a href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">{siteConfig.whatsappDisplay}</a>
           </div>
         </div>
         <div>
@@ -20,7 +20,7 @@ export function Footer() {
           <div className="footer-links">
             <Link href="/layanan/">Semua layanan</Link>
             {services.map((service) => (
-              <Link key={service.slug} href={`/jasa/${service.slug}/`}>{service.shortTitle}</Link>
+              <Link key={service.slug} href={`/layanan/${service.slug}/`}>{service.shortTitle}</Link>
             ))}
           </div>
         </div>
@@ -31,7 +31,7 @@ export function Footer() {
             <Link href="/artikel/">Artikel</Link>
             <Link href="/tentang/">Tentang</Link>
             <Link href="/kontak/">Kontak</Link>
-            <a href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">WhatsApp ↗</a>
+            <a href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">WhatsApp ↗</a>
           </div>
         </div>
       </div>
