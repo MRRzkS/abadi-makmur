@@ -3,6 +3,7 @@ import { Reveal } from '@/components/Reveal';
 import { LineGlyph } from '@/components/LineGlyph';
 import { PortfolioCarousel } from '@/components/PortfolioCarousel';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
+import { SystemShowcase } from '@/components/SystemShowcase';
 import { services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -143,6 +144,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <SystemShowcase />
 
       <section className="section process-section">
         <div className="container process-grid">
