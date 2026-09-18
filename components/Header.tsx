@@ -8,8 +8,9 @@ import { defaultWhatsAppMessage, whatsappHref } from '@/lib/site';
 
 const nav = [
   { href: '/', label: 'Beranda' },
-  { href: '/#layanan', label: 'Layanan' },
+  { href: '/layanan/', label: 'Layanan' },
   { href: '/portofolio/', label: 'Portofolio' },
+  { href: '/artikel/', label: 'Artikel' },
   { href: '/tentang/', label: 'Tentang' },
   { href: '/kontak/', label: 'Kontak' },
 ];
@@ -19,6 +20,9 @@ export function Header() {
   const pathname = usePathname();
 
   useEffect(() => setOpen(false), [pathname]);
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
     <header className="site-header">
@@ -33,7 +37,13 @@ export function Header() {
 
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href}>{item.label}</Link>
+            <Link
+              key={item.href}
+              href={item.href}
+              className={isActive(item.href) ? 'active' : undefined}
+            >
+              {item.label}
+            </Link>
           ))}
         </nav>
 
@@ -61,7 +71,13 @@ export function Header() {
             transition={{ duration: 0.2 }}
           >
             {nav.map((item) => (
-              <Link key={item.href} href={item.href}>{item.label}<span>↗</span></Link>
+              <Link
+                key={item.href}
+                href={item.href}
+                className={isActive(item.href) ? 'active' : undefined}
+              >
+                {item.label}<span>↗</span>
+              </Link>
             ))}
             <a className="mobile-wa" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">
               Konsultasi WhatsApp
