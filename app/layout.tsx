@@ -3,6 +3,7 @@ import { Geist, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { StickyWhatsApp } from '@/components/StickyWhatsApp';
 import { siteConfig } from '@/lib/site';
 
 const geist = Geist({
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a className="skip-link" href="#main">Lewati ke konten utama</a>
         <Header />
         <main id="main">{children}</main>
+        <StickyWhatsApp />
         <Footer />
       </body>
     </html>
