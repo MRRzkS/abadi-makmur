@@ -1,7 +1,7 @@
 'use client';
 
-// Shower uses the CC0 "Shower Pictogram 2" asset from SVG Repo:
- // https://www.svgrepo.com/svg/477619/shower-pictogram-2
+// Shower/bathroom glyph uses the official Iconoir "Bathroom" asset (MIT):
+// https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/bathroom.svg
 type Kind =
   | 'door'
   | 'window'
@@ -35,6 +35,13 @@ const strokes: Record<Kind, string[]> = {
     'M9 5V19',
     'M15 5V19',
   ],
+  shower: [
+    'M21 13V16C21 18.2091 19.2091 20 17 20H7C4.79086 20 3 18.2091 3 16V13.6C3 13.2686 3.26863 13 3.6 13H21Z',
+    'M16 20L17 22',
+    'M8 20L7 22',
+    'M21 13V7C21 4.79086 19.2091 3 17 3H12',
+    'M15.4 8H8.60003C8.26865 8 8.00393 7.7317 8.04019 7.4023C8.18624 6.07539 8.86312 3 12 3C15.1369 3 15.8138 6.07539 15.9598 7.4023C15.9961 7.73169 15.7314 8 15.4 8Z',
+  ],
   measure: [
     'M5 18L18 5L21 8L8 21L5 18Z',
     'M15 8L18 11',
@@ -51,15 +58,6 @@ const strokes: Record<Kind, string[]> = {
 };
 
 export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: string }) {
-  if (kind === 'shower') {
-    return (
-      <span
-        className={`line-glyph external-svg-glyph shower-svg-repo ${className}`}
-        aria-hidden="true"
-      />
-    );
-  }
-
   return (
     <svg
       className={`line-glyph ${className}`}
