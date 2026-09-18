@@ -54,8 +54,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa jendela aluminium Tangerang untuk rumah dan bangunan komersial. Konsultasi ukuran, tipe bukaan, warna rangka dan pilihan kaca.',
     image:
-      'https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi visual teknisi memasang frame jendela menggunakan bor pada area renovasi',
+      'https://images.pexels.com/photos/5768107/pexels-photo-5768107.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi pekerjaan close-up tanpa wajah saat pemasangan frame jendela menggunakan bor',
     highlight: 'Ventilasi · Cahaya · Proporsi',
     benefits: [
       'Profil ramping membantu tampilan fasad terasa lebih bersih',
@@ -114,8 +114,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa partisi kaca Tangerang untuk kantor, toko dan hunian. Pilihan frameless atau kombinasi aluminium untuk ruang yang terasa terang dan modern.',
     image:
-      'https://images.pexels.com/photos/9050934/pexels-photo-9050934.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi visual tim teknisi bekerja memasang panel kaca pada area konstruksi',
+      'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi pekerjaan pemasangan panel kaca pada bangunan modern dengan pekerja terlihat dari jarak jauh',
     highlight: 'Frameless · Office · Light',
     benefits: [
       'Membagi ruang sambil menjaga aliran cahaya',
@@ -144,8 +144,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa shower box Tangerang dengan kaca untuk kamar mandi rumah, apartemen dan properti komersial. Konsultasi ukuran, bukaan dan hardware.',
     image:
-      'https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi visual proses finishing dan pembersihan akhir panel kaca shower enclosure',
+      'https://images.pexels.com/photos/4239101/pexels-photo-4239101.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi pekerjaan close-up tanpa wajah pada finishing panel kaca shower enclosure',
     highlight: 'Clean · Dry Zone · Glass',
     benefits: [
       'Membantu memisahkan area basah dan kering',
@@ -182,22 +182,22 @@ export const portfolioReferences = [
     title: 'Instalasi panel kaca',
     category: 'Partisi',
     image:
-      'https://images.pexels.com/photos/9050934/pexels-photo-9050934.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi visual tim teknisi memasang panel kaca pada proyek konstruksi',
+      'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi pekerjaan pemasangan panel kaca pada bangunan modern',
   },
   {
     title: 'Pemasangan frame jendela',
     category: 'Jendela',
     image:
-      'https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi visual pemasangan frame jendela menggunakan bor',
+      'https://images.pexels.com/photos/5768107/pexels-photo-5768107.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi pekerjaan close-up tanpa wajah saat memasang frame jendela',
   },
   {
     title: 'Finishing shower glass',
     category: 'Shower Box',
     image:
-      'https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi visual proses finishing dan inspeksi kebersihan panel kaca shower enclosure',
+      'https://images.pexels.com/photos/4239101/pexels-photo-4239101.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi pekerjaan close-up tanpa wajah pada finishing shower glass',
   },
   {
     title: 'Pengukuran & alignment frame',
