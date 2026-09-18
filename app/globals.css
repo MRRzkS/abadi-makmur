@@ -1020,3 +1020,49 @@ main { min-height: 60vh; }
     font-size: 30px;
   }
 }
+
+
+/* Stable SVG line art: a complete base stroke remains visible while the accent stroke animates. */
+.line-glyph {
+  overflow: visible;
+  shape-rendering: geometricPrecision;
+}
+
+/* One-click WhatsApp consultation for each service card. */
+.services-page-card > a.services-page-whatsapp {
+  display: flex;
+  grid-template-columns: none;
+  width: calc(100% - 20px);
+  min-height: 50px;
+  height: auto;
+  margin: 10px 10px 0;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  border-radius: 14px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(217,54,43,.18);
+}
+.services-page-card > a.services-page-whatsapp:hover {
+  transform: translateY(-2px);
+  background: var(--primary-deep);
+  box-shadow: 0 16px 34px rgba(217,54,43,.24);
+}
+.services-page-card-5 > a.services-page-whatsapp {
+  background: var(--accent);
+  color: var(--secondary);
+}
+.services-page-card-5 > a.services-page-whatsapp:hover {
+  background: #ff9d3d;
+}
+
+@media (max-width: 580px) {
+  .services-page-card > a.services-page-whatsapp {
+    width: 100%;
+    margin: 10px 0 0;
+  }
+}

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
 import { LineGlyph } from '@/components/LineGlyph';
-import { defaultWhatsAppMessage, siteConfig, whatsappHref } from '@/lib/site';
+import { siteConfig, whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Tentang CV Kristian Abadi',
@@ -20,7 +20,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal className="about-intro" delay={0.08}>
             <p>Abadi Makmur Aluminium adalah bisnis fabrikasi dan pemasangan aluminium & kaca berbasis Tangerang. Fokusnya sederhana: membantu kebutuhan bukaan dan pembagian ruang terasa rapi, fungsional, dan sesuai konteks bangunan.</p>
-            <a className="text-link" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">Mulai konsultasi <span>↗</span></a>
+            <a className="text-link" href={whatsappHref({ sourcePath: '/tentang/' })} target="_blank" rel="noreferrer">Mulai konsultasi <span>↗</span></a>
           </Reveal>
         </div>
       </section>
@@ -58,7 +58,7 @@ export default function AboutPage() {
             <p className="eyebrow light">TANGERANG · BANTEN</p>
             <h2>Punya kebutuhan<br />aluminium atau <em>kaca?</em></h2>
             <div className="hero-actions">
-              <a className="button button-light" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">Konsultasi WhatsApp <span>↗</span></a>
+              <a className="button button-light" href={whatsappHref({ sourcePath: '/tentang/' })} target="_blank" rel="noreferrer">Konsultasi WhatsApp <span>↗</span></a>
               <Link className="button button-dark-ghost" href="/layanan/">Lihat layanan</Link>
             </div>
           </Reveal>
