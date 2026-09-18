@@ -1,7 +1,5 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
-
 type Kind = 'door' | 'window' | 'frame' | 'partition' | 'shower' | 'measure' | 'install';
 
 const strokes: Record<Kind, string[]> = {
@@ -14,74 +12,27 @@ const strokes: Record<Kind, string[]> = {
   install: ['M6 27L18 15', 'M19 5L27 13L22 18L14 10L19 5Z', 'M5 28H12'],
 };
 
-const svgVariants: Variants = {
-  hidden: { opacity: 0, y: 3 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.22, 1, 0.36, 1],
-      when: 'beforeChildren',
-    },
-  },
-};
-
-const pathVariants: Variants = {
-  hidden: {
-    strokeDashoffset: 1,
-    opacity: 0,
-  },
-  visible: (index: number) => ({
-    strokeDashoffset: 0,
-    opacity: 1,
-    transition: {
-      duration: 1.35,
-      delay: index * 0.12,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  }),
-};
-
 export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: string }) {
   return (
-    <motion.svg
+    <svg
       className={`line-glyph ${className}`}
       viewBox="0 0 32 32"
       fill="none"
       aria-hidden="true"
       focusable="false"
       preserveAspectRatio="xMidYMid meet"
-      variants={svgVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.08 }}
     >
       {strokes[kind].map((d, index) => (
-        <g key={`${kind}-${index}`}>
-          <path
-            d={d}
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-            opacity="0.18"
-          />
-          <motion.path
-            d={d}
-            pathLength={1}
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeDasharray="1 1"
-            vectorEffect="non-scaling-stroke"
-            custom={index}
-            variants={pathVariants}
-          />
-        </g>
+        <path
+          key={`${kind}-${index}`}
+          d={d}
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
       ))}
-    </motion.svg>
+    </svg>
   );
 }
