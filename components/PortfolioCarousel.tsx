@@ -1,46 +1,31 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { motion } from 'framer-motion';
 import { portfolioReferences } from '@/lib/services';
 import { LineGlyph } from '@/components/LineGlyph';
 
 export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    containScroll: 'trimSnaps',
-    loop: false,
-    dragFree: true,
-    skipSnaps: true,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: 'start',
+      containScroll: 'keepSnaps',
+      slidesToScroll: 1,
+      loop: false,
+      dragFree: true,
+      skipSnaps: true,
+    },
+    [WheelGesturesPlugin()],
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [snapCount, setSnapCount] = useState(portfolioReferences.length);
-  const wheelLock = useRef(0);
-
-  const handleHorizontalWheel = useCallback((event: React.WheelEvent<HTMLDivElement>) => {
-    const delta = Math.abs(event.deltaX) >= Math.abs(event.deltaY)
-      ? event.deltaX
-      : event.shiftKey
-        ? event.deltaY
-        : 0;
-
-    if (Math.abs(delta) < 8 || !emblaApi) return;
-
-    const now = Date.now();
-    if (now - wheelLock.current < 220) return;
-    wheelLock.current = now;
-    event.preventDefault();
-
-    if (delta > 0) emblaApi.scrollNext();
-    else emblaApi.scrollPrev();
-  }, [emblaApi]);
+  const snapCount = portfolioReferences.length;
 
   const syncState = useCallback(() => {
     if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-    setSnapCount(emblaApi.scrollSnapList().length);
-  }, [emblaApi]);
+    setSelectedIndex(Math.min(emblaApi.selectedScrollSnap(), snapCount - 1));
+  }, [emblaApi, snapCount]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -55,7 +40,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
   }, [emblaApi, syncState]);
 
   const progress = useMemo(
-    () => (snapCount <= 1 ? 1 : (selectedIndex + 1) / snapCount),
+    () => (selectedIndex + 1) / snapCount,
     [selectedIndex, snapCount],
   );
 
@@ -73,7 +58,11 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
         </div>
       </div>
 
-      <div className="project-carousel-viewport" ref={emblaRef} onWheel={handleHorizontalWheel} aria-label="Carousel portofolio — drag, swipe, atau scroll horizontal">
+      <div
+        className="project-carousel-viewport"
+        ref={emblaRef}
+        aria-label="Carousel portofolio — drag, swipe, atau scroll horizontal"
+      >
         <div className={`project-carousel ${compact ? 'compact' : ''}`}>
           {portfolioReferences.map((item, index) => (
             <motion.article
@@ -102,7 +91,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
 
       <div className="carousel-pagination" aria-label="Navigasi slide">
         <div className="carousel-dots">
-          {Array.from({ length: snapCount }).map((_, index) => (
+          {portfolioReferences.map((_, index) => (
             <button
               key={index}
               className={index === selectedIndex ? 'active' : ''}
@@ -119,7 +108,9 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
             transition={{ type: 'spring', stiffness: 180, damping: 26 }}
           />
         </div>
-        <span className="carousel-count">{String(selectedIndex + 1).padStart(2, '0')} / {String(snapCount).padStart(2, '0')}</span>
+        <span className="carousel-count">
+          {String(selectedIndex + 1).padStart(2, '0')} / {String(snapCount).padStart(2, '0')}
+        </span>
       </div>
     </div>
   );
