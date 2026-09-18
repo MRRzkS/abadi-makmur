@@ -147,12 +147,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </Reveal>
           <div className="related-grid">
             {services.filter((item) => item.slug !== service.slug).slice(0, 4).map((item, index) => (
-              <Reveal key={item.slug} delay={index * 0.04}>
+              <Reveal key={item.slug} className={`related-card related-card-${index + 1}`} delay={index * 0.04}>
                 <Link href={`/layanan/${item.slug}/`}>
-                  <span>0{index + 1}</span>
-                  <h3>{item.shortTitle}</h3>
-                  <p>{item.keyword} Tangerang</p>
-                  <b>↗</b>
+                  <div className="related-card-media">
+                    <img src={item.image} alt={item.imageAlt} width="900" height="620" loading="lazy" />
+                    <span className="reference-badge">REFERENSI VISUAL</span>
+                  </div>
+                  <div className="related-card-body">
+                    <span className="related-card-index">0{index + 1}</span>
+                    <p>{item.keyword} Tangerang</p>
+                    <h3>{item.shortTitle}</h3>
+                    <b aria-hidden="true">↗</b>
+                  </div>
                 </Link>
               </Reveal>
             ))}
