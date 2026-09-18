@@ -82,8 +82,8 @@ export default function HomePage() {
           <Reveal className="hero-visual" delay={0.1}>
             <div className="hero-image-wrap">
               <img
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=88"
-                alt="Referensi visual arsitektur modern dengan bukaan kaca besar"
+                src="https://images.pexels.com/photos/5691521/pexels-photo-5691521.jpeg?auto=compress&cs=tinysrgb&w=1800"
+                alt="Referensi visual teknisi memasang frame jendela pada interior modern yang terang"
                 width="1200"
                 height="1500"
                 fetchPriority="high"
