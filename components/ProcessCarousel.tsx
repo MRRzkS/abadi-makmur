@@ -1,7 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { motion } from 'framer-motion';
 import { LineGlyph } from '@/components/LineGlyph';
 
@@ -30,39 +31,24 @@ const steps = [
 ];
 
 export function ProcessCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    containScroll: 'trimSnaps',
-    dragFree: true,
-    skipSnaps: true,
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: 'start',
+      containScroll: 'keepSnaps',
+      slidesToScroll: 1,
+      dragFree: true,
+      skipSnaps: true,
+      loop: false,
+    },
+    [WheelGesturesPlugin()],
+  );
   const [selected, setSelected] = useState(0);
-  const [count, setCount] = useState(steps.length);
-  const wheelLock = useRef(0);
-
-  const handleHorizontalWheel = useCallback((event: React.WheelEvent<HTMLDivElement>) => {
-    const delta = Math.abs(event.deltaX) >= Math.abs(event.deltaY)
-      ? event.deltaX
-      : event.shiftKey
-        ? event.deltaY
-        : 0;
-
-    if (Math.abs(delta) < 8 || !emblaApi) return;
-
-    const now = Date.now();
-    if (now - wheelLock.current < 220) return;
-    wheelLock.current = now;
-    event.preventDefault();
-
-    if (delta > 0) emblaApi.scrollNext();
-    else emblaApi.scrollPrev();
-  }, [emblaApi]);
+  const count = steps.length;
 
   const sync = useCallback(() => {
     if (!emblaApi) return;
-    setSelected(emblaApi.selectedScrollSnap());
-    setCount(emblaApi.scrollSnapList().length);
-  }, [emblaApi]);
+    setSelected(Math.min(emblaApi.selectedScrollSnap(), count - 1));
+  }, [emblaApi, count]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -75,18 +61,26 @@ export function ProcessCarousel() {
     };
   }, [emblaApi, sync]);
 
-  const progress = useMemo(() => (selected + 1) / Math.max(count, 1), [selected, count]);
+  const progress = useMemo(() => (selected + 1) / count, [selected, count]);
 
   return (
     <div className="process-carousel">
       <div className="process-carousel-toolbar">
         <div className="carousel-controls">
-          <button onClick={() => emblaApi?.scrollPrev()} aria-label="Langkah sebelumnya"><LineGlyph kind="navLeft" /></button>
-          <button onClick={() => emblaApi?.scrollNext()} aria-label="Langkah berikutnya"><LineGlyph kind="navRight" /></button>
+          <button onClick={() => emblaApi?.scrollPrev()} aria-label="Langkah sebelumnya">
+            <LineGlyph kind="navLeft" />
+          </button>
+          <button onClick={() => emblaApi?.scrollNext()} aria-label="Langkah berikutnya">
+            <LineGlyph kind="navRight" />
+          </button>
         </div>
       </div>
 
-      <div className="process-carousel-viewport" ref={emblaRef} onWheel={handleHorizontalWheel} aria-label="Carousel proses — drag, swipe, atau scroll horizontal">
+      <div
+        className="process-carousel-viewport"
+        ref={emblaRef}
+        aria-label="Carousel proses — drag, swipe, atau scroll horizontal"
+      >
         <div className="process-carousel-track">
           {steps.map((step) => (
             <article className="process-slide" key={step.index}>
@@ -106,7 +100,7 @@ export function ProcessCarousel() {
 
       <div className="carousel-pagination process-pagination">
         <div className="carousel-dots">
-          {Array.from({ length: count }).map((_, index) => (
+          {steps.map((_, index) => (
             <button
               key={index}
               className={index === selected ? 'active' : ''}
@@ -123,7 +117,9 @@ export function ProcessCarousel() {
             transition={{ type: 'spring', stiffness: 180, damping: 26 }}
           />
         </div>
-        <span className="carousel-count">{String(selected + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}</span>
+        <span className="carousel-count">
+          {String(selected + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}
+        </span>
       </div>
     </div>
   );
