@@ -80,17 +80,22 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <Reveal className="inner-hero-copy">
             <Link className="back-link" href="/layanan/">← Semua layanan</Link>
             <p className="eyebrow">{service.keyword.toUpperCase()} · TANGERANG</p>
-            <h1>{service.shortTitle}<br /><span>untuk ruang yang tepat.</span></h1>
-            <p className="inner-lead">{service.description}</p>
-            <div className="service-highlight">{service.highlight}</div>
-            <a
-              className="button button-primary"
-              href={whatsappHref({ sourcePath: `/layanan/${service.slug}/`, service: service.shortTitle })}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Konsultasi {service.shortTitle} <span>↗</span>
-            </a>
+            <h1 className="service-hero-title">
+              <span className="service-hero-title-main">{service.shortTitle}</span>
+              <span className="service-hero-title-support">untuk ruang yang tepat.</span>
+            </h1>
+            <p className="inner-lead service-hero-lead">{service.description}</p>
+            <div className="service-hero-actions">
+              <span className="service-highlight">{service.highlight}</span>
+              <a
+                className="button button-primary"
+                href={whatsappHref({ sourcePath: `/layanan/${service.slug}/`, service: service.shortTitle })}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Konsultasi {service.shortTitle} <span>↗</span>
+              </a>
+            </div>
           </Reveal>
           <Reveal className="inner-hero-image" delay={0.08}>
             <img src={service.image} alt={service.imageAlt} width="1100" height="1300" fetchPriority="high" />
