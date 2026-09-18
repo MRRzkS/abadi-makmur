@@ -28,7 +28,7 @@ export default function AboutPage() {
       <section className="section about-visual-section">
         <div className="container about-visual-grid">
           <Reveal className="about-photo-large">
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=86" alt="Referensi visual interior modern dengan elemen kaca" width="1300" height="1000" />
+            <img src="https://images.pexels.com/photos/8293699/pexels-photo-8293699.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Referensi visual inspeksi profesional pada bukaan kaca sebelum pekerjaan dilanjutkan" width="1300" height="1000" />
             <span className="reference-badge">REFERENSI VISUAL</span>
           </Reveal>
           <Reveal className="about-principle" delay={0.06}>
