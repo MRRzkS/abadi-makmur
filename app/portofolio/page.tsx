@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <section className="inner-hero portfolio-page-hero section-pad">
+      <section className="inner-hero portfolio-page-hero section-pad dark-surface" data-nav-theme="dark">
         <div className="container portfolio-title-grid">
           <Reveal>
             <p className="eyebrow">PORTOFOLIO / VISUAL REFERENCE</p>
@@ -24,7 +24,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="section portfolio-full-section">
+      <section className="section portfolio-full-section dark-surface" data-nav-theme="dark">
         <div className="container"><PortfolioCarousel /></div>
       </section>
 
