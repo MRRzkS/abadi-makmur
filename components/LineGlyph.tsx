@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 type Kind = 'door' | 'window' | 'frame' | 'partition' | 'shower' | 'measure' | 'install';
 
 const paths: Record<Kind, string[]> = {
-  door: ['M6 21V3h12v18', 'M9 21V6h6v15', 'M13 13h.01'],
+  door: ['M5 21V3h14v18', 'M8 21V6h8v15', 'M13.5 13H14'],
   window: ['M4 4h16v16H4z', 'M12 4v16', 'M4 12h16'],
-  frame: ['M5 4h14v16H5z', 'M8 7h8v10H8z'],
+  frame: ['M4.5 4h15v16h-15z', 'M8 7.5h8v9H8z'],
   partition: ['M4 4h16v16H4z', 'M10 4v16', 'M16 4v16'],
-  shower: ['M5 20V8a7 7 0 0 1 14 0v12', 'M8 20V8a4 4 0 0 1 8 0v12', 'M12 10v.01'],
-  measure: ['M4 17 17 4l3 3L7 20z', 'm10-10 3 3', 'm-6 6 3 3'],
-  install: ['M5 18 14 9', 'm13 5 2 2', 'm-1-3 3 3-7 7-3-3z', 'M4 20h6'],
+  shower: ['M5 20V9a7 7 0 0 1 14 0v11', 'M8 20V9a4 4 0 0 1 8 0v11', 'M12 11h.01'],
+  measure: ['M4 17L17 4l3 3L7 20 4 17Z', 'M14 7l3 3', 'M9 12l3 3'],
+  install: ['M5 19l8.5-8.5', 'M13 6l5 5', 'M15 4l5 5-2 2-5-5 2-2Z', 'M4 20h7'],
 };
 
 export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: string }) {
@@ -21,9 +21,10 @@ export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: st
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
+      focusable="false"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.6 }}
+      viewport={{ once: true, amount: 0.45 }}
     >
       {paths[kind].map((d, index) => (
         <motion.path
@@ -33,11 +34,12 @@ export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: st
           strokeWidth="1.25"
           strokeLinecap="round"
           strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
           variants={{
-            hidden: { pathLength: 0, opacity: 0.2 },
+            hidden: { pathLength: 0, opacity: 0.18 },
             visible: { pathLength: 1, opacity: 1 },
           }}
-          transition={{ duration: 0.85, delay: index * 0.08, ease: 'easeInOut' }}
+          transition={{ duration: 0.72, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
         />
       ))}
     </motion.svg>
