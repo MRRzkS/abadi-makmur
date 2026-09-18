@@ -1,10 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { motion } from 'framer-motion';
 import { LineGlyph } from '@/components/LineGlyph';
+import { useHorizontalScrollTracker } from '@/components/useHorizontalScrollTracker';
 
 const steps = [
   {
@@ -31,79 +29,35 @@ const steps = [
 ];
 
 export function ProcessCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      align: 'start',
-      containScroll: false,
-      slidesToScroll: 1,
-      dragFree: true,
-      skipSnaps: true,
-      loop: false,
-    },
-    [WheelGesturesPlugin()],
-  );
-
-  const viewportRef = useRef<HTMLDivElement | null>(null);
-  const [selected, setSelected] = useState(0);
-  const count = steps.length;
-
-  const setViewport = useCallback((node: HTMLDivElement | null) => {
-    viewportRef.current = node;
-    emblaRef(node);
-  }, [emblaRef]);
-
-  useEffect(() => {
-    const node = viewportRef.current;
-    if (!node) return;
-
-    const preventHistorySwipe = (event: WheelEvent) => {
-      const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
-      if (horizontal && Math.abs(event.deltaX) > 2) event.preventDefault();
-    };
-
-    node.addEventListener('wheel', preventHistorySwipe, { passive: false, capture: true });
-    return () => node.removeEventListener('wheel', preventHistorySwipe, true);
-  }, []);
-
-  const sync = useCallback(() => {
-    if (!emblaApi) return;
-    setSelected(Math.min(emblaApi.selectedScrollSnap(), count - 1));
-  }, [emblaApi, count]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    sync();
-    emblaApi.on('select', sync);
-    emblaApi.on('reInit', sync);
-    return () => {
-      emblaApi.off('select', sync);
-      emblaApi.off('reInit', sync);
-    };
-  }, [emblaApi, sync]);
-
-  const progress = useMemo(() => (selected + 1) / count, [selected, count]);
+  const {
+    viewportRef,
+    activeIndex,
+    progress,
+    scrollToIndex,
+    scrollByItem,
+  } = useHorizontalScrollTracker(steps.length);
 
   return (
     <div className="process-carousel">
       <div className="process-carousel-toolbar">
         <div className="carousel-controls">
-          <button onClick={() => emblaApi?.scrollPrev()} aria-label="Langkah sebelumnya">
+          <button onClick={() => scrollByItem(-1)} aria-label="Langkah sebelumnya">
             <LineGlyph kind="navLeft" />
           </button>
-          <button onClick={() => emblaApi?.scrollNext()} aria-label="Langkah berikutnya">
+          <button onClick={() => scrollByItem(1)} aria-label="Langkah berikutnya">
             <LineGlyph kind="navRight" />
           </button>
         </div>
       </div>
 
       <div
-        className="process-carousel-viewport"
-        ref={setViewport}
-        aria-label="Carousel proses — drag, swipe, atau scroll horizontal"
+        className="process-carousel-viewport native-horizontal-carousel"
+        ref={viewportRef}
+        aria-label="Proses layanan — scroll horizontal"
       >
         <div className="process-carousel-track">
           {steps.map((step) => (
-            <article className="process-slide" key={step.index}>
+            <article className="process-slide" data-carousel-item key={step.index}>
               <div className="process-slide-image">
                 <img src={step.image} alt={step.alt} width="1000" height="700" loading="lazy" />
                 <span className="reference-badge">REFERENSI VISUAL</span>
@@ -123,10 +77,10 @@ export function ProcessCarousel() {
           {steps.map((_, index) => (
             <button
               key={index}
-              className={index === selected ? 'active' : ''}
-              onClick={() => emblaApi?.scrollTo(index)}
+              className={index === activeIndex ? 'active' : ''}
+              onClick={() => scrollToIndex(index)}
               aria-label={`Buka langkah ${index + 1}`}
-              aria-current={index === selected ? 'true' : undefined}
+              aria-current={index === activeIndex ? 'true' : undefined}
             />
           ))}
         </div>
@@ -134,11 +88,11 @@ export function ProcessCarousel() {
           <motion.span
             initial={false}
             animate={{ scaleX: progress }}
-            transition={{ type: 'spring', stiffness: 180, damping: 26 }}
+            transition={{ duration: 0.08, ease: 'linear' }}
           />
         </div>
         <span className="carousel-count">
-          {String(selected + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}
+          {String(activeIndex + 1).padStart(2, '0')} / {String(steps.length).padStart(2, '0')}
         </span>
       </div>
     </div>
