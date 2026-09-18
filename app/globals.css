@@ -2956,3 +2956,36 @@ body {
 .carousel-progress span {
   transform-origin: left center;
 }
+
+
+/* Mobile nav icon — official Iconoir Menu/Xmark, no handmade hamburger lines. */
+.menu-button {
+  display: none;
+  place-items: center;
+  color: #fff;
+}
+
+.menu-button svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  color: currentColor;
+}
+
+.menu-button > span {
+  display: none !important;
+}
+
+@media (max-width: 1040px) {
+  .menu-button {
+    display: grid;
+  }
+}
+
+.site-header.nav-dark .menu-button {
+  color: rgba(255,255,255,.92);
+}
+
+.site-header.nav-light .menu-button {
+  color: #fff;
+}
