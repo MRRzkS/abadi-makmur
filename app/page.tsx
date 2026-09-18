@@ -28,7 +28,14 @@ export default function HomePage() {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     description: siteConfig.description,
-    address: {\n      '@type': 'PostalAddress',\n      streetAddress: 'Jl. H. Buang, RT/RW 03/03, Kelurahan Cipete, Kecamatan Pinang',\n      addressLocality: 'Kota Tangerang',\n      addressRegion: 'Banten',\n      addressCountry: 'ID',\n    },\n    areaServed: { '@type': 'City', name: 'Tangerang' },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Jl. H. Buang, RT/RW 03/03, Kelurahan Cipete, Kecamatan Pinang',
+      addressLocality: 'Kota Tangerang',
+      addressRegion: 'Banten',
+      addressCountry: 'ID',
+    },
+    areaServed: { '@type': 'City', name: 'Tangerang' },
     serviceType: services.map((service) => service.title),
     ...(siteConfig.whatsapp ? { telephone: `+${siteConfig.whatsapp}` } : {}),
   };
