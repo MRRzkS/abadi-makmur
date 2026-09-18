@@ -4,7 +4,7 @@ import { siteConfig, whatsappHref } from '@/lib/site';
 
 export function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer dark-surface" data-nav-theme="dark">
       <div className="container footer-grid">
         <div className="footer-brand">
           <p className="eyebrow">CV KRISTIAN ABADI</p>
