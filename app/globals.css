@@ -1323,3 +1323,132 @@ main { min-height: 60vh; }
     width: 100%;
   }
 }
+
+
+/* Tablet hardening: prevent the 821–1040px half-desktop state. */
+@media (max-width: 1040px) {
+  .nav-cta {
+    display: none;
+  }
+
+  .menu-button,
+  .mobile-nav {
+    display: block;
+  }
+
+  .service-hero.section-pad {
+    padding-top: 124px;
+  }
+
+  .service-hero {
+    min-height: auto;
+    padding-bottom: 76px;
+  }
+
+  .service-hero .inner-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
+    min-height: 0;
+  }
+
+  .service-hero .inner-hero-copy {
+    width: 100%;
+    max-width: 760px;
+  }
+
+  .service-hero .inner-hero-image {
+    width: 100%;
+    height: clamp(420px, 58vw, 560px);
+    min-height: 420px;
+    border-radius: 34px;
+  }
+
+  .service-hero .service-hero-title {
+    width: 100%;
+    max-width: 760px;
+    gap: 16px;
+    font-size: clamp(58px, 8.2vw, 78px);
+    line-height: .94;
+    letter-spacing: -.068em;
+  }
+
+  .inner-hero h1 .service-hero-title-main {
+    color: var(--secondary);
+    line-height: .94;
+  }
+
+  .inner-hero h1 .service-hero-title-support {
+    color: rgba(32,33,36,.34);
+    font-size: .68em;
+    line-height: 1.02;
+    letter-spacing: -.058em;
+    max-width: 13ch;
+  }
+
+  .service-hero-lead {
+    max-width: 620px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 820px) {
+  .service-hero.section-pad {
+    padding-top: 112px;
+  }
+
+  .service-hero .inner-hero-grid {
+    gap: 34px;
+  }
+
+  .service-hero .service-hero-title {
+    font-size: clamp(52px, 10vw, 70px);
+    gap: 14px;
+  }
+
+  .inner-hero h1 .service-hero-title-support {
+    font-size: .7em;
+    max-width: 12ch;
+  }
+
+  .service-hero .inner-hero-image {
+    height: clamp(380px, 64vw, 500px);
+    min-height: 380px;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 580px) {
+  .service-hero.section-pad {
+    padding-top: 102px;
+  }
+
+  .service-hero {
+    padding-bottom: 60px;
+  }
+
+  .service-hero .service-hero-title {
+    font-size: clamp(44px, 13vw, 58px);
+    line-height: .96;
+    gap: 12px;
+  }
+
+  .inner-hero h1 .service-hero-title-main {
+    line-height: .96;
+  }
+
+  .inner-hero h1 .service-hero-title-support {
+    font-size: .72em;
+    line-height: 1.04;
+    max-width: 11ch;
+  }
+
+  .service-hero-lead {
+    margin-top: 24px;
+  }
+
+  .service-hero .inner-hero-image {
+    height: 390px;
+    min-height: 390px;
+    border-radius: 26px;
+  }
+}
