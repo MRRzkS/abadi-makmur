@@ -24,13 +24,13 @@ const stages = [
     metricLabel: 'opsi bukaan umum',
   },
   {
-    title: 'Kaca & proporsi',
+    title: 'Kaca & frame',
     label: '03 · KACA & FRAME',
-    body: 'Komposisi frame dan kaca dijaga agar bukaan tetap ringan secara visual, terang, dan proporsional.',
-    image: 'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi pekerjaan pemasangan panel kaca dengan pekerja terlihat dari jarak jauh',
+    body: 'Kaca dan frame dipilih agar sesuai ukuran bukaan rumah, cahaya tetap masuk, dan hasil pemasangan terlihat rapi.',
+    image: 'https://images.pexels.com/photos/5691515/pexels-photo-5691515.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi pekerjaan pemasangan kaca dan frame aluminium pada rumah tinggal tanpa wajah pekerja terlihat jelas',
     metric: '2',
-    metricLabel: 'komponen utama',
+    metricLabel: 'bagian utama',
   },
   {
     title: 'Instalasi akhir',
