@@ -82,7 +82,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <Link className="back-link" href="/layanan/">← Semua layanan</Link>
             <p className="eyebrow">{service.keyword.toUpperCase()} · TANGERANG</p>
             <h1 className="service-hero-title">
-              <span className="service-hero-title-main">{service.shortTitle}</span>
+              <strong className="service-hero-title-main">{service.shortTitle}</strong>
               <span className="service-hero-title-support">untuk ruang yang tepat.</span>
             </h1>
             <p className="inner-lead service-hero-lead">{service.description}</p>
@@ -98,7 +98,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </a>
             </div>
           </Reveal>
-          <Reveal className="inner-hero-image" delay={0.08}>
+          <Reveal className={`inner-hero-image service-hero-image service-hero-image-${service.slug}`} delay={0.08}>
             <img src={service.image} alt={service.imageAlt} width="1100" height="1300" fetchPriority="high" />
             <span className="reference-badge">REFERENSI VISUAL</span>
           </Reveal>
