@@ -11,6 +11,8 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
     align: 'start',
     containScroll: 'trimSnaps',
     loop: false,
+    dragFree: true,
+    skipSnaps: true,
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [snapCount, setSnapCount] = useState(portfolioReferences.length);
@@ -52,7 +54,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
         </div>
       </div>
 
-      <div className="project-carousel-viewport" ref={emblaRef}>
+      <div className="project-carousel-viewport" ref={emblaRef} aria-label="Carousel portofolio — drag atau swipe horizontal">
         <div className={`project-carousel ${compact ? 'compact' : ''}`}>
           {portfolioReferences.map((item, index) => (
             <motion.article
