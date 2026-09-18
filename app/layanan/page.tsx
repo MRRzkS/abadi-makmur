@@ -19,10 +19,10 @@ export default function ServicesPage() {
         <div className="container services-hero-grid">
           <Reveal>
             <p className="eyebrow">LAYANAN · TANGERANG</p>
-            <h1>Aluminium & kaca,<br /><span>dibuat sesuai ruang.</span></h1>
+            <h1>Pilih layanan<br /><span>aluminium & kaca.</span></h1>
           </Reveal>
           <Reveal className="services-hero-copy" delay={0.08}>
-            <p>Mulai dari pintu, jendela, kusen, partisi kaca, hingga shower box. Setiap kebutuhan diarahkan berdasarkan fungsi, ukuran aktual, sistem bukaan, dan konteks bangunan.</p>
+            <p>Melayani pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, serta bangunan komersial di Tangerang.</p>
             <a className="text-link" href={whatsappHref({ sourcePath: '/layanan/' })} target="_blank" rel="noreferrer">Konsultasi kebutuhan <span>↗</span></a>
           </Reveal>
         </div>
@@ -40,7 +40,7 @@ export default function ServicesPage() {
                 <div className="services-page-card-layout">
                   <div className="services-page-image">
                     <img src={service.image} alt={service.imageAlt} width="1000" height="760" loading="lazy" />
-                    <span className="reference-badge">REFERENSI VISUAL</span>
+                    <span className="reference-badge">REFERENSI PEKERJAAN</span>
                   </div>
 
                   <div className="services-page-content">
