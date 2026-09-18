@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { services } from '@/lib/services';
 import { siteConfig } from '@/lib/site';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ['', '/tentang', '/portofolio', '/kontak'];
   return [
