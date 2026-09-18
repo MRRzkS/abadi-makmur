@@ -43,6 +43,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       '@type': 'HomeAndConstructionBusiness',
       name: siteConfig.name,
       legalName: siteConfig.legalName,
+      telephone: `+${siteConfig.whatsapp}`,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Jl. H. Buang, RT/RW 03/03, Kelurahan Cipete, Kecamatan Pinang',
+        addressLocality: 'Kota Tangerang',
+        addressRegion: 'Banten',
+        addressCountry: 'ID',
+      },
     },
     areaServed: { '@type': 'City', name: 'Tangerang' },
     description: service.metaDescription,
@@ -66,7 +74,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="inner-hero service-hero section-pad">
         <div className="container inner-hero-grid">
           <Reveal className="inner-hero-copy">
-            <Link className="back-link" href="/#layanan">← Semua layanan</Link>
+            <Link className="back-link" href="/layanan/">← Semua layanan</Link>
             <p className="eyebrow">{service.keyword.toUpperCase()} · TANGERANG</p>
             <h1>{service.shortTitle}<br /><span>untuk ruang yang tepat.</span></h1>
             <p className="inner-lead">{service.description}</p>
