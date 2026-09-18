@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
 import { featuredImage, getArticles, plainText } from '@/lib/wordpress';
 
@@ -34,7 +35,7 @@ export default async function ArticlesPage() {
                 const image = featuredImage(post);
                 return (
                   <Reveal key={post.id} className={`article-card article-card-${(index % 5) + 1}`} delay={(index % 5) * 0.04}>
-                    <a href={post.link} target="_blank" rel="noreferrer">
+                    <Link href={`/artikel/${post.slug}/`}>
                       <div className="article-card-visual">
                         {image ? (
                           <img src={image.src} alt={image.alt} width="1000" height="720" loading="lazy" />
@@ -48,7 +49,7 @@ export default async function ArticlesPage() {
                         <p>{plainText(post.excerpt.rendered)}</p>
                         <span className="text-link">Baca artikel <b>↗</b></span>
                       </div>
-                    </a>
+                    </Link>
                   </Reveal>
                 );
               })}
