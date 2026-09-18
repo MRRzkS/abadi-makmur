@@ -14,7 +14,7 @@ const homeFaq = [
   },
   {
     q: 'Bisa konsultasi untuk pintu, jendela, kusen, partisi kaca, dan shower box?',
-    a: 'Bisa. Lima kategori tersebut menjadi fokus halaman layanan website, termasuk kebutuhan sliding system, kaca frameless, dan pekerjaan aluminium/kaca terkait.',
+    a: 'Bisa. Kami melayani pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, shower box, sliding system, kaca frameless, dan kebutuhan aluminium/kaca terkait.',
   },
   {
     q: 'Apakah ukuran dan model bisa disesuaikan?',
@@ -62,9 +62,9 @@ export default function HomePage() {
         <div className="container hero-grid">
           <Reveal className="hero-copy">
             <p className="eyebrow"><span /> FABRIKASI ALUMINIUM & KACA · TANGERANG</p>
-            <h1>Presisi pada <em>frame.</em><br />Ringan pada <span>ruang.</span></h1>
+            <h1>Jasa aluminium & kaca<br /><span>di Tangerang.</span></h1>
             <p className="hero-lead">
-              Pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box dengan pendekatan yang rapi, modern, dan sesuai kebutuhan lokasi.
+              Melayani pemasangan pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, dan bangunan komersial.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">
@@ -73,9 +73,9 @@ export default function HomePage() {
               <Link className="button button-ghost" href="/layanan/">Lihat layanan <span>↗</span></Link>
             </div>
             <div className="hero-microproof" aria-label="Ringkasan layanan">
-              <div><strong>05</strong><span>Layanan fokus</span></div>
-              <div><strong>TGR</strong><span>Area utama</span></div>
-              <div><strong>WA</strong><span>Jalur konsultasi</span></div>
+              <div><strong>05</strong><span>Jenis layanan</span></div>
+              <div><strong>TGR</strong><span>Area layanan</span></div>
+              <div><strong>WA</strong><span>Konsultasi langsung</span></div>
             </div>
           </Reveal>
 
@@ -95,7 +95,7 @@ export default function HomePage() {
               </div>
               <div className="hero-glass-card bottom">
                 <small>ALUMINIUM × GLASS</small>
-                <strong>Clean lines.<br />Better openings.</strong>
+                <strong>Ukur tepat.<br />Pasang rapi.</strong>
               </div>
             </div>
           </Reveal>
@@ -116,9 +116,9 @@ export default function HomePage() {
           <Reveal className="section-heading split-heading">
             <div>
               <p className="eyebrow">LAYANAN UTAMA</p>
-              <h2>Lima kebutuhan.<br /><span>Satu standar visual.</span></h2>
+              <h2>Lima layanan.<br /><span>Satu pengerjaan yang rapi.</span></h2>
             </div>
-            <p>Setiap layanan memiliki halaman SEO khusus untuk pencarian lokal Tangerang, namun tetap terhubung dalam satu pengalaman yang konsisten.</p>
+            <p>Pilih kebutuhan Anda—pintu, jendela, kusen, partisi kaca, atau shower box. Kami bantu dari pengukuran hingga pemasangan.</p>
           </Reveal>
 
           <div className="service-bento">
@@ -178,8 +178,8 @@ export default function HomePage() {
         <div className="container">
           <Reveal className="section-heading split-heading portfolio-heading">
             <div>
-              <p className="eyebrow">VISUAL REFERENCE</p>
-              <h2>Material yang terasa<br /><span>lebih arsitektural.</span></h2>
+              <p className="eyebrow">REFERENSI PEKERJAAN</p>
+              <h2>Lihat jenis pekerjaan<br /><span>yang kami layani.</span></h2>
             </div>
             <Link className="text-link" href="/portofolio/">Buka galeri <span>↗</span></Link>
           </Reveal>
@@ -190,9 +190,9 @@ export default function HomePage() {
       <section className="section local-seo-section">
         <div className="container local-seo-grid">
           <Reveal className="local-seo-copy">
-            <p className="eyebrow">LOCAL SEARCH · TANGERANG</p>
-            <h2>Dicari lokal.<br /><span>Dijelaskan spesifik.</span></h2>
-            <p>Struktur website memprioritaskan intent pengguna yang sudah dekat dengan keputusan: mencari jenis pekerjaan aluminium/kaca dan area pengerjaan Tangerang.</p>
+            <p className="eyebrow">AREA LAYANAN · TANGERANG</p>
+            <h2>Butuh aluminium atau kaca<br /><span>di Tangerang?</span></h2>
+            <p>Kirim jenis pekerjaan dan lokasi Anda melalui WhatsApp. Kami bantu arahkan kebutuhan pintu, jendela, kusen, partisi kaca, atau shower box yang sesuai.</p>
           </Reveal>
           <Reveal className="keyword-panel glass-panel" delay={0.08}>
             {services.map((service, index) => (
@@ -211,8 +211,8 @@ export default function HomePage() {
         <div className="container inquiry-grid">
           <Reveal className="inquiry-copy">
             <p className="eyebrow">MULAI DARI KEBUTUHAN</p>
-            <h2>Tidak perlu briefing yang <span>sempurna.</span></h2>
-            <p>Cukup pilih layanan, tulis lokasi, dan tambahkan catatan singkat. Pesan akan disiapkan untuk diteruskan ke WhatsApp.</p>
+            <h2>Ceritakan kebutuhan Anda<br /><span>secukupnya.</span></h2>
+            <p>Pilih layanan, tulis lokasi, lalu tambahkan ukuran atau foto kondisi bila ada. Kami lanjutkan konsultasi melalui WhatsApp.</p>
           </Reveal>
           <Reveal delay={0.08}><WhatsAppPlanner /></Reveal>
         </div>
