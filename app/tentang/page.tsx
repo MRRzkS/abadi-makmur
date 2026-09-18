@@ -16,10 +16,10 @@ export default function AboutPage() {
         <div className="container about-hero-grid">
           <Reveal>
             <p className="eyebrow">TENTANG · {siteConfig.legalName.toUpperCase()}</p>
-            <h1>Detail yang baik<br /><span>tidak perlu berisik.</span></h1>
+            <h1>Pemasangan aluminium & kaca<br /><span>yang rapi dan fungsional.</span></h1>
           </Reveal>
           <Reveal className="about-intro" delay={0.08}>
-            <p>Abadi Makmur Aluminium adalah bisnis fabrikasi dan pemasangan aluminium & kaca berbasis Tangerang. Fokusnya sederhana: membantu kebutuhan bukaan dan pembagian ruang terasa rapi, fungsional, dan sesuai konteks bangunan.</p>
+            <p>Abadi Makmur Aluminium melayani fabrikasi dan pemasangan aluminium & kaca di Tangerang untuk rumah, ruko, kantor, dan bangunan komersial. Pengerjaan disesuaikan dengan ukuran, fungsi ruang, jenis bukaan, dan kondisi lokasi.</p>
             <a className="text-link" href={whatsappHref({ sourcePath: '/tentang/' })} target="_blank" rel="noreferrer">Mulai konsultasi <span>↗</span></a>
           </Reveal>
         </div>
@@ -29,12 +29,12 @@ export default function AboutPage() {
         <div className="container about-visual-grid">
           <Reveal className="about-photo-large">
             <img src="https://images.pexels.com/photos/8293699/pexels-photo-8293699.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Referensi visual inspeksi profesional pada bukaan kaca sebelum pekerjaan dilanjutkan" width="1300" height="1000" />
-            <span className="reference-badge">REFERENSI VISUAL</span>
+            <span className="reference-badge">REFERENSI PEKERJAAN</span>
           </Reveal>
           <Reveal className="about-principle" delay={0.06}>
             <p className="eyebrow">PRINSIP KERJA</p>
-            <h2>Ukur konteks.<br />Pilih sistem.<br /><span>Rapikan hasil.</span></h2>
-            <p>Website ini tidak mengunci pengguna ke satu model produk. Kebutuhan akhir diarahkan oleh ukuran aktual, fungsi, bukaan, material, hardware, dan kondisi lapangan.</p>
+            <h2>Ukur lokasi.<br />Pilih sistem.<br /><span>Pasang dengan rapi.</span></h2>
+            <p>Setiap pekerjaan disesuaikan dengan ukuran aktual, fungsi ruang, arah bukaan, material, hardware, dan kondisi lapangan agar hasilnya tepat guna.</p>
           </Reveal>
         </div>
       </section>
