@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 type Kind = 'door' | 'window' | 'frame' | 'partition' | 'shower' | 'measure' | 'install';
 
@@ -14,6 +14,35 @@ const strokes: Record<Kind, string[]> = {
   install: ['M6 27L18 15', 'M19 5L27 13L22 18L14 10L19 5Z', 'M5 28H12'],
 };
 
+const svgVariants: Variants = {
+  hidden: { opacity: 0, y: 3 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.28,
+      ease: [0.22, 1, 0.36, 1],
+      when: 'beforeChildren',
+    },
+  },
+};
+
+const pathVariants: Variants = {
+  hidden: {
+    strokeDashoffset: 1,
+    opacity: 0.22,
+  },
+  visible: (index: number) => ({
+    strokeDashoffset: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.72,
+      delay: index * 0.07,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
 export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: string }) {
   return (
     <motion.svg
@@ -23,35 +52,25 @@ export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: st
       aria-hidden="true"
       focusable="false"
       preserveAspectRatio="xMidYMid meet"
-      initial={{ opacity: 0, y: 3 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      variants={svgVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
     >
       {strokes[kind].map((d, index) => (
-        <g key={`${kind}-${index}`}>
-          <path
-            d={d}
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-            opacity="0.42"
-          />
-          <motion.path
-            d={d}
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-            initial={{ pathLength: 0, opacity: 0.45 }}
-            whileInView={{ pathLength: 1, opacity: 1 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.7, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-          />
-        </g>
+        <motion.path
+          key={`${kind}-${index}`}
+          d={d}
+          pathLength={1}
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeDasharray="1 1"
+          vectorEffect="non-scaling-stroke"
+          custom={index}
+          variants={pathVariants}
+        />
       ))}
     </motion.svg>
   );
