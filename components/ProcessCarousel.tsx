@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { motion } from 'framer-motion';
@@ -34,7 +34,7 @@ export function ProcessCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align: 'start',
-      containScroll: 'keepSnaps',
+      containScroll: false,
       slidesToScroll: 1,
       dragFree: true,
       skipSnaps: true,
@@ -42,8 +42,28 @@ export function ProcessCarousel() {
     },
     [WheelGesturesPlugin()],
   );
+
+  const viewportRef = useRef<HTMLDivElement | null>(null);
   const [selected, setSelected] = useState(0);
   const count = steps.length;
+
+  const setViewport = useCallback((node: HTMLDivElement | null) => {
+    viewportRef.current = node;
+    emblaRef(node);
+  }, [emblaRef]);
+
+  useEffect(() => {
+    const node = viewportRef.current;
+    if (!node) return;
+
+    const preventHistorySwipe = (event: WheelEvent) => {
+      const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+      if (horizontal && Math.abs(event.deltaX) > 2) event.preventDefault();
+    };
+
+    node.addEventListener('wheel', preventHistorySwipe, { passive: false, capture: true });
+    return () => node.removeEventListener('wheel', preventHistorySwipe, true);
+  }, []);
 
   const sync = useCallback(() => {
     if (!emblaApi) return;
@@ -78,7 +98,7 @@ export function ProcessCarousel() {
 
       <div
         className="process-carousel-viewport"
-        ref={emblaRef}
+        ref={setViewport}
         aria-label="Carousel proses — drag, swipe, atau scroll horizontal"
       >
         <div className="process-carousel-track">
