@@ -6,6 +6,36 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { whatsappHref } from '@/lib/site';
 
+// Mobile menu icons are official Iconoir assets (MIT):
+// https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/menu.svg
+// https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/xmark.svg
+function MenuGlyph({ open }: { open: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {open ? (
+        <path
+          d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      ) : (
+        <>
+          <path d="M3 5H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 12H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 19H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 const nav = [
   { href: '/', label: 'Beranda' },
   { href: '/layanan/', label: 'Layanan' },
@@ -110,7 +140,7 @@ export function Header() {
           aria-expanded={open}
           aria-label={open ? 'Tutup menu' : 'Buka menu'}
         >
-          <span /><span />
+          <MenuGlyph open={open} />
         </button>
       </div>
 
