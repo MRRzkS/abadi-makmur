@@ -1,92 +1,43 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
-import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { motion } from 'framer-motion';
 import { portfolioReferences } from '@/lib/services';
 import { LineGlyph } from '@/components/LineGlyph';
+import { useHorizontalScrollTracker } from '@/components/useHorizontalScrollTracker';
 
 export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      align: 'start',
-      containScroll: false,
-      slidesToScroll: 1,
-      loop: false,
-      dragFree: true,
-      skipSnaps: true,
-    },
-    [WheelGesturesPlugin()],
-  );
-
-  const viewportRef = useRef<HTMLDivElement | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const snapCount = portfolioReferences.length;
-
-  const setViewport = useCallback((node: HTMLDivElement | null) => {
-    viewportRef.current = node;
-    emblaRef(node);
-  }, [emblaRef]);
-
-  useEffect(() => {
-    const node = viewportRef.current;
-    if (!node) return;
-
-    const preventHistorySwipe = (event: WheelEvent) => {
-      const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
-      if (horizontal && Math.abs(event.deltaX) > 2) event.preventDefault();
-    };
-
-    node.addEventListener('wheel', preventHistorySwipe, { passive: false, capture: true });
-    return () => node.removeEventListener('wheel', preventHistorySwipe, true);
-  }, []);
-
-  const syncState = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(Math.min(emblaApi.selectedScrollSnap(), snapCount - 1));
-  }, [emblaApi, snapCount]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    syncState();
-    emblaApi.on('select', syncState);
-    emblaApi.on('reInit', syncState);
-
-    return () => {
-      emblaApi.off('select', syncState);
-      emblaApi.off('reInit', syncState);
-    };
-  }, [emblaApi, syncState]);
-
-  const progress = useMemo(
-    () => (selectedIndex + 1) / snapCount,
-    [selectedIndex, snapCount],
-  );
+  const {
+    viewportRef,
+    activeIndex,
+    progress,
+    scrollToIndex,
+    scrollByItem,
+  } = useHorizontalScrollTracker(portfolioReferences.length);
 
   return (
     <div className="carousel-wrap">
       <div className="carousel-toolbar">
         <p className="carousel-note">Visual referensi tipe pekerjaan — bukan klaim dokumentasi proyek perusahaan.</p>
         <div className="carousel-controls" aria-label="Kontrol carousel">
-          <button onClick={() => emblaApi?.scrollPrev()} aria-label="Geser ke kiri">
+          <button onClick={() => scrollByItem(-1)} aria-label="Geser ke kiri">
             <LineGlyph kind="navLeft" />
           </button>
-          <button onClick={() => emblaApi?.scrollNext()} aria-label="Geser ke kanan">
+          <button onClick={() => scrollByItem(1)} aria-label="Geser ke kanan">
             <LineGlyph kind="navRight" />
           </button>
         </div>
       </div>
 
       <div
-        className="project-carousel-viewport"
-        ref={setViewport}
-        aria-label="Carousel portofolio — drag, swipe, atau scroll horizontal"
+        className="project-carousel-viewport native-horizontal-carousel"
+        ref={viewportRef}
+        aria-label="Portofolio — scroll horizontal"
       >
         <div className={`project-carousel ${compact ? 'compact' : ''}`}>
           {portfolioReferences.map((item, index) => (
             <motion.article
               className="project-card"
+              data-carousel-item
               key={`${item.title}-${index}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -109,15 +60,15 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
         </div>
       </div>
 
-      <div className="carousel-pagination" aria-label="Navigasi slide">
+      <div className="carousel-pagination" aria-label="Posisi carousel">
         <div className="carousel-dots">
           {portfolioReferences.map((_, index) => (
             <button
               key={index}
-              className={index === selectedIndex ? 'active' : ''}
-              onClick={() => emblaApi?.scrollTo(index)}
-              aria-label={`Buka slide ${index + 1}`}
-              aria-current={index === selectedIndex ? 'true' : undefined}
+              className={index === activeIndex ? 'active' : ''}
+              onClick={() => scrollToIndex(index)}
+              aria-label={`Buka item ${index + 1}`}
+              aria-current={index === activeIndex ? 'true' : undefined}
             />
           ))}
         </div>
@@ -125,11 +76,11 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
           <motion.span
             initial={false}
             animate={{ scaleX: progress }}
-            transition={{ type: 'spring', stiffness: 180, damping: 26 }}
+            transition={{ duration: 0.08, ease: 'linear' }}
           />
         </div>
         <span className="carousel-count">
-          {String(selectedIndex + 1).padStart(2, '0')} / {String(snapCount).padStart(2, '0')}
+          {String(activeIndex + 1).padStart(2, '0')} / {String(portfolioReferences.length).padStart(2, '0')}
         </span>
       </div>
     </div>
