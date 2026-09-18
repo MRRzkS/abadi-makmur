@@ -30,7 +30,12 @@ const steps = [
 ];
 
 export function ProcessCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', containScroll: 'trimSnaps' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    containScroll: 'trimSnaps',
+    dragFree: true,
+    skipSnaps: true,
+  });
   const [selected, setSelected] = useState(0);
   const [count, setCount] = useState(steps.length);
 
@@ -62,7 +67,7 @@ export function ProcessCarousel() {
         </div>
       </div>
 
-      <div className="process-carousel-viewport" ref={emblaRef}>
+      <div className="process-carousel-viewport" ref={emblaRef} aria-label="Carousel proses — drag atau swipe horizontal">
         <div className="process-carousel-track">
           {steps.map((step) => (
             <article className="process-slide" key={step.index}>
