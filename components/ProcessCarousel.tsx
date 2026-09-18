@@ -14,8 +14,8 @@ const steps = [
   },
   {
     index: '02',
-    title: 'Konfirmasi konfigurasi',
-    body: 'Bahas sistem, bukaan, frame, kaca, dan penyesuaian lapangan.',
+    title: 'Pilih sistem & material',
+    body: 'Bahas jenis bukaan, frame, kaca, serta penyesuaian yang dibutuhkan di lokasi.',
     image: 'https://images.pexels.com/photos/7937742/pexels-photo-7937742.jpeg?auto=compress&cs=tinysrgb&w=1400',
     alt: 'Referensi visual tim profesional meninjau konfigurasi pintu kaca pada bangunan modern',
   },
@@ -60,7 +60,7 @@ export function ProcessCarousel() {
             <article className="process-slide" data-carousel-item key={step.index}>
               <div className="process-slide-image">
                 <img src={step.image} alt={step.alt} width="1000" height="700" loading="lazy" />
-                <span className="reference-badge">REFERENSI VISUAL</span>
+                <span className="reference-badge">REFERENSI PEKERJAAN</span>
               </div>
               <div className="process-slide-copy">
                 <span>{step.index}</span>
