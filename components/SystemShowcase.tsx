@@ -7,39 +7,39 @@ import { LineGlyph } from '@/components/LineGlyph';
 const stages = [
   {
     title: 'Presisi ukuran',
-    label: '01 · SURVEY',
+    label: '01 · PENGUKURAN',
     body: 'Dimensi bukaan, arah akses, kondisi dinding, dan ruang gerak dibaca lebih dulu sebelum sistem dipilih.',
     image: 'https://images.pexels.com/photos/5691534/pexels-photo-5691534.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi visual pengukuran presisi pada frame sebelum pemasangan',
     metric: '4',
-    metricLabel: 'data awal dibaca',
+    metricLabel: 'hal utama diperiksa',
   },
   {
     title: 'Sistem bukaan',
-    label: '02 · MECHANISM',
+    label: '02 · SISTEM BUKAAN',
     body: 'Swing, sliding, atau konfigurasi lain dipilih berdasarkan fungsi ruang—bukan sekadar mengikuti tren visual.',
     image: 'https://images.pexels.com/photos/5691502/pexels-photo-5691502.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi visual pemasangan hardware engsel sebagai bagian sistem bukaan',
     metric: '3',
-    metricLabel: 'opsi sistem umum',
+    metricLabel: 'opsi bukaan umum',
   },
   {
     title: 'Kaca & proporsi',
-    label: '03 · GLASS',
+    label: '03 · KACA & FRAME',
     body: 'Komposisi frame dan kaca dijaga agar bukaan tetap ringan secara visual, terang, dan proporsional.',
     image: 'https://images.pexels.com/photos/9050934/pexels-photo-9050934.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi visual tim teknisi menangani panel kaca pada proses instalasi',
     metric: '2',
-    metricLabel: 'elemen visual utama',
+    metricLabel: 'komponen utama',
   },
   {
     title: 'Instalasi akhir',
-    label: '04 · INSTALL',
+    label: '04 · PEMASANGAN',
     body: 'Hardware, alignment, sambungan, dan detail akhir dirapikan sebagai satu sistem yang konsisten.',
     image: 'https://images.pexels.com/photos/6124242/pexels-photo-6124242.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi visual teknisi melakukan sealing dan finishing akhir pada sambungan frame',
     metric: '4',
-    metricLabel: 'titik akhir dicek',
+    metricLabel: 'detail akhir dicek',
   },
 ];
 
@@ -57,10 +57,10 @@ export function SystemShowcase() {
       <div className="container">
         <div className="section-heading split-heading">
           <div>
-            <p className="eyebrow">SYSTEM FOCUS</p>
-            <h2>Satu bukaan.<br /><span>Empat keputusan utama.</span></h2>
+            <p className="eyebrow">SEBELUM & SAAT PEMASANGAN</p>
+            <h2>Empat hal yang<br /><span>perlu diperhatikan.</span></h2>
           </div>
-          <p>Pilih tahap di kiri. Gambar di kanan berubah sesuai fokus, dilengkapi satu area sorotan dan statistik ringkas agar mudah dipahami.</p>
+          <p>Lihat bagaimana ukuran, sistem bukaan, kaca, dan detail pemasangan saling memengaruhi hasil akhir pekerjaan.</p>
         </div>
 
         <div className="system-showcase-grid">
@@ -129,7 +129,7 @@ export function SystemShowcase() {
               <div className="system-focus-card liquid-glass">
                 <span>0{active + 1}</span>
                 <div>
-                  <small>ACTIVE FOCUS</small>
+                  <small>FOKUS</small>
                   <strong>{item.title}</strong>
                 </div>
               </div>
