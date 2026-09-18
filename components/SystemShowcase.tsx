@@ -126,15 +126,6 @@ export function SystemShowcase() {
               </AnimatePresence>
 
               <div className="system-visual-shade" aria-hidden="true" />
-              <motion.div
-                key={active}
-                className="system-focus-box"
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.28 }}
-                aria-hidden="true"
-              />
-
               <div className="system-focus-card liquid-glass">
                 <span>0{active + 1}</span>
                 <div>
