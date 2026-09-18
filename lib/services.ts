@@ -24,8 +24,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa pintu aluminium Tangerang untuk rumah, toko, kantor dan area komersial. Konsultasi model swing/sliding, ukuran dan kombinasi kaca via WhatsApp.',
     image:
-      'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=86',
-    imageAlt: 'Referensi visual pintu dan partisi kaca berbingkai aluminium pada interior modern',
+      'https://images.pexels.com/photos/3615723/pexels-photo-3615723.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi visual proses aplikasi sealant dan finishing pada pintu kaca sliding',
     highlight: 'Swing · Sliding · Kaca',
     benefits: [
       'Rangka aluminium ringan dan rapi untuk penggunaan harian',
@@ -54,8 +54,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa jendela aluminium Tangerang untuk rumah dan bangunan komersial. Konsultasi ukuran, tipe bukaan, warna rangka dan pilihan kaca.',
     image:
-      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=86',
-    imageAlt: 'Referensi visual jendela besar berbingkai gelap pada rumah modern',
+      'https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi visual teknisi memasang frame jendela menggunakan bor pada area renovasi',
     highlight: 'Ventilasi · Cahaya · Proporsi',
     benefits: [
       'Profil ramping membantu tampilan fasad terasa lebih bersih',
@@ -84,8 +84,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa kusen aluminium Tangerang untuk pintu dan jendela. Fabrikasi berdasarkan ukuran lokasi, kebutuhan bukaan dan tampilan bangunan.',
     image:
-      'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=86',
-    imageAlt: 'Referensi visual detail fasad dan bingkai bukaan arsitektur modern',
+      'https://images.pexels.com/photos/5691534/pexels-photo-5691534.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi visual pengukuran presisi pada frame atau kusen sebelum pemasangan',
     highlight: 'Presisi · Rapi · Adaptif',
     benefits: [
       'Dibuat mengikuti kebutuhan ukuran aktual',
@@ -114,8 +114,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa partisi kaca Tangerang untuk kantor, toko dan hunian. Pilihan frameless atau kombinasi aluminium untuk ruang yang terasa terang dan modern.',
     image:
-      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=86',
-    imageAlt: 'Referensi visual partisi kaca pada interior kantor modern',
+      'https://images.pexels.com/photos/9050934/pexels-photo-9050934.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi visual tim teknisi bekerja memasang panel kaca pada area konstruksi',
     highlight: 'Frameless · Office · Light',
     benefits: [
       'Membagi ruang sambil menjaga aliran cahaya',
@@ -144,8 +144,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa shower box Tangerang dengan kaca untuk kamar mandi rumah, apartemen dan properti komersial. Konsultasi ukuran, bukaan dan hardware.',
     image:
-      'https://images.unsplash.com/photo-1722348673643-34f971cbe686?auto=format&fit=crop&w=1800&q=86',
-    imageAlt: 'Referensi visual shower box kaca pada kamar mandi minimal modern',
+      'https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi visual proses finishing dan pembersihan akhir panel kaca shower enclosure',
     highlight: 'Clean · Dry Zone · Glass',
     benefits: [
       'Membantu memisahkan area basah dan kering',
@@ -172,38 +172,38 @@ export const serviceBySlug = Object.fromEntries(
 
 export const portfolioReferences = [
   {
-    title: 'Sliding aluminium + kaca',
+    title: 'Finishing pintu kaca sliding',
     category: 'Pintu & Sliding',
     image:
-      'https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1400&q=84',
-    alt: 'Referensi visual bukaan kaca besar pada interior modern',
+      'https://images.pexels.com/photos/3615723/pexels-photo-3615723.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi visual teknisi melakukan finishing sealant pada pintu kaca sliding',
   },
   {
-    title: 'Partisi kaca kantor',
+    title: 'Instalasi panel kaca',
     category: 'Partisi',
     image:
-      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=84',
-    alt: 'Referensi visual partisi kaca kantor',
+      'https://images.pexels.com/photos/9050934/pexels-photo-9050934.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi visual tim teknisi memasang panel kaca pada proyek konstruksi',
   },
   {
-    title: 'Jendela aluminium modern',
+    title: 'Pemasangan frame jendela',
     category: 'Jendela',
     image:
-      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=84',
-    alt: 'Referensi visual jendela dan fasad modern',
+      'https://images.pexels.com/photos/5691544/pexels-photo-5691544.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi visual pemasangan frame jendela menggunakan bor',
   },
   {
-    title: 'Shower enclosure kaca',
+    title: 'Finishing shower glass',
     category: 'Shower Box',
     image:
-      'https://images.unsplash.com/photo-1722348673643-34f971cbe686?auto=format&fit=crop&w=1400&q=84',
-    alt: 'Referensi visual shower box kaca',
+      'https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi visual proses finishing dan inspeksi kebersihan panel kaca shower enclosure',
   },
   {
-    title: 'Kaca & frame pada fasad',
+    title: 'Pengukuran & alignment frame',
     category: 'Kusen',
     image:
-      'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=84',
-    alt: 'Referensi visual detail fasad dan frame modern',
+      'https://images.pexels.com/photos/5691534/pexels-photo-5691534.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi visual pengukuran presisi pada frame sebelum pemasangan',
   },
 ];
