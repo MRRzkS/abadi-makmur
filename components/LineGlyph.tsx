@@ -1,5 +1,7 @@
 'use client';
 
+// Shower uses the CC0 "Shower Pictogram 2" asset from SVG Repo:
+ // https://www.svgrepo.com/svg/477619/shower-pictogram-2
 type Kind =
   | 'door'
   | 'window'
@@ -33,14 +35,6 @@ const strokes: Record<Kind, string[]> = {
     'M9 5V19',
     'M15 5V19',
   ],
-  shower: [
-    'M6 7H12',
-    'M12 7V9',
-    'M12 9C12 11.2091 13.7909 13 16 13H18',
-    'M14 15L13.5 16',
-    'M16 15L15.5 16',
-    'M18 15L17.5 16',
-  ],
   measure: [
     'M5 18L18 5L21 8L8 21L5 18Z',
     'M15 8L18 11',
@@ -57,6 +51,15 @@ const strokes: Record<Kind, string[]> = {
 };
 
 export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: string }) {
+  if (kind === 'shower') {
+    return (
+      <span
+        className={`line-glyph external-svg-glyph shower-svg-repo ${className}`}
+        aria-hidden="true"
+      />
+    );
+  }
+
   return (
     <svg
       className={`line-glyph ${className}`}
