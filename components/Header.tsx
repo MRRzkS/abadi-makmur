@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { whatsappHref } from '@/lib/site';
 
@@ -18,38 +18,67 @@ const nav = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
+  const headerRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
 
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
-    const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-theme="dark"]'));
-    if (!targets.length) {
-      setDark(false);
-      return;
-    }
+    let frame = 0;
 
-    const active = new Set<Element>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) active.add(entry.target);
-          else active.delete(entry.target);
-        });
-        setDark(active.size > 0);
-      },
-      { rootMargin: '0px 0px -86% 0px', threshold: 0 },
-    );
+    const sampleTheme = () => {
+      frame = 0;
+      const header = headerRef.current;
+      const shell = header?.querySelector<HTMLElement>('.nav-shell');
+      if (!header || !shell) return;
 
-    targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
+      const rect = shell.getBoundingClientRect();
+      const y = Math.min(window.innerHeight - 1, Math.max(1, rect.top + rect.height * 0.55));
+      const sampleXs = [0.28, 0.5, 0.72].map((ratio) =>
+        Math.min(window.innerWidth - 1, Math.max(1, rect.left + rect.width * ratio)),
+      );
+
+      let darkVotes = 0;
+      let lightVotes = 0;
+
+      sampleXs.forEach((x) => {
+        const stack = document.elementsFromPoint(x, y);
+        const underneath = stack.find((element) => !header.contains(element));
+        const themed = underneath?.closest<HTMLElement>('[data-nav-theme]');
+        const theme = themed?.dataset.navTheme;
+
+        if (theme === 'dark') darkVotes += 1;
+        else if (theme === 'light') lightVotes += 1;
+      });
+
+      setDark(darkVotes > lightVotes && darkVotes > 0);
+    };
+
+    const schedule = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(sampleTheme);
+    };
+
+    sampleTheme();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+
+    const observer = new MutationObserver(schedule);
+    observer.observe(document.body, { subtree: true, childList: true, attributes: true });
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <header className={dark ? 'site-header nav-dark' : 'site-header nav-light'}>
+    <header ref={headerRef} className={dark ? 'site-header nav-dark' : 'site-header nav-light'}>
       <div className="nav-shell glass-panel">
         <Link className="brand" href="/" aria-label="Abadi Makmur Aluminium — Beranda">
           <span className="brand-mark" aria-hidden="true"><i /><i /></span>
