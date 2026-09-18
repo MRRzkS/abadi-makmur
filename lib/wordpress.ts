@@ -2,6 +2,7 @@ export type WordPressPost = {
   id: number;
   slug: string;
   date: string;
+  modified?: string;
   link: string;
   title: { rendered: string };
   excerpt: { rendered: string };
@@ -32,6 +33,7 @@ export function plainText(html: string) {
     .replace(/&#8211;|&ndash;/g, '–')
     .replace(/&#8212;|&mdash;/g, '—')
     .replace(/&#8217;|&rsquo;/g, '’')
+    .replace(/&quot;/g, '"')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -43,17 +45,31 @@ export function featuredImage(post: WordPressPost) {
     : null;
 }
 
-export async function getArticles(limit = 8): Promise<WordPressPost[]> {
+async function fetchPosts(query: string): Promise<WordPressPost[]> {
   const base = apiBase();
   if (!base) return [];
 
   try {
     const response = await fetch(
-      `${base}/posts?status=publish&per_page=${limit}&_embed=wp:featuredmedia`,
+      `${base}/posts?${query}&_embed=wp:featuredmedia`,
     );
     if (!response.ok) return [];
     return (await response.json()) as WordPressPost[];
   } catch {
     return [];
   }
+}
+
+export async function getArticles(limit = 8): Promise<WordPressPost[]> {
+  return fetchPosts(`status=publish&per_page=${limit}&orderby=date&order=desc`);
+}
+
+export async function getArticleBySlug(slug: string): Promise<WordPressPost | null> {
+  const posts = await fetchPosts(`status=publish&slug=${encodeURIComponent(slug)}&per_page=1`);
+  return posts[0] || null;
+}
+
+export async function getArticleSlugs(): Promise<string[]> {
+  const posts = await fetchPosts('status=publish&per_page=100&_fields=slug');
+  return posts.map((post) => post.slug);
 }
