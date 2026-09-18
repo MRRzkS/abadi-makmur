@@ -174,7 +174,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section portfolio-section">
+      <section className="section portfolio-section dark-surface" data-nav-theme="dark">
         <div className="container">
           <Reveal className="section-heading split-heading portfolio-heading">
             <div>
@@ -236,7 +236,7 @@ export default function HomePage() {
       </section>
 
       <section className="final-cta">
-        <div className="container final-cta-inner">
+        <div className="container final-cta-inner dark-surface" data-nav-theme="dark">
           <Reveal>
             <p className="eyebrow light">ABADI MAKMUR ALUMINIUM · TANGERANG</p>
             <h2>Ruang yang lebih rapi<br />dimulai dari <em>detail.</em></h2>
