@@ -17,15 +17,39 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => setOpen(false), [pathname]);
+
+  useEffect(() => {
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-theme="dark"]'));
+    if (!targets.length) {
+      setDark(false);
+      return;
+    }
+
+    const active = new Set<Element>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) active.add(entry.target);
+          else active.delete(entry.target);
+        });
+        setDark(active.size > 0);
+      },
+      { rootMargin: '0px 0px -86% 0px', threshold: 0 },
+    );
+
+    targets.forEach((target) => observer.observe(target));
+    return () => observer.disconnect();
+  }, [pathname]);
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <header className="site-header">
+    <header className={dark ? 'site-header nav-dark' : 'site-header nav-light'}>
       <div className="nav-shell glass-panel">
         <Link className="brand" href="/" aria-label="Abadi Makmur Aluminium — Beranda">
           <span className="brand-mark" aria-hidden="true"><i /><i /></span>
