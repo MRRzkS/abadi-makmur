@@ -901,3 +901,122 @@ main { min-height: 60vh; }
     padding: 28px 22px;
   }
 }
+
+
+/* Article detail */
+.article-detail {
+  padding-bottom: 120px;
+  background: #fff;
+}
+.article-detail-shell {
+  max-width: 980px;
+}
+.article-detail-header {
+  max-width: 850px;
+  margin: 0 auto 54px;
+}
+.article-detail-header h1 {
+  margin: 0;
+  font-family: var(--font-jakarta);
+  font-size: clamp(48px, 6.3vw, 82px);
+  line-height: .98;
+  letter-spacing: -.065em;
+  font-weight: 620;
+}
+.article-detail-intro {
+  max-width: 760px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.75;
+}
+.article-detail-cover {
+  overflow: hidden;
+  border-radius: 34px;
+  background: #e8e5df;
+  margin-bottom: 64px;
+}
+.article-detail-cover img {
+  width: 100%;
+  max-height: 640px;
+  object-fit: cover;
+}
+.article-body {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.article-body > div {
+  color: rgba(32,33,36,.82);
+  font-size: 17px;
+  line-height: 1.82;
+}
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  font-family: var(--font-jakarta);
+  letter-spacing: -.04em;
+  line-height: 1.15;
+  color: var(--secondary);
+}
+.article-body h2 {
+  margin: 54px 0 18px;
+  font-size: 36px;
+}
+.article-body h3 {
+  margin: 40px 0 16px;
+  font-size: 27px;
+}
+.article-body p {
+  margin: 0 0 22px;
+}
+.article-body a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-body img {
+  width: 100%;
+  height: auto;
+  margin: 30px 0;
+  border-radius: 20px;
+}
+.article-body blockquote {
+  margin: 34px 0;
+  padding: 8px 0 8px 24px;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-size: 20px;
+}
+.article-body ul,
+.article-body ol {
+  padding-left: 24px;
+  margin: 0 0 24px;
+}
+.article-body li {
+  margin: 8px 0;
+}
+
+@media (max-width: 580px) {
+  .article-detail {
+    padding-bottom: 80px;
+  }
+  .article-detail-header {
+    margin-bottom: 38px;
+  }
+  .article-detail-header h1 {
+    font-size: 48px;
+  }
+  .article-detail-intro {
+    font-size: 16px;
+  }
+  .article-detail-cover {
+    margin-bottom: 42px;
+    border-radius: 24px;
+  }
+  .article-body > div {
+    font-size: 16px;
+  }
+  .article-body h2 {
+    font-size: 30px;
+  }
+}
