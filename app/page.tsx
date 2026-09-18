@@ -28,7 +28,7 @@ export default function HomePage() {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     description: siteConfig.description,
-    areaServed: { '@type': 'City', name: 'Tangerang' },
+    address: {\n      '@type': 'PostalAddress',\n      streetAddress: 'Jl. H. Buang, RT/RW 03/03, Kelurahan Cipete, Kecamatan Pinang',\n      addressLocality: 'Kota Tangerang',\n      addressRegion: 'Banten',\n      addressCountry: 'ID',\n    },\n    areaServed: { '@type': 'City', name: 'Tangerang' },
     serviceType: services.map((service) => service.title),
     ...(siteConfig.whatsapp ? { telephone: `+${siteConfig.whatsapp}` } : {}),
   };
@@ -62,7 +62,7 @@ export default function HomePage() {
               <a className="button button-primary" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">
                 Konsultasi WhatsApp <span>↗</span>
               </a>
-              <Link className="button button-ghost" href="#layanan">Lihat layanan <span>↓</span></Link>
+              <Link className="button button-ghost" href="/layanan/">Lihat layanan <span>↗</span></Link>
             </div>
             <div className="hero-microproof" aria-label="Ringkasan layanan">
               <div><strong>05</strong><span>Layanan fokus</span></div>
