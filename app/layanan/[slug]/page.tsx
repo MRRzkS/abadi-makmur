@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { LineGlyph } from '@/components/LineGlyph';
 import { Reveal } from '@/components/Reveal';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
+import { ProcessCarousel } from '@/components/ProcessCarousel';
 import { serviceBySlug, services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -135,11 +136,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div><p className="eyebrow">PROSES</p><h2>Tiga langkah<br /><span>yang jelas.</span></h2></div>
             <p>Mulai dengan informasi minimum. Detail teknis dapat dikonfirmasi setelah kebutuhan dan lokasi dipahami.</p>
           </Reveal>
-          <div className="three-process">
-            <Reveal><span>01</span><h3>Kirim kebutuhan</h3><p>Jenis pekerjaan, lokasi, foto kondisi bila ada, serta ukuran perkiraan.</p></Reveal>
-            <Reveal delay={0.04}><span>02</span><h3>Konfirmasi konfigurasi</h3><p>Bahas sistem, bukaan, frame, kaca, dan penyesuaian lapangan.</p></Reveal>
-            <Reveal delay={0.08}><span>03</span><h3>Fabrikasi & pasang</h3><p>Pekerjaan dilanjutkan mengikuti detail yang telah disepakati.</p></Reveal>
-          </div>
+          <ProcessCarousel />
         </div>
       </section>
 
