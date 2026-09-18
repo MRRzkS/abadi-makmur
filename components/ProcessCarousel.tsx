@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { motion } from 'framer-motion';
 import { LineGlyph } from '@/components/LineGlyph';
@@ -38,6 +38,25 @@ export function ProcessCarousel() {
   });
   const [selected, setSelected] = useState(0);
   const [count, setCount] = useState(steps.length);
+  const wheelLock = useRef(0);
+
+  const handleHorizontalWheel = useCallback((event: React.WheelEvent<HTMLDivElement>) => {
+    const delta = Math.abs(event.deltaX) >= Math.abs(event.deltaY)
+      ? event.deltaX
+      : event.shiftKey
+        ? event.deltaY
+        : 0;
+
+    if (Math.abs(delta) < 8 || !emblaApi) return;
+
+    const now = Date.now();
+    if (now - wheelLock.current < 220) return;
+    wheelLock.current = now;
+    event.preventDefault();
+
+    if (delta > 0) emblaApi.scrollNext();
+    else emblaApi.scrollPrev();
+  }, [emblaApi]);
 
   const sync = useCallback(() => {
     if (!emblaApi) return;
@@ -67,7 +86,7 @@ export function ProcessCarousel() {
         </div>
       </div>
 
-      <div className="process-carousel-viewport" ref={emblaRef} aria-label="Carousel proses — drag atau swipe horizontal">
+      <div className="process-carousel-viewport" ref={emblaRef} onWheel={handleHorizontalWheel} aria-label="Carousel proses — drag, swipe, atau scroll horizontal">
         <div className="process-carousel-track">
           {steps.map((step) => (
             <article className="process-slide" key={step.index}>
