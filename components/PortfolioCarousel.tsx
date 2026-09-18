@@ -17,7 +17,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
   return (
     <div className="carousel-wrap">
       <div className="carousel-toolbar">
-        <p className="carousel-note">Visual referensi tipe pekerjaan — bukan klaim dokumentasi proyek perusahaan.</p>
+        <p className="carousel-note">Foto berikut merupakan referensi jenis pekerjaan yang kami layani, bukan dokumentasi proyek Abadi Makmur.</p>
         <div className="carousel-controls" aria-label="Kontrol carousel">
           <button onClick={() => scrollByItem(-1)} aria-label="Geser ke kiri">
             <LineGlyph kind="navLeft" />
@@ -46,7 +46,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
             >
               <div className="project-image">
                 <img src={item.image} alt={item.alt} width="960" height="720" loading="lazy" />
-                <span className="reference-badge">REFERENSI VISUAL</span>
+                <span className="reference-badge">REFERENSI PEKERJAAN</span>
               </div>
               <div className="project-meta">
                 <div>
