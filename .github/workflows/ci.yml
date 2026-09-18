@@ -17,5 +17,6 @@ jobs:
           cache: npm
           cache-dependency-path: package.json
       - run: npm install --no-audit --no-fund
+      - run: npm run audit:prod
       - run: npm run typecheck
       - run: npm run build

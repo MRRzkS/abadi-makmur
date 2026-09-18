@@ -20,10 +20,31 @@ export const siteConfig = {
   },
 };
 
-export function whatsappHref(message: string) {
-  const query = `?text=${encodeURIComponent(message)}`;
-  return `https://wa.me/${siteConfig.whatsapp}${query}`;
+export type WhatsAppInquiry = {
+  sourcePath?: string;
+  service?: string;
+  details?: string[];
+};
+
+export function websiteUrl(path = '/') {
+  if (/^https?:\/\//i.test(path)) return path;
+
+  const cleaned = path.replace(/^\/+|\/+$/g, '');
+  const normalized = cleaned ? `/${cleaned}/` : '/';
+  return `${siteConfig.url}${normalized}`;
 }
 
-export const defaultWhatsAppMessage =
-  'Halo Abadi Makmur Aluminium, saya ingin konsultasi kebutuhan aluminium/kaca di Tangerang.';
+export function whatsappHref({
+  sourcePath = '/',
+  service,
+  details = [],
+}: WhatsAppInquiry = {}) {
+  const subject = service || 'kebutuhan aluminium dan kaca';
+  const source = websiteUrl(sourcePath);
+  const message = [
+    `Halo Abadi Makmur Aluminium, saya datang dari ${source} dan ingin konsultasi terkait ${subject}.`,
+    ...details.filter(Boolean),
+  ].join('\n');
+
+  return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+}
