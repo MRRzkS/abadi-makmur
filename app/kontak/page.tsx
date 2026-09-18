@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Reveal } from '@/components/Reveal';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
-import { defaultWhatsAppMessage, siteConfig, whatsappHref } from '@/lib/site';
+import { siteConfig, whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Kontak & Konsultasi Aluminium Kaca Tangerang',
@@ -20,7 +20,7 @@ export default function ContactPage() {
           </Reveal>
           <Reveal className="contact-facts" delay={0.08}>
             <div><span>ALAMAT</span><strong>{siteConfig.addressShort}</strong></div>
-            <div><span>WHATSAPP</span><strong><a href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">{siteConfig.whatsappDisplay}</a></strong></div>
+            <div><span>WHATSAPP</span><strong><a href={whatsappHref({ sourcePath: '/kontak/' })} target="_blank" rel="noreferrer">{siteConfig.whatsappDisplay}</a></strong></div>
             <div><span>LAYANAN</span><strong>Aluminium + kaca</strong></div>
           </Reveal>
         </div>

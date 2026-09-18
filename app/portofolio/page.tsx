@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { PortfolioCarousel } from '@/components/PortfolioCarousel';
 import { Reveal } from '@/components/Reveal';
-import { defaultWhatsAppMessage, whatsappHref } from '@/lib/site';
+import { whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Portofolio & Referensi Pekerjaan Aluminium Kaca',
@@ -33,7 +33,7 @@ export default function PortfolioPage() {
           <Reveal><p className="eyebrow">NEXT CONTENT STEP</p><h2>Foto proyek asli<br /><span>akan memperkuat trust.</span></h2></Reveal>
           <Reveal className="upload-note" delay={0.08}>
             <p>Untuk versi produksi final, siapkan tiap proyek dengan minimal: foto wide, detail frame/hardware, lokasi tingkat kota/kecamatan, jenis layanan, dan satu kalimat kebutuhan klien. Hindari memasukkan data pribadi klien tanpa izin.</p>
-            <a className="button button-primary" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">Konsultasi kebutuhan <span>↗</span></a>
+            <a className="button button-primary" href={whatsappHref({ sourcePath: '/portofolio/' })} target="_blank" rel="noreferrer">Konsultasi kebutuhan <span>↗</span></a>
           </Reveal>
         </div>
       </section>

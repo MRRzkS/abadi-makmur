@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
 import { LineGlyph } from '@/components/LineGlyph';
 import { services } from '@/lib/services';
-import { defaultWhatsAppMessage, whatsappHref } from '@/lib/site';
+import { whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Layanan Aluminium & Kaca Tangerang',
@@ -23,7 +23,7 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal className="services-hero-copy" delay={0.08}>
             <p>Mulai dari pintu, jendela, kusen, partisi kaca, hingga shower box. Setiap kebutuhan diarahkan berdasarkan fungsi, ukuran aktual, sistem bukaan, dan konteks bangunan.</p>
-            <a className="text-link" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">Konsultasi kebutuhan <span>↗</span></a>
+            <a className="text-link" href={whatsappHref({ sourcePath: '/layanan/' })} target="_blank" rel="noreferrer">Konsultasi kebutuhan <span>↗</span></a>
           </Reveal>
         </div>
       </section>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
         <div className="container services-page-grid">
           {services.map((service, index) => (
             <Reveal key={service.slug} className={`services-page-card services-page-card-${index + 1}`} delay={index * 0.04}>
-              <Link href={`/jasa/${service.slug}/`}>
+              <Link href={`/layanan/${service.slug}/`}>
                 <div className="services-page-image">
                   <img src={service.image} alt={service.imageAlt} width="1000" height="760" loading="lazy" />
                   <span className="reference-badge">REFERENSI VISUAL</span>
@@ -45,6 +45,17 @@ export default function ServicesPage() {
                   <div className="service-link">Buka detail layanan <span>↗</span></div>
                 </div>
               </Link>
+              <a
+                className="services-page-whatsapp"
+                href={whatsappHref({
+                  sourcePath: `/layanan/${service.slug}/`,
+                  service: service.shortTitle,
+                })}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Konsultasi {service.shortTitle} via WhatsApp <span>↗</span>
+              </a>
             </Reveal>
           ))}
         </div>
@@ -55,7 +66,7 @@ export default function ServicesPage() {
           <Reveal>
             <p className="eyebrow light">BUTUH YANG LEBIH SPESIFIK?</p>
             <h2>Sliding, frameless,<br />spandrel, atau <em>custom.</em></h2>
-            <a className="button button-light" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">Tanyakan via WhatsApp <span>↗</span></a>
+            <a className="button button-light" href={whatsappHref({ sourcePath: '/layanan/' })} target="_blank" rel="noreferrer">Tanyakan via WhatsApp <span>↗</span></a>
           </Reveal>
         </div>
       </section>

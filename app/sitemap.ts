@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: route === '' ? 1 : 0.7,
     })),
     ...services.map((service) => ({
-      url: `${siteConfig.url}/jasa/${service.slug}`,
+      url: `${siteConfig.url}/layanan/${service.slug}`,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     })),
