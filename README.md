@@ -40,7 +40,7 @@ Dedicated routes target:
 The service hub lives at `/layanan/`, with SEO detail pages at `/layanan/[slug]/`.
 
 ## Asset policy
-Visual references use Unsplash-hosted photography selected for relevant aluminium/glass architecture contexts. Replace reference imagery with genuine project photography as soon as final project documentation is available so the portfolio reflects completed work accurately.
+Visual references now use free-to-use Pexels and Pixabay photography focused on real service activity: survey, measurement, frame fitting, glass handling, sealing, installation, finishing, and inspection. Replace these references with genuine project photography as soon as final project documentation is available so the portfolio reflects completed work accurately.
 
 ## Deployment
 Run `npm run build`. The static site is generated in `out/` and can be uploaded to a static host or shared-hosting public web root.
@@ -59,7 +59,7 @@ The project keeps Next.js on the current 15.5 maintenance line and overrides its
 - Chromatic palette is restricted to `#D9362B` (Primary), `#202124` (Secondary), and `#F28C28` (Accent); white/black are used only as neutral material/light/shadow values.
 - Fonts are restricted to Geist Sans and Plus Jakarta Sans (both within the approved font set).
 - Static line icons are adapted from Iconoir (MIT), normalized to 1.25px stroke and `currentColor`. SVG animation is intentionally disabled.
-- Photography uses Unsplash visual references until genuine project photography is available.
+- Photography uses Pexels/Pixabay installation-process visual references until genuine project photography is available.
 - Portfolio and ordered process sliders use Embla Carousel, with circular translucent chevron controls, pagination dots, and capsule progress indicators.
 - Detailed system presentation uses a vertical accordion + synchronized exploded-view motion; SVGs themselves remain static.
 - The variation switcher uses a Framer Motion `layoutId` sliding pill.
