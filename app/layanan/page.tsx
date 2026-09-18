@@ -31,31 +31,43 @@ export default function ServicesPage() {
       <section className="section services-page-section">
         <div className="container services-page-grid">
           {services.map((service, index) => (
-            <Reveal key={service.slug} className={`services-page-card services-page-card-${index + 1}`} delay={index * 0.04}>
-              <Link href={`/layanan/${service.slug}/`}>
-                <div className="services-page-image">
-                  <img src={service.image} alt={service.imageAlt} width="1000" height="760" loading="lazy" />
-                  <span className="reference-badge">REFERENSI VISUAL</span>
+            <Reveal
+              key={service.slug}
+              className={`services-page-card services-page-card-${index + 1}`}
+              delay={index * 0.04}
+            >
+              <article className="services-page-card-shell">
+                <div className="services-page-card-layout">
+                  <div className="services-page-image">
+                    <img src={service.image} alt={service.imageAlt} width="1000" height="760" loading="lazy" />
+                    <span className="reference-badge">REFERENSI VISUAL</span>
+                  </div>
+
+                  <div className="services-page-content">
+                    <div className="services-page-icon"><LineGlyph kind={kinds[index]} /></div>
+                    <p className="service-keyword">{service.keyword}</p>
+                    <h2>{service.shortTitle}</h2>
+                    <p>{service.description}</p>
+
+                    <div className="services-page-actions">
+                      <Link className="services-page-detail" href={`/layanan/${service.slug}/`}>
+                        Buka detail layanan <span>↗</span>
+                      </Link>
+                      <a
+                        className="services-page-whatsapp"
+                        href={whatsappHref({
+                          sourcePath: `/layanan/${service.slug}/`,
+                          service: service.shortTitle,
+                        })}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Konsultasi via WhatsApp <span>↗</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div className="services-page-content">
-                  <div className="services-page-icon"><LineGlyph kind={kinds[index]} /></div>
-                  <p className="service-keyword">{service.keyword}</p>
-                  <h2>{service.shortTitle}</h2>
-                  <p>{service.description}</p>
-                  <div className="service-link">Buka detail layanan <span>↗</span></div>
-                </div>
-              </Link>
-              <a
-                className="services-page-whatsapp"
-                href={whatsappHref({
-                  sourcePath: `/layanan/${service.slug}/`,
-                  service: service.shortTitle,
-                })}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Konsultasi {service.shortTitle} via WhatsApp <span>↗</span>
-              </a>
+              </article>
             </Reveal>
           ))}
         </div>
