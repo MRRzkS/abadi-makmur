@@ -20,7 +20,7 @@ const svgVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.28,
+      duration: 0.4,
       ease: [0.22, 1, 0.36, 1],
       when: 'beforeChildren',
     },
@@ -30,14 +30,14 @@ const svgVariants: Variants = {
 const pathVariants: Variants = {
   hidden: {
     strokeDashoffset: 1,
-    opacity: 0.22,
+    opacity: 0,
   },
   visible: (index: number) => ({
     strokeDashoffset: 0,
     opacity: 1,
     transition: {
-      duration: 0.72,
-      delay: index * 0.07,
+      duration: 1.35,
+      delay: index * 0.12,
       ease: [0.22, 1, 0.36, 1],
     },
   }),
@@ -55,22 +55,32 @@ export function LineGlyph({ kind, className = '' }: { kind: Kind; className?: st
       variants={svgVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.08 }}
     >
       {strokes[kind].map((d, index) => (
-        <motion.path
-          key={`${kind}-${index}`}
-          d={d}
-          pathLength={1}
-          stroke="currentColor"
-          strokeWidth="1.25"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray="1 1"
-          vectorEffect="non-scaling-stroke"
-          custom={index}
-          variants={pathVariants}
-        />
+        <g key={`${kind}-${index}`}>
+          <path
+            d={d}
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+            opacity="0.18"
+          />
+          <motion.path
+            d={d}
+            pathLength={1}
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="1 1"
+            vectorEffect="non-scaling-stroke"
+            custom={index}
+            variants={pathVariants}
+          />
+        </g>
       ))}
     </motion.svg>
   );
