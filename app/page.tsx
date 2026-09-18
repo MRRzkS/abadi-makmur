@@ -82,8 +82,8 @@ export default function HomePage() {
           <Reveal className="hero-visual" delay={0.1}>
             <div className="hero-image-wrap">
               <img
-                src="https://images.pexels.com/photos/5691521/pexels-photo-5691521.jpeg?auto=compress&cs=tinysrgb&w=1800"
-                alt="Referensi visual teknisi memasang frame jendela pada interior modern yang terang"
+                src="https://images.pexels.com/photos/5768188/pexels-photo-5768188.jpeg?auto=compress&cs=tinysrgb&w=1800"
+                alt="Referensi pekerjaan close-up tanpa wajah saat teknisi memasang frame jendela pada bangunan modern"
                 width="1200"
                 height="1500"
                 fetchPriority="high"
