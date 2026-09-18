@@ -68,9 +68,9 @@ export default async function ArticleDetailPage({
     return (
       <section className="article-detail section-pad">
         <div className="container article-empty">
-          <p className="eyebrow">CMS PLACEHOLDER</p>
-          <h1>Artikel belum dipublikasikan.</h1>
-          <p>Route internal ini hanya menjaga static export tetap valid sebelum WordPress memiliki artikel publik.</p>
+          <p className="eyebrow">ARTIKEL</p>
+          <h1>Artikel belum tersedia.</h1>
+          <p>Silakan kembali ke halaman artikel untuk melihat panduan yang sudah tersedia.</p>
           <Link className="text-link" href="/artikel/">Kembali ke artikel <span>↗</span></Link>
         </div>
       </section>
