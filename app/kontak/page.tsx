@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Reveal } from '@/components/Reveal';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
-import { siteConfig } from '@/lib/site';
+import { defaultWhatsAppMessage, siteConfig, whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Kontak & Konsultasi Aluminium Kaca Tangerang',
@@ -19,8 +19,8 @@ export default function ContactPage() {
             <p className="inner-lead">Mulai dari informasi yang Anda punya sekarang. Foto kondisi lokasi, perkiraan ukuran, dan jenis kebutuhan sudah cukup untuk membuka percakapan.</p>
           </Reveal>
           <Reveal className="contact-facts" delay={0.08}>
-            <div><span>AREA UTAMA</span><strong>{siteConfig.area}</strong></div>
-            <div><span>CHANNEL</span><strong>WhatsApp inquiry</strong></div>
+            <div><span>ALAMAT</span><strong>{siteConfig.addressShort}</strong></div>
+            <div><span>WHATSAPP</span><strong><a href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">{siteConfig.whatsappDisplay}</a></strong></div>
             <div><span>LAYANAN</span><strong>Aluminium + kaca</strong></div>
           </Reveal>
         </div>
@@ -42,12 +42,13 @@ export default function ContactPage() {
         <div className="container location-card">
           <Reveal>
             <p className="eyebrow">LOKASI & AREA</p>
-            <h2>Tangerang,<br /><span>Banten.</span></h2>
+            <h2>Cipete, Pinang.<br /><span>Kota Tangerang.</span></h2>
           </Reveal>
           <Reveal className="location-visual" delay={0.08}>
             <div className="map-grid" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-            <span className="map-pin"><b /> TANGERANG</span>
-            <p>Alamat lengkap belum ditampilkan karena belum diberikan pada brief. Tambahkan alamat bisnis final sebelum publikasi jika memang ingin ditampilkan secara publik.</p>
+            <span className="map-pin"><b /> ABADI MAKMUR</span>
+            <p>{siteConfig.address}</p>
+            <a className="location-link" href={siteConfig.mapsUrl} target="_blank" rel="noreferrer">Buka di Google Maps ↗</a>
           </Reveal>
         </div>
       </section>
