@@ -15,7 +15,7 @@ export default function ContactPage() {
         <div className="container contact-hero-grid">
           <Reveal>
             <p className="eyebrow">KONTAK · TANGERANG</p>
-            <h1>Ceritakan<br /><span>bukaannya.</span></h1>
+            <h1>Ceritakan<br /><span>kebutuhan Anda.</span></h1>
             <p className="inner-lead">Mulai dari informasi yang Anda punya sekarang. Foto kondisi lokasi, perkiraan ukuran, dan jenis kebutuhan sudah cukup untuk membuka percakapan.</p>
           </Reveal>
           <Reveal className="contact-facts" delay={0.08}>
@@ -30,9 +30,9 @@ export default function ContactPage() {
         <div className="container contact-planner-grid">
           <Reveal className="contact-side-copy">
             <p className="eyebrow">PESAN CEPAT</p>
-            <h2>Dari brief ke<br /><span>WhatsApp.</span></h2>
-            <p>Isi tiga informasi sederhana. Website akan menyusun pesan agar konteks awal lebih jelas ketika Anda berpindah ke WhatsApp.</p>
-            <div className="privacy-note"><span>PRIVACY</span><p>Form berjalan di browser dan tidak memiliki database penyimpanan pesan.</p></div>
+            <h2>Konsultasi lebih mudah<br /><span>lewat WhatsApp.</span></h2>
+            <p>Pilih jenis layanan, tulis lokasi, lalu tambahkan ukuran atau foto kondisi bila ada agar kebutuhan awal lebih mudah dipahami.</p>
+            <div className="privacy-note"><span>PRIVASI</span><p>Isi konsultasi tidak disimpan.</p></div>
           </Reveal>
           <Reveal delay={0.08}><WhatsAppPlanner /></Reveal>
         </div>
