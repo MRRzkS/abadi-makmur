@@ -114,8 +114,8 @@ export const services: Service[] = [
     metaDescription:
       'Jasa partisi kaca Tangerang untuk kantor, toko dan hunian. Pilihan frameless atau kombinasi aluminium untuk ruang yang terasa terang dan modern.',
     image:
-      'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi pekerjaan pemasangan panel kaca pada bangunan modern dengan pekerja terlihat dari jarak jauh',
+      'https://images.pexels.com/photos/5691501/pexels-photo-5691501.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi pekerjaan pemasangan frame dan panel kaca pada interior bangunan dengan pekerja tidak dikenali',
     highlight: 'Frameless · Office · Light',
     benefits: [
       'Membagi ruang sambil menjaga aliran cahaya',
@@ -179,11 +179,11 @@ export const portfolioReferences = [
     alt: 'Referensi visual teknisi melakukan finishing sealant pada pintu kaca sliding',
   },
   {
-    title: 'Instalasi panel kaca',
+    title: 'Pemasangan partisi kaca',
     category: 'Partisi',
     image:
-      'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi pekerjaan pemasangan panel kaca pada bangunan modern',
+      'https://images.pexels.com/photos/5691501/pexels-photo-5691501.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi pekerjaan pemasangan partisi kaca pada interior rumah atau ruang usaha dengan pekerja tidak dikenali',
   },
   {
     title: 'Pemasangan frame jendela',
