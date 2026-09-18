@@ -12,9 +12,11 @@ import { siteConfig } from '@/lib/site';
 
 export const dynamicParams = false;
 
+const CMS_PLACEHOLDER = '__cms-placeholder';
+
 export async function generateStaticParams() {
   const slugs = await getArticleSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return (slugs.length ? slugs : [CMS_PLACEHOLDER]).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -23,6 +25,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === CMS_PLACEHOLDER) {
+    return {
+      title: 'Artikel CMS',
+      robots: { index: false, follow: false },
+    };
+  }
+
   const post = await getArticleBySlug(slug);
   if (!post) return {};
 
@@ -54,6 +63,20 @@ export default async function ArticleDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  if (slug === CMS_PLACEHOLDER) {
+    return (
+      <section className="article-detail section-pad">
+        <div className="container article-empty">
+          <p className="eyebrow">CMS PLACEHOLDER</p>
+          <h1>Artikel belum dipublikasikan.</h1>
+          <p>Route internal ini hanya menjaga static export tetap valid sebelum WordPress memiliki artikel publik.</p>
+          <Link className="text-link" href="/artikel/">Kembali ke artikel <span>↗</span></Link>
+        </div>
+      </section>
+    );
+  }
+
   const post = await getArticleBySlug(slug);
   if (!post?.content) notFound();
 
