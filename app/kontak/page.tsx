@@ -39,7 +39,7 @@ export default function ContactPage() {
       </section>
 
       <section className="section location-section">
-        <div className="container location-card">
+        <div className="container location-card dark-surface" data-nav-theme="dark">
           <Reveal>
             <p className="eyebrow">LOKASI & AREA</p>
             <h2>Cipete, Pinang.<br /><span>Kota Tangerang.</span></h2>
