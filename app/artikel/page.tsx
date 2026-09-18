@@ -18,11 +18,11 @@ export default async function ArticlesPage() {
       <section className="inner-hero article-hero section-pad">
         <div className="container article-hero-grid">
           <Reveal>
-            <p className="eyebrow">ARTIKEL · KNOWLEDGE</p>
-            <h1>Lebih paham sebelum<br /><span>memilih material.</span></h1>
+            <p className="eyebrow">PANDUAN ALUMINIUM & KACA</p>
+            <h1>Lebih yakin sebelum<br /><span>memilih layanan.</span></h1>
           </Reveal>
           <Reveal className="article-hero-copy" delay={0.08}>
-            <p>Panduan praktis seputar aluminium dan kaca untuk membantu memahami sistem bukaan, material, perawatan, dan pilihan yang lebih sesuai dengan kebutuhan ruang.</p>
+            <p>Panduan praktis seputar pintu, jendela, kusen aluminium, partisi kaca, shower box, perawatan, dan hal yang perlu dipertimbangkan sebelum pemasangan.</p>
           </Reveal>
         </div>
       </section>
@@ -56,9 +56,9 @@ export default async function ArticlesPage() {
             </div>
           ) : (
             <Reveal className="article-empty">
-              <p className="eyebrow">EDITORIAL SYSTEM READY</p>
+              <p className="eyebrow">PANDUAN & TIPS</p>
               <h2>Artikel segera hadir.</h2>
-              <p>Halaman ini sudah disiapkan untuk menerima artikel dari WordPress CMS. Setelah endpoint WordPress dihubungkan, artikel terbit akan tampil otomatis saat website dibangun ulang.</p>
+              <p>Kami sedang menyiapkan panduan seputar aluminium dan kaca agar Anda lebih mudah memahami pilihan material, perawatan, dan kebutuhan pemasangan.</p>
               <div className="article-topics">
                 <span>Pintu aluminium</span>
                 <span>Jendela aluminium</span>
