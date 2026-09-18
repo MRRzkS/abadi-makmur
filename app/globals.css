@@ -2940,3 +2940,19 @@ body {
     flex-basis: 89%;
   }
 }
+
+
+/* Carousel tracker cleanup: no synthetic tail element; visual end equals progress 100%. */
+.project-carousel::after,
+.process-carousel-track::after {
+  display: none !important;
+  content: none !important;
+}
+
+.native-horizontal-carousel {
+  scroll-padding-inline: 0 !important;
+}
+
+.carousel-progress span {
+  transform-origin: left center;
+}
