@@ -1246,3 +1246,80 @@ main { min-height: 60vh; }
     padding-top: 24px;
   }
 }
+
+
+/* Service detail hero spacing + readability */
+.service-hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.service-hero-title-main,
+.service-hero-title-support {
+  display: block;
+}
+
+.service-hero-title-main {
+  color: var(--secondary);
+}
+
+.service-hero-title-support {
+  color: rgba(32,33,36,.34);
+  font-size: .78em;
+  line-height: 1.02;
+}
+
+.service-hero-lead {
+  margin-top: 34px;
+}
+
+.service-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.service-hero-actions .service-highlight,
+.service-hero-actions .button {
+  margin-top: 0;
+}
+
+.service-hero-actions .service-highlight {
+  flex: 0 0 auto;
+}
+
+.service-hero-actions .button {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 580px) {
+  .service-hero-title {
+    gap: 12px;
+  }
+
+  .service-hero-title-support {
+    font-size: .74em;
+    line-height: 1.04;
+  }
+
+  .service-hero-lead {
+    margin-top: 26px;
+  }
+
+  .service-hero-actions {
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .service-hero-actions .service-highlight {
+    width: fit-content;
+  }
+
+  .service-hero-actions .button {
+    width: 100%;
+  }
+}
