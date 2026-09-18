@@ -2472,3 +2472,129 @@ main { min-height: 60vh; }
     font-size: 11px;
   }
 }
+
+
+/* ===== Final interaction + service hero hardening ===== */
+
+html,
+body {
+  overscroll-behavior-x: none;
+}
+
+/* Embla WheelGestures owns horizontal trackpad input; no step-wise wheel snapping. */
+.project-carousel-viewport,
+.process-carousel-viewport {
+  overscroll-behavior-x: none;
+  touch-action: pan-y pinch-zoom;
+}
+
+.project-carousel-viewport.is-wheel-dragging,
+.process-carousel-viewport.is-wheel-dragging {
+  cursor: grabbing;
+}
+
+.project-carousel .project-card,
+.process-carousel-track .process-slide {
+  scroll-snap-align: none;
+}
+
+/* Remove legacy exploded-focus decoration entirely. */
+.system-focus-box {
+  display: none !important;
+}
+
+/* Service heroes: monumental, legible, consistent across all five SEO routes. */
+.service-hero .service-hero-title-main {
+  display: block;
+  color: var(--secondary);
+  font: inherit;
+  font-weight: 650;
+  line-height: .94;
+  letter-spacing: inherit;
+  opacity: 1;
+}
+
+.service-hero .service-hero-title-support {
+  display: block;
+  color: rgba(32,33,36,.34);
+  font-size: .72em;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.06em;
+  max-width: 11ch;
+  text-wrap: balance;
+}
+
+.service-hero .service-hero-title {
+  max-width: 9.5ch;
+  text-wrap: balance;
+}
+
+.service-hero .service-hero-lead {
+  max-width: 610px;
+}
+
+.service-hero-image {
+  position: relative;
+  min-width: 0;
+  background: rgba(32,33,36,.08);
+}
+
+.service-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Crop each reference toward the actual relevant aluminium/glass element. */
+.service-hero-image-pintu-aluminium-tangerang img {
+  object-position: 50% 54%;
+}
+
+.service-hero-image-jendela-aluminium-tangerang img {
+  object-position: 26% 50%;
+}
+
+.service-hero-image-kusen-aluminium-tangerang img {
+  object-position: 50% 45%;
+}
+
+.service-hero-image-partisi-kaca-tangerang img {
+  object-position: 50% 50%;
+}
+
+.service-hero-image-shower-box-tangerang img {
+  object-position: 50% 52%;
+}
+
+@media (min-width: 1041px) {
+  .service-hero .inner-hero-grid {
+    grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+    gap: clamp(48px, 5vw, 82px);
+  }
+
+  .service-hero .service-hero-title {
+    font-size: clamp(62px, 5.8vw, 88px);
+  }
+
+  .service-hero .inner-hero-image {
+    height: 590px;
+    min-height: 590px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .service-hero .service-hero-title {
+    max-width: 11ch;
+  }
+}
+
+@media (max-width: 580px) {
+  .service-hero .service-hero-title {
+    max-width: 10ch;
+  }
+
+  .service-hero .service-hero-title-support {
+    max-width: 10ch;
+  }
+}
