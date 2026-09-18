@@ -59,7 +59,7 @@ export default function AboutPage() {
             <h2>Punya kebutuhan<br />aluminium atau <em>kaca?</em></h2>
             <div className="hero-actions">
               <a className="button button-light" href={whatsappHref(defaultWhatsAppMessage)} target="_blank" rel="noreferrer">Konsultasi WhatsApp <span>↗</span></a>
-              <Link className="button button-dark-ghost" href="/#layanan">Lihat layanan</Link>
+              <Link className="button button-dark-ghost" href="/layanan/">Lihat layanan</Link>
             </div>
           </Reveal>
         </div>
