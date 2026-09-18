@@ -9,22 +9,22 @@ const steps = [
     index: '01',
     title: 'Kirim kebutuhan',
     body: 'Jenis pekerjaan, lokasi, foto kondisi bila ada, serta ukuran perkiraan.',
-    image: 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=84',
-    alt: 'Referensi visual detail bukaan dan frame arsitektur',
+    image: 'https://images.pexels.com/photos/8293699/pexels-photo-8293699.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    alt: 'Referensi visual teknisi melakukan inspeksi dan survey pada bukaan kaca',
   },
   {
     index: '02',
     title: 'Konfirmasi konfigurasi',
     body: 'Bahas sistem, bukaan, frame, kaca, dan penyesuaian lapangan.',
-    image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=84',
-    alt: 'Referensi visual konfigurasi jendela dan fasad modern',
+    image: 'https://images.pexels.com/photos/7937742/pexels-photo-7937742.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    alt: 'Referensi visual tim profesional meninjau konfigurasi pintu kaca pada bangunan modern',
   },
   {
     index: '03',
     title: 'Fabrikasi & pasang',
     body: 'Pekerjaan dilanjutkan mengikuti detail yang telah disepakati.',
-    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=84',
-    alt: 'Referensi visual hasil pemasangan kaca dan aluminium',
+    image: 'https://cdn.pixabay.com/photo/2018/10/24/18/50/glass-work-3770982_1280.jpg',
+    alt: 'Referensi visual pekerja membawa frame kaca sebagai bagian proses fabrikasi dan pemasangan',
   },
 ];
 
