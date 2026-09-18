@@ -100,7 +100,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </Reveal>
           <Reveal className={`inner-hero-image service-hero-image service-hero-image-${service.slug}`} delay={0.08}>
             <img src={service.image} alt={service.imageAlt} width="1100" height="1300" fetchPriority="high" />
-            <span className="reference-badge">REFERENSI VISUAL</span>
+            <span className="reference-badge">REFERENSI PEKERJAAN</span>
           </Reveal>
         </div>
       </section>
@@ -108,9 +108,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="section detail-section">
         <div className="container detail-bento">
           <Reveal className="detail-card detail-main">
-            <p className="eyebrow">KENAPA PENDEKATAN INI</p>
-            <h2>Fungsi dulu.<br /><span>Baru detail visual.</span></h2>
-            <p>Kebutuhan aluminium dan kaca sangat bergantung pada dimensi, arah bukaan, intensitas pemakaian, kondisi area, serta gaya bangunan. Karena itu keputusan desain sebaiknya tidak hanya berdasarkan foto referensi.</p>
+            <p className="eyebrow">SEBELUM DIPASANG</p>
+            <h2>Ukur dengan tepat.<br /><span>Pasang sesuai kebutuhan.</span></h2>
+            <p>Setiap pekerjaan aluminium dan kaca perlu menyesuaikan ukuran bukaan, arah buka, kondisi dinding, pemakaian ruang, serta pilihan material agar hasil akhirnya rapi dan berfungsi dengan baik.</p>
           </Reveal>
           <Reveal className="detail-card detail-benefits" delay={0.04}>
             <LineGlyph kind="frame" />
@@ -133,8 +133,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="section service-process">
         <div className="container">
           <Reveal className="section-heading split-heading">
-            <div><p className="eyebrow">PROSES</p><h2>Tiga langkah<br /><span>yang jelas.</span></h2></div>
-            <p>Mulai dengan informasi minimum. Detail teknis dapat dikonfirmasi setelah kebutuhan dan lokasi dipahami.</p>
+            <div><p className="eyebrow">PROSES PENGERJAAN</p><h2>Dari kebutuhan<br /><span>sampai pemasangan.</span></h2></div>
+            <p>Cukup kirim jenis pekerjaan, lokasi, serta ukuran atau foto kondisi bila ada. Detail lainnya dapat dikonfirmasi saat konsultasi.</p>
           </Reveal>
           <ProcessCarousel />
         </div>
@@ -143,7 +143,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="section related-services">
         <div className="container">
           <Reveal className="section-heading split-heading">
-            <div><p className="eyebrow">LAYANAN TERKAIT</p><h2>Bangun solusi<br /><span>secara utuh.</span></h2></div>
+            <div><p className="eyebrow">LAYANAN LAINNYA</p><h2>Butuh pekerjaan<br /><span>aluminium atau kaca lainnya?</span></h2></div>
           </Reveal>
           <div className="related-grid">
             {services.filter((item) => item.slug !== service.slug).slice(0, 4).map((item, index) => (
@@ -151,7 +151,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <Link href={`/layanan/${item.slug}/`}>
                   <div className="related-card-media">
                     <img src={item.image} alt={item.imageAlt} width="900" height="620" loading="lazy" />
-                    <span className="reference-badge">REFERENSI VISUAL</span>
+                    <span className="reference-badge">REFERENSI PEKERJAAN</span>
                   </div>
                   <div className="related-card-body">
                     <span className="related-card-index">0{index + 1}</span>
@@ -181,7 +181,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <section className="section inquiry-section">
         <div className="container inquiry-grid">
-          <Reveal className="inquiry-copy"><p className="eyebrow">KONSULTASI</p><h2>Siapkan brief<br /><span>dalam satu menit.</span></h2><p>Gunakan form cepat untuk membuat pesan WhatsApp tanpa perlu menyusun format sendiri.</p></Reveal>
+          <Reveal className="inquiry-copy"><p className="eyebrow">KONSULTASI</p><h2>Ceritakan kebutuhan<br /><span>yang ingin dikerjakan.</span></h2><p>Pilih layanan, tulis lokasi, lalu tambahkan ukuran atau foto kondisi bila ada. Kami lanjutkan melalui WhatsApp.</p></Reveal>
           <Reveal delay={0.08}><WhatsAppPlanner defaultService={service.shortTitle} /></Reveal>
         </div>
       </section>
