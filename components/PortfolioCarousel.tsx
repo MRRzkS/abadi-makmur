@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align: 'start',
-      containScroll: 'keepSnaps',
+      containScroll: false,
       slidesToScroll: 1,
       loop: false,
       dragFree: true,
@@ -19,8 +19,28 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
     },
     [WheelGesturesPlugin()],
   );
+
+  const viewportRef = useRef<HTMLDivElement | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const snapCount = portfolioReferences.length;
+
+  const setViewport = useCallback((node: HTMLDivElement | null) => {
+    viewportRef.current = node;
+    emblaRef(node);
+  }, [emblaRef]);
+
+  useEffect(() => {
+    const node = viewportRef.current;
+    if (!node) return;
+
+    const preventHistorySwipe = (event: WheelEvent) => {
+      const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+      if (horizontal && Math.abs(event.deltaX) > 2) event.preventDefault();
+    };
+
+    node.addEventListener('wheel', preventHistorySwipe, { passive: false, capture: true });
+    return () => node.removeEventListener('wheel', preventHistorySwipe, true);
+  }, []);
 
   const syncState = useCallback(() => {
     if (!emblaApi) return;
@@ -60,7 +80,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
 
       <div
         className="project-carousel-viewport"
-        ref={emblaRef}
+        ref={setViewport}
         aria-label="Carousel portofolio — drag, swipe, atau scroll horizontal"
       >
         <div className={`project-carousel ${compact ? 'compact' : ''}`}>
