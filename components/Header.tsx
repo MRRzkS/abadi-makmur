@@ -87,7 +87,8 @@ export function Header() {
     <header ref={headerRef} className={dark ? 'site-header nav-dark' : 'site-header nav-light'}>
       <div className="nav-shell glass-panel">
         <Link className="brand brand-logo-link" href="/" aria-label="Mestika Abadi Makmur Aluminium — Beranda">
-          <img className="brand-logo" src="/brand/mestika-abadi-makmur-horizontal.png" alt="Mestika Abadi Makmur Aluminium" width="900" height="169" />
+          <img className="brand-logo brand-logo-horizontal" src="/brand/mestika-abadi-makmur-horizontal-v2.png" alt="Mestika Abadi Makmur Aluminium" width="900" height="169" />
+          <img className="brand-logo brand-logo-mark" src="/brand/mestika-abadi-makmur-mark-v2.png" alt="" aria-hidden="true" width="256" height="256" />
         </Link>
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {nav.map((item) => <Link key={item.href} href={item.href} className={isActive(item.href) ? 'active' : undefined}>{item.label}</Link>)}
