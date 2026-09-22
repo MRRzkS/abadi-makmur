@@ -43,6 +43,18 @@ export function Header() {
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        headerRef.current?.querySelector<HTMLButtonElement>('.menu-button')?.focus();
+      }
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [open]);
+
+  useEffect(() => {
     let frame = 0;
     const sampleTheme = () => {
       frame = 0;
@@ -81,28 +93,27 @@ export function Header() {
     };
   }, [pathname]);
 
-  const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+  const isActive = (href: string) => href === '/' ? pathname === '/' : pathname === href.slice(0, -1) || pathname.startsWith(href);
 
   return (
     <header ref={headerRef} className={dark ? 'site-header nav-dark' : 'site-header nav-light'}>
       <div className="nav-shell glass-panel">
         <Link className="brand brand-logo-link" href="/" aria-label="Mestika Abadi Makmur Aluminium — Beranda">
-          <img className="brand-logo brand-logo-horizontal" src="/brand/mestika-abadi-makmur-horizontal-v2.png" alt="Mestika Abadi Makmur Aluminium" width="900" height="169" />
-          <img className="brand-logo brand-logo-mark" src="/brand/mestika-abadi-makmur-mark-v2.png" alt="" aria-hidden="true" width="256" height="256" />
+          <img className="brand-logo brand-logo-horizontal" src="/brand/Logo Mestika Abadi Makmur - Pakai - Panjang.png" alt="Mestika Abadi Makmur Aluminium" width="2172" height="724" />
         </Link>
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {nav.map((item) => <Link key={item.href} href={item.href} className={isActive(item.href) ? 'active' : undefined}>{item.label}</Link>)}
         </nav>
         <a className="nav-cta" href={whatsappHref({ sourcePath: pathname })} target="_blank" rel="noreferrer">Konsultasi <span aria-hidden="true">↗</span></a>
-        <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? 'Tutup menu' : 'Buka menu'}><MenuGlyph open={open} /></button>
+        <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls={open ? 'mobile-navigation' : undefined} aria-label={open ? 'Tutup menu' : 'Buka menu'}><MenuGlyph open={open} /></button>
       </div>
 
       <AnimatePresence>
         {open && (
-          <motion.div className="mobile-nav glass-panel" initial={{ opacity: 0, y: -8, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.98 }} transition={{ duration: 0.2 }}>
+          <motion.nav id="mobile-navigation" aria-label="Navigasi mobile" onClick={(event) => { if ((event.target as HTMLElement).closest('a')) setOpen(false); }} className="mobile-nav glass-panel" initial={{ opacity: 0, y: -8, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.98 }} transition={{ duration: 0.2 }}>
             {nav.map((item) => <Link key={item.href} href={item.href} className={isActive(item.href) ? 'active' : undefined}>{item.label}<span>↗</span></Link>)}
             <a className="mobile-wa" href={whatsappHref({ sourcePath: pathname })} target="_blank" rel="noreferrer">Konsultasi WhatsApp</a>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>

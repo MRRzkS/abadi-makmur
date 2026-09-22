@@ -36,11 +36,10 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: '/brand/favicon-mestika-v2.ico', type: 'image/x-icon', sizes: 'any' },
-      { url: '/brand/mestika-abadi-makmur-mark-v2.png', type: 'image/png', sizes: '256x256' },
+      { url: '/brand/Logo%20Mestika%20Abadi%20Makmur%20-%20Pakai%20-%20Petak.png', type: 'image/png', sizes: '1254x1254' },
     ],
-    shortcut: '/brand/favicon-mestika-v2.ico',
-    apple: [{ url: '/brand/apple-touch-icon-v2.png', type: 'image/png', sizes: '256x256' }],
+    shortcut: '/brand/Logo%20Mestika%20Abadi%20Makmur%20-%20Pakai%20-%20Petak.png',
+    apple: [{ url: '/brand/Logo%20Mestika%20Abadi%20Makmur%20-%20Pakai%20-%20Petak.png', type: 'image/png', sizes: '1254x1254' }],
   },
   robots: { index: true, follow: true },
   openGraph: {

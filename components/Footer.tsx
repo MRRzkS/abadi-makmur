@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="footer-logo-shell">
-            <img className="footer-logo" src="/brand/mestika-abadi-makmur-horizontal-v2.png" alt="Mestika Abadi Makmur Aluminium" width="900" height="169" />
+            <img className="footer-logo" src="/brand/Logo Mestika Abadi Makmur - Pakai - Panjang.png" alt="Mestika Abadi Makmur Aluminium" width="2172" height="724" />
           </div>
           <p className="eyebrow">{siteConfig.legalName}</p>
           <p>Fabrikasi dan pemasangan aluminium & kaca untuk kebutuhan hunian dan komersial di Tangerang.</p>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
 import { LineGlyph } from '@/components/LineGlyph';
 import { PortfolioCarousel } from '@/components/PortfolioCarousel';
+import { ProcessCarousel } from '@/components/ProcessCarousel';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { SystemShowcase } from '@/components/SystemShowcase';
 import { services } from '@/lib/services';
@@ -154,23 +155,7 @@ export default function HomePage() {
             <h2>Dari kebutuhan ke <span>instalasi.</span></h2>
             <p>Alur dibuat sederhana agar keputusan material, ukuran, dan konfigurasi bukaan dapat dibahas sebelum pekerjaan berjalan.</p>
           </Reveal>
-          <div className="process-steps">
-            <Reveal className="process-step">
-              <span className="process-number">01</span>
-              <LineGlyph kind="measure" />
-              <div><h3>Konsultasi & ukuran</h3><p>Jelaskan jenis pekerjaan, lokasi, perkiraan ukuran, dan kondisi bukaan.</p></div>
-            </Reveal>
-            <Reveal className="process-step">
-              <span className="process-number">02</span>
-              <LineGlyph kind="frame" />
-              <div><h3>Konfigurasi & fabrikasi</h3><p>Tentukan sistem, proporsi frame, kaca, dan detail kebutuhan sebelum produksi.</p></div>
-            </Reveal>
-            <Reveal className="process-step">
-              <span className="process-number">03</span>
-              <LineGlyph kind="install" />
-              <div><h3>Pemasangan</h3><p>Instalasi diarahkan agar hasil akhir rapi dan fungsi bukaan sesuai kebutuhan ruang.</p></div>
-            </Reveal>
-          </div>
+          <ProcessCarousel />
         </div>
       </section>
 
