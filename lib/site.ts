@@ -8,8 +8,8 @@ export const siteConfig = {
   addressShort: 'Jl. H. Buang, Cipete, Pinang, Kota Tangerang',
   whatsappDisplay: '+62 813-1909-449',
   url:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
-    'https://abadi-makmur-aluminium.example',
+    process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, '') ||
+    'https://mestikaabadimakmur.com',
   whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '628131909449').replace(/\D/g, ''),
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Jl.%20H.%20Buang%2C%20Cipete%2C%20Pinang%2C%20Kota%20Tangerang',

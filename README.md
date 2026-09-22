@@ -18,7 +18,7 @@ npm run dev
 
 ## Production configuration
 - `NEXT_PUBLIC_WHATSAPP_NUMBER`: defaults to the verified business WhatsApp `628131909449`; override only if the number changes.
-- `NEXT_PUBLIC_SITE_URL`: final canonical website origin.
+- `NEXT_PUBLIC_SITE_URL`: canonical website origin; defaults to `https://mestikaabadimakmur.com`. Use this same value in the hosting build environment.
 - `WORDPRESS_API_URL`: WordPress site origin or full `/wp-json/wp/v2` REST base.
 
 Business address currently used by the website:
