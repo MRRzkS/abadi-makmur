@@ -36,11 +36,11 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png', sizes: '256x256' },
+      { url: '/brand/favicon-mestika-v2.ico', type: 'image/x-icon', sizes: 'any' },
+      { url: '/brand/mestika-abadi-makmur-mark-v2.png', type: 'image/png', sizes: '256x256' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-icon.png',
+    shortcut: '/brand/favicon-mestika-v2.ico',
+    apple: [{ url: '/brand/apple-touch-icon-v2.png', type: 'image/png', sizes: '256x256' }],
   },
   robots: { index: true, follow: true },
   openGraph: {
