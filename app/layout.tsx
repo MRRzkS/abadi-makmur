@@ -35,9 +35,12 @@ export const metadata: Metadata = {
     'shower box Tangerang',
   ],
   icons: {
-    icon: '/brand/mestika-abadi-makmur-mark.png',
-    shortcut: '/brand/mestika-abadi-makmur-mark.png',
-    apple: '/brand/mestika-abadi-makmur-mark.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '256x256' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
   robots: { index: true, follow: true },
   openGraph: {
