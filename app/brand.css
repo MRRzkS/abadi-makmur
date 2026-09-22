@@ -188,3 +188,91 @@ body {
     width: min(300px, 100%);
   }
 }
+
+/* Brand asset hardening: never allow intrinsic PNG size to stretch the navbar. */
+.brand.brand-logo-link {
+  flex: 0 0 236px !important;
+  width: 236px !important;
+  min-width: 236px !important;
+  max-width: 236px !important;
+  height: 52px !important;
+  margin-right: auto;
+  padding: 6px 9px !important;
+  overflow: hidden;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.32);
+  box-shadow: 0 8px 24px rgba(22,24,29,.08);
+}
+
+.brand-logo-horizontal {
+  display: block !important;
+  flex: none !important;
+  width: 218px !important;
+  max-width: 218px !important;
+  height: 41px !important;
+  max-height: 41px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+
+.brand-logo-mark {
+  display: none !important;
+}
+
+.site-header.nav-dark .brand.brand-logo-link,
+.site-header.nav-light .brand.brand-logo-link {
+  background: rgba(255,255,255,.94);
+  border-color: rgba(255,255,255,.36);
+}
+
+.footer-logo {
+  display: block;
+  width: min(100%, 306px) !important;
+  max-width: 306px !important;
+  height: auto !important;
+  max-height: 58px;
+  object-fit: contain !important;
+  object-position: left center;
+}
+
+@media (max-width: 1040px) {
+  .brand.brand-logo-link {
+    flex-basis: 210px !important;
+    width: 210px !important;
+    min-width: 210px !important;
+    max-width: 210px !important;
+    height: 50px !important;
+  }
+
+  .brand-logo-horizontal {
+    width: 192px !important;
+    max-width: 192px !important;
+    height: 36px !important;
+    max-height: 36px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .brand.brand-logo-link {
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    min-width: 48px !important;
+    max-width: 48px !important;
+    height: 48px !important;
+    padding: 5px !important;
+    border-radius: 14px;
+  }
+
+  .brand-logo-horizontal {
+    display: none !important;
+  }
+
+  .brand-logo-mark {
+    display: block !important;
+    width: 38px !important;
+    height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
+    object-fit: contain !important;
+  }
+}
