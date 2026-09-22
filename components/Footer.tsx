@@ -7,8 +7,10 @@ export function Footer() {
     <footer className="footer dark-surface" data-nav-theme="dark">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <p className="eyebrow">CV KRISTIAN ABADI</p>
-          <h2>Abadi Makmur<br />Aluminium.</h2>
+          <div className="footer-logo-shell">
+            <img className="footer-logo" src="/brand/mestika-abadi-makmur-horizontal.png" alt="Mestika Abadi Makmur Aluminium" width="900" height="169" />
+          </div>
+          <p className="eyebrow">{siteConfig.legalName}</p>
           <p>Fabrikasi dan pemasangan aluminium & kaca untuk kebutuhan hunian dan komersial di Tangerang.</p>
           <div className="footer-contact">
             <a href={siteConfig.mapsUrl} target="_blank" rel="noreferrer">{siteConfig.address}</a>
