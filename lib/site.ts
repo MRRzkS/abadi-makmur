@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'Abadi Makmur Aluminium',
+  name: 'Mestika Abadi Makmur Aluminium',
   legalName: 'CV Kristian Abadi',
   description:
     'Jasa fabrikasi dan pemasangan aluminium & kaca di Tangerang untuk pintu, jendela, kusen, sliding system, partisi kaca, frameless glass, spandrel door, dan shower box.',
@@ -14,9 +14,9 @@ export const siteConfig = {
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Jl.%20H.%20Buang%2C%20Cipete%2C%20Pinang%2C%20Kota%20Tangerang',
   colors: {
-    primary: '#D9362B',
-    secondary: '#202124',
-    accent: '#F28C28',
+    primary: '#002E6E',
+    secondary: '#16181D',
+    accent: '#F4B701',
   },
 };
 
@@ -42,7 +42,7 @@ export function whatsappHref({
   const subject = service || 'kebutuhan aluminium dan kaca';
   const source = websiteUrl(sourcePath);
   const message = [
-    `Halo Abadi Makmur Aluminium, saya datang dari ${source} dan ingin konsultasi terkait ${subject}.`,
+    `Halo Mestika Abadi Makmur Aluminium, saya datang dari ${source} dan ingin konsultasi terkait ${subject}.`,
     ...details.filter(Boolean),
   ].join('\n');
 
