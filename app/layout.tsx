@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import './brand.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { StickyWhatsApp } from '@/components/StickyWhatsApp';
@@ -20,8 +21,8 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Abadi Makmur Aluminium | Aluminium & Kaca Tangerang',
-    template: '%s | Abadi Makmur Aluminium',
+    default: 'Mestika Abadi Makmur Aluminium | Aluminium & Kaca Tangerang',
+    template: '%s | Mestika Abadi Makmur Aluminium',
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
@@ -33,12 +34,17 @@ export const metadata: Metadata = {
     'partisi kaca Tangerang',
     'shower box Tangerang',
   ],
+  icons: {
+    icon: '/brand/mestika-abadi-makmur-mark.png',
+    shortcut: '/brand/mestika-abadi-makmur-mark.png',
+    apple: '/brand/mestika-abadi-makmur-mark.png',
+  },
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
     locale: 'id_ID',
     siteName: siteConfig.name,
-    title: 'Abadi Makmur Aluminium | Aluminium & Kaca Tangerang',
+    title: 'Mestika Abadi Makmur Aluminium | Aluminium & Kaca Tangerang',
     description: siteConfig.description,
   },
 };
