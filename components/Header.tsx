@@ -27,7 +27,7 @@ function MenuGlyph({ open }: { open: boolean }) {
 
 const nav = [
   { href: '/', label: 'Beranda' },
-  { href: '/layanan/', label: 'Layanan & Produk' },
+  { href: '/layanan/', label: 'Layanan dan Produk' },
   { href: '/portofolio/', label: 'Portofolio' },
   { href: '/artikel/', label: 'Artikel' },
   { href: '/tentang/', label: 'Tentang' },
