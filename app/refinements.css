@@ -1007,3 +1007,42 @@ h2 > span,
     min-width: min(66vw, 650px) !important;
   }
 }
+
+
+/* ===== Mobile logo pill fit fix · preserve original logo asset ===== */
+@media (max-width: 820px) {
+  .site-header .brand.brand-logo-link {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 92px) !important;
+    height: 48px !important;
+    padding: 5px 8px !important;
+    margin-right: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .site-header .brand-logo-horizontal {
+    display: block !important;
+    width: auto !important;
+    max-width: min(168px, calc(100vw - 118px)) !important;
+    height: 34px !important;
+    max-height: 34px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .site-header .brand.brand-logo-link {
+    width: auto !important;
+    max-width: calc(100vw - 90px) !important;
+  }
+
+  .site-header .brand-logo-horizontal {
+    max-width: min(154px, calc(100vw - 116px)) !important;
+    height: 32px !important;
+    max-height: 32px !important;
+  }
+}
