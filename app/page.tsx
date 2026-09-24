@@ -7,6 +7,7 @@ import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { SystemShowcase } from '@/components/SystemShowcase';
 import { TrustMarquee } from '@/components/TrustMarquee';
 import { HomeHero } from '@/components/HomeHero';
+import { MobileMicroAccordion } from '@/components/MobileMicroAccordion';
 import { services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -163,8 +164,9 @@ export default function HomePage() {
           <div className="faq-list">
             {homeFaq.map((item, index) => (
               <Reveal key={item.q} className="faq-item" delay={index * 0.04}>
-                <span>0{index + 1}</span>
-                <div><h3>{item.q}</h3><p>{item.a}</p></div>
+                <MobileMicroAccordion summary={item.q} index={`0${index + 1}`}>
+                  <p>{item.a}</p>
+                </MobileMicroAccordion>
               </Reveal>
             ))}
           </div>
