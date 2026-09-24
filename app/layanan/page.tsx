@@ -18,8 +18,8 @@ export default function ServicesPage() {
       <section className="inner-hero services-page-hero section-pad">
         <div className="container services-hero-grid">
           <Reveal>
-            <p className="eyebrow">LAYANAN & PRODUK · JABODETABEK</p>
-            <h1>Pilih layanan & produk<br /><span>aluminium & kaca.</span></h1>
+            <p className="eyebrow">LAYANAN DAN PRODUK · JABODETABEK</p>
+            <h1>Pilih layanan dan produk<br /><span>aluminium & kaca.</span></h1>
           </Reveal>
           <Reveal className="services-hero-copy" delay={0.08}>
             <p>Melayani pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, serta bangunan komersial di Jabodetabek dan sekitarnya.</p>
