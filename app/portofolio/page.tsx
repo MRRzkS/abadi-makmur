@@ -5,7 +5,7 @@ import { whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Portofolio & Referensi Pekerjaan Aluminium Kaca',
-  description: 'Galeri tipe pekerjaan pintu aluminium, jendela aluminium, kusen, partisi kaca dan shower box untuk kebutuhan Tangerang.',
+  description: 'Galeri tipe pekerjaan pintu aluminium, jendela aluminium, kusen, partisi kaca dan shower box untuk kebutuhan Jabodetabek dan sekitarnya.',
 };
 
 export default function PortfolioPage() {
