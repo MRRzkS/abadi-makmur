@@ -8,6 +8,7 @@ import { SystemShowcase } from '@/components/SystemShowcase';
 import { TrustMarquee } from '@/components/TrustMarquee';
 import { HomeHero } from '@/components/HomeHero';
 import { MobileMicroAccordion } from '@/components/MobileMicroAccordion';
+import { MarketingMoment } from '@/components/MarketingMoment';
 import { services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -143,6 +144,8 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      <MarketingMoment />
 
       <section className="section inquiry-section">
         <div className="container inquiry-grid">
