@@ -11,16 +11,16 @@ export function Footer() {
             <img className="footer-logo" src="/brand/Logo Mestika Abadi Makmur - Pakai - Panjang.png" alt="Mestika Abadi Makmur Aluminium" width="2172" height="724" />
           </div>
           <p className="eyebrow">{siteConfig.legalName}</p>
-          <p>Fabrikasi dan pemasangan aluminium & kaca untuk kebutuhan hunian dan komersial di Tangerang.</p>
+          <p>Fabrikasi dan pemasangan aluminium & kaca untuk kebutuhan hunian dan komersial di Jabodetabek dan sekitarnya.</p>
           <div className="footer-contact">
             <a href={siteConfig.mapsUrl} target="_blank" rel="noreferrer">{siteConfig.address}</a>
             <a href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">{siteConfig.whatsappDisplay}</a>
           </div>
         </div>
         <div>
-          <p className="footer-label">Layanan utama</p>
+          <p className="footer-label">Layanan & Produk</p>
           <div className="footer-links">
-            <Link href="/layanan/">Semua layanan</Link>
+            <Link href="/layanan/">Semua layanan & produk</Link>
             {services.map((service) => (
               <Link key={service.slug} href={`/layanan/${service.slug}/`}>{service.shortTitle}</Link>
             ))}
