@@ -29,15 +29,15 @@ export function HomeHero() {
       />
       <div className="home-hero-shade" aria-hidden="true" />
       <div className="container home-hero-content">
-        <p className="eyebrow">ALUMINIUM & KACA &middot; JABODETABEK</p>
+        <p className="eyebrow">BUKA RUANG &middot; HADIRKAN CAHAYA</p>
         <h1 id="home-hero-title">
-          Buka ruang.
+          Jasa Aluminium <br /> dan Kaca
           <br />
-          <span>Hadirkan cahaya.</span>
+          <span>Jabodetabek</span>
         </h1>
         <p className="home-hero-lead">
-          Pintu, jendela, kusen, partisi kaca, dan shower box. Dibuat sesuai
-          ruang Anda, dari pengukuran hingga pemasangan.
+          Melayani pemasangan pintu aluminium, jendela aluminium, kusen
+          aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, dan bangunan komersial.
         </p>
         <div className="home-hero-actions">
           <a
