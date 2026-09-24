@@ -17,6 +17,10 @@ export function MobileMicroAccordion({
 
   return (
     <div className={`micro-accordion ${className}`} data-open={open ? 'true' : 'false'}>
+      <div className="micro-accordion-desktop-summary">
+        {index ? <span className="micro-accordion-index">{index}</span> : null}
+        <h3>{summary}</h3>
+      </div>
       <button
         type="button"
         className="micro-accordion-toggle"
