@@ -15,7 +15,7 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: 'pintu-aluminium-tangerang',
+    slug: 'pintu-aluminium',
     keyword: 'pintu aluminium',
     shortTitle: 'Pintu Aluminium',
     title: 'Pintu Aluminium Jabodetabek',
@@ -45,7 +45,7 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'jendela-aluminium-tangerang',
+    slug: 'jendela-aluminium',
     keyword: 'jendela aluminium',
     shortTitle: 'Jendela Aluminium',
     title: 'Jendela Aluminium Jabodetabek',
@@ -75,7 +75,7 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'kusen-aluminium-tangerang',
+    slug: 'kusen-aluminium',
     keyword: 'kusen aluminium',
     shortTitle: 'Kusen Aluminium',
     title: 'Kusen Aluminium Jabodetabek',
@@ -105,7 +105,7 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'partisi-kaca-tangerang',
+    slug: 'partisi-kaca',
     keyword: 'partisi kaca',
     shortTitle: 'Partisi Kaca',
     title: 'Partisi Kaca Jabodetabek',
@@ -135,7 +135,7 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'shower-box-tangerang',
+    slug: 'shower-box',
     keyword: 'shower box',
     shortTitle: 'Shower Box',
     title: 'Shower Box Jabodetabek',
