@@ -5,6 +5,7 @@ import { PortfolioCarousel } from '@/components/PortfolioCarousel';
 import { ProcessCarousel } from '@/components/ProcessCarousel';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { SystemShowcase } from '@/components/SystemShowcase';
+import { TrustMarquee } from '@/components/TrustMarquee';
 import { services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -103,14 +104,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="trust-rail" aria-label="Kekuatan layanan">
-        <div className="container trust-rail-inner">
-          <span>Fabrikasi sesuai kebutuhan</span><i />
-          <span>Hunian & komersial</span><i />
-          <span>Aluminium + kaca</span><i />
-          <span>Konsultasi langsung</span>
-        </div>
-      </section>
+      <TrustMarquee />
 
       <section className="section section-services" id="layanan">
         <div className="container">
