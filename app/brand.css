@@ -1036,3 +1036,103 @@ textarea:focus-visible {
     font-size: 11px;
   }
 }
+
+
+/* ===== Continuous service marquee ===== */
+.trust-rail {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.72);
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.trust-marquee-viewport {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+
+.trust-marquee-track {
+  width: max-content;
+  display: flex;
+  will-change: transform;
+  animation: trust-marquee-scroll 24s linear infinite;
+}
+
+.trust-marquee-group {
+  flex: none;
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  padding-right: 42px;
+}
+
+.trust-marquee-item {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  padding-left: 42px;
+  color: rgba(22,24,29,.58);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.trust-marquee-item i {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.trust-rail:hover .trust-marquee-track,
+.trust-rail:focus-within .trust-marquee-track,
+.trust-rail[data-touch-paused='true'] .trust-marquee-track,
+.trust-rail:active .trust-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes trust-marquee-scroll {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-50%,0,0); }
+}
+
+@media (max-width: 580px) {
+  .trust-marquee-track {
+    animation-duration: 20s;
+  }
+
+  .trust-marquee-group {
+    min-height: 62px;
+    padding-right: 28px;
+  }
+
+  .trust-marquee-item {
+    gap: 24px;
+    padding-left: 28px;
+    font-size: 10px;
+    letter-spacing: .055em;
+  }
+
+  .trust-marquee-viewport {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
