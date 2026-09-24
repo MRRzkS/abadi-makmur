@@ -12,6 +12,7 @@ const stages = [
     image: 'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi fasad rumah modern untuk membaca ukuran dan konteks bukaan',
     imagePosition: '50% 44%',
+    zoom: 1.06,
     metric: '4',
     metricLabel: 'hal utama diperiksa',
   },
@@ -22,6 +23,7 @@ const stages = [
     image: 'https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi pintu kaca dengan frame hitam untuk pilihan sistem bukaan',
     imagePosition: '58% 50%',
+    zoom: 1.1,
     metric: '3',
     metricLabel: 'opsi bukaan umum',
   },
@@ -32,6 +34,7 @@ const stages = [
     image: 'https://images.pexels.com/photos/19963718/pexels-photo-19963718/free-photo-of-modern-house-windows.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi jendela rumah modern dengan frame ramping',
     imagePosition: '52% 43%',
+    zoom: 1.12,
     metric: '2',
     metricLabel: 'bagian utama',
   },
@@ -42,6 +45,7 @@ const stages = [
     image: 'https://images.pexels.com/photos/34574609/pexels-photo-34574609/free-photo-of-bright-modern-room-with-sliding-glass-door.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi ruang terang dengan sliding glass door sebagai gambaran hasil akhir',
     imagePosition: '68% 50%',
+    zoom: 1.08,
     metric: '4',
     metricLabel: 'detail akhir dicek',
   },
@@ -123,10 +127,10 @@ export function SystemShowcase() {
                   height="1000"
                   loading="lazy"
                   style={{ objectPosition: item.imagePosition }}
-                  initial={{ opacity: 0, scale: 1.015 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+                  initial={{ opacity: 0, scale: Math.max(1, item.zoom - 0.025) }}
+                  animate={{ opacity: 1, scale: item.zoom }}
+                  exit={{ opacity: 0, scale: Math.max(1, item.zoom - 0.015) }}
+                  transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
                 />
               </AnimatePresence>
 
