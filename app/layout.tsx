@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'id_ID',
     siteName: siteConfig.name,
-    title: 'Mestika Abadi Makmur Aluminium | Aluminium & Kaca Tangerang',
+    title: 'Mestika Abadi Makmur Aluminium | Aluminium & Kaca Jabodetabek',
     description: siteConfig.description,
   },
 };
