@@ -36,7 +36,7 @@ export function WhatsAppPlanner({ defaultService }: { defaultService?: string })
       </div>
       <div className="planner-grid">
         <label>
-          <span>Layanan & Produk</span>
+          <span>Layanan dan Produk</span>
           <select value={service} onChange={(event) => setService(event.target.value)}>
             {options.map((option) => <option key={option}>{option}</option>)}
           </select>
