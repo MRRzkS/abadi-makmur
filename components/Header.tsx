@@ -167,10 +167,10 @@ export function Header() {
         >
           <img
             className="brand-logo brand-logo-horizontal"
-            src="/brand/mestika-abadi-makmur-horizontal-v2.png"
+            src="/brand/Logo Mestika Abadi Makmur - Pakai - Panjang.png"
             alt="Mestika Abadi Makmur Aluminium"
-            width="720"
-            height="240"
+            width="2172"
+            height="724"
           />
         </Link>
         <nav className="desktop-nav" aria-label="Navigasi utama">
