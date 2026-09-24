@@ -184,7 +184,7 @@ export default function HomePage() {
               <Link key={service.slug} href={`/layanan/${service.slug}/`}>
                 <span>0{index + 1}</span>
                 <strong>{service.keyword}</strong>
-                <small>Tangerang</small>
+                <small>Jabodetabek</small>
                 <b>↗</b>
               </Link>
             ))}
@@ -197,7 +197,7 @@ export default function HomePage() {
           <Reveal className="inquiry-copy">
             <p className="eyebrow">MULAI DARI KEBUTUHAN</p>
             <h2>Ceritakan kebutuhan Anda<br /><span>secukupnya.</span></h2>
-            <p>Pilih layanan, tulis lokasi, lalu tambahkan ukuran atau foto kondisi bila ada. Kami lanjutkan konsultasi melalui WhatsApp.</p>
+            <p>Pilih layanan atau produk, tulis lokasi, lalu tambahkan ukuran atau foto kondisi bila ada. Kami lanjutkan konsultasi melalui WhatsApp.</p>
           </Reveal>
           <Reveal delay={0.08}><WhatsAppPlanner /></Reveal>
         </div>
