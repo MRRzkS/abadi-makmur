@@ -6,6 +6,7 @@ import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { ProcessCarousel } from '@/components/ProcessCarousel';
 import { ServiceDetailPanels } from '@/components/ServiceDetailPanels';
 import { RelatedServicesCollection } from '@/components/RelatedServicesCollection';
+import { MobileMicroAccordion } from '@/components/MobileMicroAccordion';
 import { serviceBySlug, services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
