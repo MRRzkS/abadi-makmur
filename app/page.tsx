@@ -57,7 +57,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="hero section-pad">
+      <section className="hero section-pad" data-nav-theme="dark">
         <div className="hero-orb hero-orb-one" aria-hidden="true" />
         <div className="hero-orb hero-orb-two" aria-hidden="true" />
         <div className="container hero-grid">
@@ -74,7 +74,7 @@ export default function HomePage() {
               <Link className="button button-ghost" href="/layanan/">Lihat layanan dan produk <span>↗</span></Link>
             </div>
             <div className="hero-microproof" aria-label="Ringkasan layanan">
-              <div><strong>05</strong><span>Jenis layanan</span></div>
+              <div><strong>05</strong><span>Layanan & produk</span></div>
               <div><strong>JBDTK</strong><span>Area layanan</span></div>
               <div><strong>WA</strong><span>Konsultasi langsung</span></div>
             </div>
@@ -223,7 +223,7 @@ export default function HomePage() {
       <section className="final-cta">
         <div className="container final-cta-inner dark-surface" data-nav-theme="dark">
           <Reveal>
-            <p className="eyebrow light">ABADI MAKMUR ALUMINIUM · TANGERANG</p>
+            <p className="eyebrow light">MESTIKA ABADI MAKMUR · JABODETABEK</p>
             <h2>Ruang yang lebih rapi<br />dimulai dari <em>detail.</em></h2>
             <a className="button button-light" href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">Konsultasi sekarang <span>↗</span></a>
           </Reveal>
