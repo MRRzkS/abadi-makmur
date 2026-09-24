@@ -2,15 +2,15 @@ export const siteConfig = {
   name: 'Mestika Abadi Makmur Aluminium',
   legalName: 'CV Kristian Abadi',
   description:
-    'Jasa fabrikasi dan pemasangan aluminium & kaca di Tangerang untuk pintu, jendela, kusen, sliding system, partisi kaca, frameless glass, spandrel door, dan shower box.',
-  area: 'Tangerang, Banten',
+    'Jasa fabrikasi dan pemasangan aluminium & kaca untuk area Jabodetabek dan sekitarnya: pintu, jendela, kusen, sliding system, partisi kaca, frameless glass, spandrel door, dan shower box.',
+  area: 'Jabodetabek dan sekitarnya',
   address: 'Jl. H. Buang, RT/RW 03/03, Kelurahan Cipete, Kecamatan Pinang, Kota Tangerang',
   addressShort: 'Jl. H. Buang, Cipete, Pinang, Kota Tangerang',
-  whatsappDisplay: '+62 813-1909-449',
+  whatsappDisplay: '0823-1894-8989',
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, '') ||
     'https://mestikaabadimakmur.com',
-  whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '628131909449').replace(/\D/g, ''),
+  whatsapp: '6282318948989',
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Jl.%20H.%20Buang%2C%20Cipete%2C%20Pinang%2C%20Kota%20Tangerang',
   colors: {
