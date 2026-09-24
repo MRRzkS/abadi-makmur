@@ -79,7 +79,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="inner-hero service-hero section-pad">
         <div className="container inner-hero-grid">
           <Reveal className="inner-hero-copy">
-            <Link className="back-link" href="/layanan/">← Semua layanan & produk</Link>
+            <Link className="back-link" href="/layanan/">← Semua layanan dan produk</Link>
             <p className="eyebrow">{service.keyword.toUpperCase()} · JABODETABEK</p>
             <h1 className="service-hero-title">
               <strong className="service-hero-title-main">{service.shortTitle}</strong>
@@ -143,7 +143,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="section related-services">
         <div className="container">
           <Reveal className="section-heading split-heading">
-            <div><p className="eyebrow">LAYANAN & PRODUK LAINNYA</p><h2>Butuh pekerjaan<br /><span>aluminium atau kaca lainnya?</span></h2></div>
+            <div><p className="eyebrow">LAYANAN DAN PRODUK LAINNYA</p><h2>Butuh pekerjaan<br /><span>aluminium atau kaca lainnya?</span></h2></div>
           </Reveal>
           <div className="related-grid">
             {services.filter((item) => item.slug !== service.slug).slice(0, 4).map((item, index) => (
