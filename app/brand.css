@@ -1724,3 +1724,12 @@ textarea {
     min-height: 46px;
   }
 }
+
+
+/* Landing-page context discipline: information panels stay crisp and opaque. */
+.premium-surface,
+.keyword-panel.premium-surface {
+  background: #fff;
+  border: 1px solid rgba(22,24,29,.08);
+  box-shadow: 0 20px 64px rgba(22,24,29,.08);
+}
