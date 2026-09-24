@@ -10,8 +10,8 @@ import { siteConfig, whatsappHref } from '@/lib/site';
 
 const homeFaq = [
   {
-    q: 'Apakah Abadi Makmur melayani area Tangerang?',
-    a: 'Ya. Fokus area layanan utama adalah Tangerang, Banten. Detail lokasi proyek dapat dikirim melalui WhatsApp untuk dikonfirmasi.',
+    q: 'Apakah Abadi Makmur melayani area Jabodetabek?',
+    a: 'Ya. Area layanan mencakup Jakarta, Bogor, Depok, Tangerang, Bekasi, dan sekitarnya. Kirim lokasi proyek melalui WhatsApp untuk konfirmasi jangkauan.',
   },
   {
     q: 'Bisa konsultasi untuk pintu, jendela, kusen, partisi kaca, dan shower box?',
@@ -37,7 +37,7 @@ export default function HomePage() {
       addressRegion: 'Banten',
       addressCountry: 'ID',
     },
-    areaServed: { '@type': 'City', name: 'Tangerang' },
+    areaServed: ['Jakarta', 'Bogor', 'Depok', 'Tangerang', 'Bekasi'].map((name) => ({ '@type': 'City', name })),
     serviceType: services.map((service) => service.title),
     ...(siteConfig.whatsapp ? { telephone: `+${siteConfig.whatsapp}` } : {}),
   };
@@ -62,8 +62,8 @@ export default function HomePage() {
         <div className="hero-orb hero-orb-two" aria-hidden="true" />
         <div className="container hero-grid">
           <Reveal className="hero-copy">
-            <p className="eyebrow"><span /> FABRIKASI ALUMINIUM & KACA · TANGERANG</p>
-            <h1>Jasa aluminium & kaca<br /><span>di Tangerang.</span></h1>
+            <p className="eyebrow"><span /> FABRIKASI ALUMINIUM & KACA · JABODETABEK</p>
+            <h1>Jasa aluminium & kaca<br /><span>area Jabodetabek.</span></h1>
             <p className="hero-lead">
               Melayani pemasangan pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, dan bangunan komersial.
             </p>
@@ -71,11 +71,11 @@ export default function HomePage() {
               <a className="button button-primary" href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">
                 Konsultasi WhatsApp <span>↗</span>
               </a>
-              <Link className="button button-ghost" href="/layanan/">Lihat layanan <span>↗</span></Link>
+              <Link className="button button-ghost" href="/layanan/">Lihat layanan & produk <span>↗</span></Link>
             </div>
             <div className="hero-microproof" aria-label="Ringkasan layanan">
               <div><strong>05</strong><span>Jenis layanan</span></div>
-              <div><strong>TGR</strong><span>Area layanan</span></div>
+              <div><strong>JBDTK</strong><span>Area layanan</span></div>
               <div><strong>WA</strong><span>Konsultasi langsung</span></div>
             </div>
           </Reveal>
@@ -83,8 +83,8 @@ export default function HomePage() {
           <Reveal className="hero-visual" delay={0.1}>
             <div className="hero-image-wrap">
               <img
-                src="https://images.pexels.com/photos/5768188/pexels-photo-5768188.jpeg?auto=compress&cs=tinysrgb&w=1800"
-                alt="Referensi pekerjaan close-up tanpa wajah saat teknisi memasang frame jendela pada bangunan modern"
+                src="https://images.pexels.com/photos/34880778/pexels-photo-34880778/free-photo-of-modern-minimalist-house-facade-in-jakarta.jpeg?auto=compress&cs=tinysrgb&w=1800"
+                alt="Rumah modern minimalis di Jakarta dengan bukaan kaca dan aluminium"
                 width="1200"
                 height="1500"
                 fetchPriority="high"
@@ -92,7 +92,7 @@ export default function HomePage() {
               <div className="hero-image-shade" />
               <div className="hero-glass-card top">
                 <span className="status-dot" />
-                <div><small>AREA LAYANAN</small><strong>Tangerang, Banten</strong></div>
+                <div><small>AREA LAYANAN</small><strong>Jabodetabek & sekitarnya</strong></div>
               </div>
               <div className="hero-glass-card bottom">
                 <small>ALUMINIUM × GLASS</small>
@@ -116,8 +116,8 @@ export default function HomePage() {
         <div className="container">
           <Reveal className="section-heading split-heading">
             <div>
-              <p className="eyebrow">LAYANAN UTAMA</p>
-              <h2>Lima layanan.<br /><span>Satu pengerjaan yang rapi.</span></h2>
+              <p className="eyebrow">LAYANAN & PRODUK</p>
+              <h2>Layanan & produk.<br /><span>Satu standar pengerjaan rapi.</span></h2>
             </div>
             <p>Pilih kebutuhan Anda—pintu, jendela, kusen, partisi kaca, atau shower box. Kami bantu dari pengukuran hingga pemasangan.</p>
           </Reveal>
@@ -175,8 +175,8 @@ export default function HomePage() {
       <section className="section local-seo-section">
         <div className="container local-seo-grid">
           <Reveal className="local-seo-copy">
-            <p className="eyebrow">AREA LAYANAN · TANGERANG</p>
-            <h2>Butuh aluminium atau kaca<br /><span>di Tangerang?</span></h2>
+            <p className="eyebrow">AREA LAYANAN · JABODETABEK</p>
+            <h2>Butuh aluminium atau kaca<br /><span>di Jabodetabek?</span></h2>
             <p>Kirim jenis pekerjaan dan lokasi Anda melalui WhatsApp. Kami bantu arahkan kebutuhan pintu, jendela, kusen, partisi kaca, atau shower box yang sesuai.</p>
           </Reveal>
           <Reveal className="keyword-panel glass-panel" delay={0.08}>
