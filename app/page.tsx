@@ -130,7 +130,7 @@ export default function HomePage() {
             <h2>Butuh aluminium atau kaca<br /><span>di Jabodetabek?</span></h2>
             <p>Kirim jenis pekerjaan dan lokasi Anda melalui WhatsApp. Kami bantu arahkan kebutuhan pintu, jendela, kusen, partisi kaca, atau shower box yang sesuai.</p>
           </Reveal>
-          <Reveal className="keyword-panel glass-panel" delay={0.08}>
+          <Reveal className="keyword-panel premium-surface" delay={0.08}>
             {services.map((service, index) => (
               <Link key={service.slug} href={`/layanan/${service.slug}/`}>
                 <span>0{index + 1}</span>
