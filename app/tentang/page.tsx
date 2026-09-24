@@ -6,7 +6,7 @@ import { siteConfig, whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Tentang CV Kristian Abadi',
-  description: 'Tentang Abadi Makmur Aluminium (CV Kristian Abadi), penyedia fabrikasi dan pemasangan aluminium & kaca dengan fokus area Tangerang.',
+  description: 'Tentang Abadi Makmur Aluminium (CV Kristian Abadi), penyedia fabrikasi dan pemasangan aluminium & kaca untuk area Jabodetabek dan sekitarnya.',
 };
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
             <h1>Pemasangan aluminium & kaca<br /><span>yang rapi dan fungsional.</span></h1>
           </Reveal>
           <Reveal className="about-intro" delay={0.08}>
-            <p>Abadi Makmur Aluminium melayani fabrikasi dan pemasangan aluminium & kaca di Tangerang untuk rumah, ruko, kantor, dan bangunan komersial. Pengerjaan disesuaikan dengan ukuran, fungsi ruang, jenis bukaan, dan kondisi lokasi.</p>
+            <p>Abadi Makmur Aluminium melayani fabrikasi dan pemasangan aluminium & kaca di Jabodetabek dan sekitarnya untuk rumah, ruko, kantor, dan bangunan komersial. Pengerjaan disesuaikan dengan ukuran, fungsi ruang, jenis bukaan, dan kondisi lokasi.</p>
             <a className="text-link" href={whatsappHref({ sourcePath: '/tentang/' })} target="_blank" rel="noreferrer">Mulai konsultasi <span>↗</span></a>
           </Reveal>
         </div>
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <section className="section about-visual-section">
         <div className="container about-visual-grid">
           <Reveal className="about-photo-large">
-            <img src="https://images.pexels.com/photos/9729590/pexels-photo-9729590.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Referensi pekerjaan close-up tangan saat memeriksa profil aluminium dan detail frame" width="1300" height="1000" />
+            <img src="https://images.pexels.com/photos/17168858/pexels-photo-17168858/free-photo-of-modern-design-of-room.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Referensi interior modern dengan bukaan kaca dan frame aluminium" width="1300" height="1000" />
             <span className="reference-badge">REFERENSI PEKERJAAN</span>
           </Reveal>
           <Reveal className="about-principle" delay={0.06}>
@@ -55,11 +55,11 @@ export default function AboutPage() {
       <section className="final-cta">
         <div className="container final-cta-inner">
           <Reveal>
-            <p className="eyebrow light">TANGERANG · BANTEN</p>
+            <p className="eyebrow light">JABODETABEK & SEKITARNYA</p>
             <h2>Punya kebutuhan<br />aluminium atau <em>kaca?</em></h2>
             <div className="hero-actions">
               <a className="button button-light" href={whatsappHref({ sourcePath: '/tentang/' })} target="_blank" rel="noreferrer">Konsultasi WhatsApp <span>↗</span></a>
-              <Link className="button button-dark-ghost" href="/layanan/">Lihat layanan</Link>
+              <Link className="button button-dark-ghost" href="/layanan/">Lihat layanan & produk</Link>
             </div>
           </Reveal>
         </div>
