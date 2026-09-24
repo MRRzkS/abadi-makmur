@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
+import { ArticlesCollection } from '@/components/ArticlesCollection';
 import { featuredImage, getArticles, plainText } from '@/lib/wordpress';
 
 export const dynamic = 'force-static';
@@ -30,30 +30,19 @@ export default async function ArticlesPage() {
       <section className="section article-section">
         <div className="container">
           {posts.length > 0 ? (
-            <div className="article-bento">
-              {posts.map((post, index) => {
+            <ArticlesCollection
+              posts={posts.map((post) => {
                 const image = featuredImage(post);
-                return (
-                  <Reveal key={post.id} className={`article-card article-card-${(index % 5) + 1}`} delay={(index % 5) * 0.04}>
-                    <Link href={`/artikel/${post.slug}/`}>
-                      <div className="article-card-visual">
-                        {image ? (
-                          <img src={image.src} alt={image.alt} width="1000" height="720" loading="lazy" />
-                        ) : (
-                          <div className="article-placeholder" aria-hidden="true"><span>AM</span></div>
-                        )}
-                      </div>
-                      <div className="article-card-body">
-                        <p className="article-date">{new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium' }).format(new Date(post.date))}</p>
-                        <h2>{plainText(post.title.rendered)}</h2>
-                        <p>{plainText(post.excerpt.rendered)}</p>
-                        <span className="text-link">Baca artikel <b>↗</b></span>
-                      </div>
-                    </Link>
-                  </Reveal>
-                );
+                return {
+                  id: post.id,
+                  slug: post.slug,
+                  date: new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium' }).format(new Date(post.date)),
+                  title: plainText(post.title.rendered),
+                  excerpt: plainText(post.excerpt.rendered),
+                  image,
+                };
               })}
-            </div>
+            />
           ) : (
             <Reveal className="article-empty">
               <p className="eyebrow">PANDUAN & TIPS</p>
