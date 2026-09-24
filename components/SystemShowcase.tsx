@@ -11,6 +11,7 @@ const stages = [
     body: 'Dimensi bukaan, arah akses, kondisi dinding, dan ruang gerak dibaca lebih dulu sebelum sistem dipilih.',
     image: 'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi fasad rumah modern untuk membaca ukuran dan konteks bukaan',
+    imagePosition: '50% 44%',
     metric: '4',
     metricLabel: 'hal utama diperiksa',
   },
@@ -20,6 +21,7 @@ const stages = [
     body: 'Swing, sliding, atau konfigurasi lain dipilih berdasarkan fungsi ruang—bukan sekadar mengikuti tren visual.',
     image: 'https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi pintu kaca dengan frame hitam untuk pilihan sistem bukaan',
+    imagePosition: '58% 50%',
     metric: '3',
     metricLabel: 'opsi bukaan umum',
   },
@@ -29,6 +31,7 @@ const stages = [
     body: 'Kaca dan frame dipilih agar sesuai ukuran bukaan rumah, cahaya tetap masuk, dan hasil pemasangan terlihat rapi.',
     image: 'https://images.pexels.com/photos/19963718/pexels-photo-19963718/free-photo-of-modern-house-windows.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi jendela rumah modern dengan frame ramping',
+    imagePosition: '52% 43%',
     metric: '2',
     metricLabel: 'bagian utama',
   },
@@ -38,6 +41,7 @@ const stages = [
     body: 'Hardware, alignment, sambungan, dan detail akhir dirapikan sebagai satu sistem yang konsisten.',
     image: 'https://images.pexels.com/photos/34574609/pexels-photo-34574609/free-photo-of-bright-modern-room-with-sliding-glass-door.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi ruang terang dengan sliding glass door sebagai gambaran hasil akhir',
+    imagePosition: '68% 50%',
     metric: '4',
     metricLabel: 'detail akhir dicek',
   },
@@ -118,6 +122,7 @@ export function SystemShowcase() {
                   width="1400"
                   height="1000"
                   loading="lazy"
+                  style={{ objectPosition: item.imagePosition }}
                   initial={{ opacity: 0, scale: 1.015 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
