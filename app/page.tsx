@@ -6,6 +6,7 @@ import { ProcessCarousel } from '@/components/ProcessCarousel';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { SystemShowcase } from '@/components/SystemShowcase';
 import { TrustMarquee } from '@/components/TrustMarquee';
+import { HomeHero } from '@/components/HomeHero';
 import { services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -58,51 +59,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="hero section-pad" data-nav-theme="dark">
-        <div className="hero-orb hero-orb-one" aria-hidden="true" />
-        <div className="hero-orb hero-orb-two" aria-hidden="true" />
-        <div className="container hero-grid">
-          <Reveal className="hero-copy">
-            <p className="eyebrow"><span /> FABRIKASI ALUMINIUM & KACA · JABODETABEK</p>
-            <h1>Jasa aluminium & kaca<br /><span>area Jabodetabek.</span></h1>
-            <p className="hero-lead">
-              Melayani pemasangan pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, dan bangunan komersial.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">
-                Konsultasi WhatsApp <span>↗</span>
-              </a>
-              <Link className="button button-ghost" href="/layanan/">Lihat layanan dan produk <span>↗</span></Link>
-            </div>
-            <div className="hero-microproof" aria-label="Ringkasan layanan">
-              <div><strong>05</strong><span>Layanan & produk</span></div>
-              <div><strong>JBDTK</strong><span>Area layanan</span></div>
-              <div><strong>WA</strong><span>Konsultasi langsung</span></div>
-            </div>
-          </Reveal>
-
-          <Reveal className="hero-visual" delay={0.1}>
-            <div className="hero-image-wrap">
-              <img
-                src="https://images.pexels.com/photos/34880778/pexels-photo-34880778/free-photo-of-modern-minimalist-house-facade-in-jakarta.jpeg?auto=compress&cs=tinysrgb&w=1800"
-                alt="Rumah modern minimalis di Jakarta dengan bukaan kaca dan aluminium"
-                width="1200"
-                height="1500"
-                fetchPriority="high"
-              />
-              <div className="hero-image-shade" />
-              <div className="hero-glass-card top">
-                <span className="status-dot" />
-                <div><small>AREA LAYANAN</small><strong>Jabodetabek & sekitarnya</strong></div>
-              </div>
-              <div className="hero-glass-card bottom">
-                <small>ALUMINIUM × GLASS</small>
-                <strong>Ukur tepat.<br />Pasang rapi.</strong>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <HomeHero />
 
       <TrustMarquee />
 
