@@ -71,7 +71,7 @@ export default function HomePage() {
               <a className="button button-primary" href={whatsappHref({ sourcePath: '/' })} target="_blank" rel="noreferrer">
                 Konsultasi WhatsApp <span>↗</span>
               </a>
-              <Link className="button button-ghost" href="/layanan/">Lihat layanan & produk <span>↗</span></Link>
+              <Link className="button button-ghost" href="/layanan/">Lihat layanan dan produk <span>↗</span></Link>
             </div>
             <div className="hero-microproof" aria-label="Ringkasan layanan">
               <div><strong>05</strong><span>Jenis layanan</span></div>
@@ -116,8 +116,8 @@ export default function HomePage() {
         <div className="container">
           <Reveal className="section-heading split-heading">
             <div>
-              <p className="eyebrow">LAYANAN & PRODUK</p>
-              <h2>Layanan & produk.<br /><span>Satu standar pengerjaan rapi.</span></h2>
+              <p className="eyebrow">LAYANAN DAN PRODUK</p>
+              <h2>Layanan dan produk.<br /><span>Satu standar pengerjaan rapi.</span></h2>
             </div>
             <p>Pilih kebutuhan Anda—pintu, jendela, kusen, partisi kaca, atau shower box. Kami bantu dari pengukuran hingga pemasangan.</p>
           </Reveal>
