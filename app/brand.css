@@ -2360,3 +2360,102 @@ textarea {
     transform: none !important;
   }
 }
+
+
+/* ===== Marketing moment responsive hardening =====
+   Framer Motion owns transform for y animation, so centering must never depend on transform. */
+.marketing-moment-copy {
+  inset: 0 !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: clamp(24px, 5vw, 64px) !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: none !important;
+  overflow: hidden;
+}
+
+.marketing-moment-copy .eyebrow,
+.marketing-moment-copy h2 {
+  width: min(100%, 980px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.marketing-moment-copy h2 {
+  max-width: 13ch;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+@media (max-width: 820px) {
+  .marketing-moment-copy {
+    padding:
+      max(86px, env(safe-area-inset-top))
+      24px
+      max(86px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .marketing-moment-copy .eyebrow {
+    width: 100%;
+    max-width: 30ch;
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .marketing-moment-copy h2 {
+    width: 100%;
+    max-width: 10.5ch;
+    font-size: clamp(36px, 9.6vw, 54px) !important;
+    line-height: .98 !important;
+    letter-spacing: -.06em !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .marketing-moment-copy {
+    padding:
+      max(82px, env(safe-area-inset-top))
+      20px
+      max(82px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .marketing-moment-copy h2 {
+    max-width: 10ch;
+    font-size: clamp(32px, 9vw, 42px) !important;
+    line-height: 1 !important;
+  }
+
+  .marketing-moment-copy .eyebrow {
+    max-width: 27ch;
+    font-size: 8px !important;
+    letter-spacing: .1em;
+  }
+
+  .marketing-moment-rail {
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+    transform: none !important;
+    justify-content: center;
+    gap: 8px !important;
+  }
+
+  .marketing-moment-rail span {
+    flex: 0 1 auto;
+    min-width: 0;
+    font-size: 7px !important;
+    letter-spacing: .07em !important;
+    white-space: nowrap;
+  }
+}
