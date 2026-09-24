@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { LineGlyph } from '@/components/LineGlyph';
 import { useHorizontalScrollTracker } from '@/components/useHorizontalScrollTracker';
 
