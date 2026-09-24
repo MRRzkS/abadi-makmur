@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { LineGlyph } from '@/components/LineGlyph';
 import { Reveal } from '@/components/Reveal';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { ProcessCarousel } from '@/components/ProcessCarousel';
-import { MobileMicroAccordion } from '@/components/MobileMicroAccordion';
+import { ServiceDetailPanels } from '@/components/ServiceDetailPanels';
+import { RelatedServicesCollection } from '@/components/RelatedServicesCollection';
 import { serviceBySlug, services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -107,29 +107,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       <section className="section detail-section">
-        <div className="container detail-bento">
-          <Reveal className="detail-card detail-main">
-            <p className="eyebrow">SEBELUM DIPASANG</p>
-            <h2>Ukur dengan tepat.<br /><span>Pasang sesuai kebutuhan.</span></h2>
-            <MobileMicroAccordion summary="Kenapa perlu disesuaikan?">
-              <p>Setiap pekerjaan aluminium dan kaca perlu menyesuaikan ukuran bukaan, arah buka, kondisi dinding, pemakaian ruang, serta pilihan material agar hasil akhirnya rapi dan berfungsi dengan baik.</p>
-            </MobileMicroAccordion>
-          </Reveal>
-          <Reveal className="detail-card detail-benefits" delay={0.04}>
-            <LineGlyph kind="frame" />
-            <p className="detail-label">FOKUS MANFAAT</p>
-            <ul>{service.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
-          </Reveal>
-          <Reveal className="detail-card detail-use" delay={0.08}>
-            <p className="detail-label">COCOK UNTUK</p>
-            <div className="tag-cloud">{service.suitableFor.map((item) => <span key={item}>{item}</span>)}</div>
-            <strong>{service.keyword}<br />Jabodetabek</strong>
-          </Reveal>
-          <Reveal className="detail-card detail-area" delay={0.12}>
-            <p className="detail-label">AREA UTAMA</p>
-            <span className="area-big area-big-wide">JABODETABEK</span>
-            <p>Jakarta, Bogor, Depok, Tangerang, Bekasi, dan area sekitar. Konfirmasi lokasi proyek melalui WhatsApp.</p>
-          </Reveal>
+        <div className="container">
+          <ServiceDetailPanels service={service} />
         </div>
       </section>
 
@@ -148,24 +127,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <Reveal className="section-heading split-heading">
             <div><p className="eyebrow">LAYANAN DAN PRODUK LAINNYA</p><h2>Butuh pekerjaan<br /><span>aluminium atau kaca lainnya?</span></h2></div>
           </Reveal>
-          <div className="related-grid">
-            {services.filter((item) => item.slug !== service.slug).slice(0, 4).map((item, index) => (
-              <Reveal key={item.slug} className={`related-card related-card-${index + 1}`} delay={index * 0.04}>
-                <Link href={`/layanan/${item.slug}/`}>
-                  <div className="related-card-media">
-                    <img src={item.image} alt={item.imageAlt} width="900" height="620" loading="lazy" style={{ objectPosition: item.imagePosition }} />
-                    <span className="reference-badge">REFERENSI PEKERJAAN</span>
-                  </div>
-                  <div className="related-card-body">
-                    <span className="related-card-index">0{index + 1}</span>
-                    <p>{item.keyword} Jabodetabek</p>
-                    <h3>{item.shortTitle}</h3>
-                    <b aria-hidden="true">↗</b>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <RelatedServicesCollection currentSlug={service.slug} />
         </div>
       </section>
 
