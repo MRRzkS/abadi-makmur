@@ -11,6 +11,7 @@ const steps = [
     body: 'Jenis pekerjaan, lokasi, foto kondisi bila ada, serta ukuran perkiraan.',
     image: 'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1400',
     alt: 'Referensi rumah modern dengan bukaan kaca untuk tahap survey dan pengukuran',
+    imagePosition: '50% 44%',
   },
   {
     index: '02',
@@ -18,6 +19,7 @@ const steps = [
     body: 'Bahas jenis bukaan, frame, kaca, serta penyesuaian yang dibutuhkan di lokasi.',
     image: 'https://images.pexels.com/photos/17168858/pexels-photo-17168858/free-photo-of-modern-design-of-room.jpeg?auto=compress&cs=tinysrgb&w=1400',
     alt: 'Referensi ruang modern untuk pembahasan konfigurasi bukaan dan material',
+    imagePosition: '61% 50%',
   },
   {
     index: '03',
@@ -25,6 +27,7 @@ const steps = [
     body: 'Pekerjaan dilanjutkan mengikuti detail yang telah disepakati.',
     image: 'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1400',
     alt: 'Referensi pekerjaan pemasangan panel kaca pada bangunan modern dengan pekerja terlihat dari jarak jauh',
+    imagePosition: '62% 48%',
   },
 ];
 
@@ -59,7 +62,7 @@ export function ProcessCarousel() {
           {steps.map((step) => (
             <article className="process-slide" data-carousel-item key={step.index}>
               <div className="process-slide-image">
-                <img src={step.image} alt={step.alt} width="1000" height="700" loading="lazy" />
+                <img src={step.image} alt={step.alt} width="1000" height="700" loading="lazy" style={{ objectPosition: step.imagePosition }} />
                 <span className="reference-badge">REFERENSI PEKERJAAN</span>
               </div>
               <div className="process-slide-copy">
