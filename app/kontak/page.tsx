@@ -4,8 +4,8 @@ import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Kontak & Konsultasi Aluminium Kaca Tangerang',
-  description: 'Hubungi Abadi Makmur Aluminium untuk konsultasi pintu, jendela, kusen aluminium, partisi kaca dan shower box di Tangerang.',
+  title: 'Kontak & Konsultasi Aluminium Kaca Jabodetabek',
+  description: 'Hubungi Abadi Makmur Aluminium untuk konsultasi pintu, jendela, kusen aluminium, partisi kaca dan shower box untuk area Jabodetabek dan sekitarnya.',
 };
 
 export default function ContactPage() {
@@ -14,7 +14,7 @@ export default function ContactPage() {
       <section className="inner-hero contact-hero section-pad">
         <div className="container contact-hero-grid">
           <Reveal>
-            <p className="eyebrow">KONTAK · TANGERANG</p>
+            <p className="eyebrow">KONTAK · JABODETABEK</p>
             <h1>Ceritakan<br /><span>kebutuhan Anda.</span></h1>
             <p className="inner-lead">Mulai dari informasi yang Anda punya sekarang. Foto kondisi lokasi, perkiraan ukuran, dan jenis kebutuhan sudah cukup untuk membuka percakapan.</p>
           </Reveal>
@@ -41,7 +41,7 @@ export default function ContactPage() {
       <section className="section location-section">
         <div className="container location-card dark-surface" data-nav-theme="dark">
           <Reveal>
-            <p className="eyebrow">LOKASI & AREA</p>
+            <p className="eyebrow">ALAMAT USAHA</p>
             <h2>Cipete, Pinang.<br /><span>Kota Tangerang.</span></h2>
           </Reveal>
           <Reveal className="location-visual" delay={0.08}>
