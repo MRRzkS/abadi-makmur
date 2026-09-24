@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Reveal } from '@/components/Reveal';
+import { ArticleBodyMobile } from '@/components/ArticleBodyMobile';
 import {
   featuredImage,
   getArticleBySlug,
@@ -123,7 +124,7 @@ export default async function ArticleDetailPage({
           )}
 
           <Reveal className="article-body" delay={0.08}>
-            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+            <ArticleBodyMobile html={post.content.rendered} />
           </Reveal>
         </div>
       </article>
