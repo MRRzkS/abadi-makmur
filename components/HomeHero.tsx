@@ -44,7 +44,7 @@ export function HomeHero() {
           <motion.img
             className="home-scroll-hero-image"
             src={heroImage}
-            alt="Rumah modern minimalis di Jakarta dengan jendela dan bukaan kaca yang terlihat utuh"
+            alt="Jendela kaca dan frame aluminium pada rumah modern di Jakarta"
             width="1600"
             height="2000"
             fetchPriority="high"
