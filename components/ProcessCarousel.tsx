@@ -34,9 +34,18 @@ const steps = [
   },
 ];
 
-function StepCard({ step }: { step: (typeof steps)[number] }) {
+function StepCard({
+  step,
+  carouselItem = false,
+}: {
+  step: (typeof steps)[number];
+  carouselItem?: boolean;
+}) {
   return (
-    <article className="process-slide">
+    <article
+      className="process-slide"
+      data-carousel-item={carouselItem ? "" : undefined}
+    >
       <div className="process-slide-image">
         <img
           src={step.image}
@@ -89,9 +98,7 @@ export function ProcessCarousel() {
         >
           <div className="process-carousel-track">
             {steps.map((step) => (
-              <div data-carousel-item key={step.index}>
-                <StepCard step={step} />
-              </div>
+              <StepCard step={step} carouselItem key={step.index} />
             ))}
           </div>
         </div>
