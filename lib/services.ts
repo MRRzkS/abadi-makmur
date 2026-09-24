@@ -18,14 +18,14 @@ export const services: Service[] = [
     slug: 'pintu-aluminium-tangerang',
     keyword: 'pintu aluminium',
     shortTitle: 'Pintu Aluminium',
-    title: 'Pintu Aluminium Tangerang',
+    title: 'Pintu Aluminium Jabodetabek',
     description:
       'Pintu aluminium untuk rumah, toko, kantor, dan area komersial dengan pilihan swing maupun sliding, dikombinasikan dengan kaca sesuai kebutuhan ruang.',
     metaDescription:
-      'Jasa pintu aluminium Tangerang untuk rumah, toko, kantor dan area komersial. Konsultasi model swing/sliding, ukuran dan kombinasi kaca via WhatsApp.',
+      'Jasa pintu aluminium area Jabodetabek untuk rumah, toko, kantor dan area komersial. Konsultasi model swing/sliding, ukuran dan kombinasi kaca via WhatsApp.',
     image:
-      'https://images.pexels.com/photos/3615723/pexels-photo-3615723.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi visual proses aplikasi sealant dan finishing pada pintu kaca sliding',
+      'https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi pintu kaca dengan frame aluminium hitam untuk hunian modern',
     highlight: 'Swing · Sliding · Kaca',
     benefits: [
       'Rangka aluminium ringan dan rapi untuk penggunaan harian',
@@ -48,14 +48,14 @@ export const services: Service[] = [
     slug: 'jendela-aluminium-tangerang',
     keyword: 'jendela aluminium',
     shortTitle: 'Jendela Aluminium',
-    title: 'Jendela Aluminium Tangerang',
+    title: 'Jendela Aluminium Jabodetabek',
     description:
       'Jendela aluminium untuk hunian dan bangunan komersial dengan pendekatan yang bersih, proporsional, serta mudah dipadukan dengan gaya fasad modern.',
     metaDescription:
-      'Jasa jendela aluminium Tangerang untuk rumah dan bangunan komersial. Konsultasi ukuran, tipe bukaan, warna rangka dan pilihan kaca.',
+      'Jasa jendela aluminium area Jabodetabek untuk rumah dan bangunan komersial. Konsultasi ukuran, tipe bukaan, warna rangka dan pilihan kaca.',
     image:
-      'https://images.pexels.com/photos/5768107/pexels-photo-5768107.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi pekerjaan close-up tanpa wajah saat pemasangan frame jendela menggunakan bor',
+      'https://images.pexels.com/photos/19963718/pexels-photo-19963718/free-photo-of-modern-house-windows.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi jendela modern pada rumah dengan frame ramping',
     highlight: 'Ventilasi · Cahaya · Proporsi',
     benefits: [
       'Profil ramping membantu tampilan fasad terasa lebih bersih',
@@ -78,14 +78,14 @@ export const services: Service[] = [
     slug: 'kusen-aluminium-tangerang',
     keyword: 'kusen aluminium',
     shortTitle: 'Kusen Aluminium',
-    title: 'Kusen Aluminium Tangerang',
+    title: 'Kusen Aluminium Jabodetabek',
     description:
       'Kusen aluminium sebagai basis bukaan pintu dan jendela yang rapi, stabil, dan mudah dipadukan dengan berbagai gaya arsitektur.',
     metaDescription:
-      'Jasa kusen aluminium Tangerang untuk pintu dan jendela. Fabrikasi berdasarkan ukuran lokasi, kebutuhan bukaan dan tampilan bangunan.',
+      'Jasa kusen aluminium area Jabodetabek untuk pintu dan jendela. Fabrikasi berdasarkan ukuran lokasi, kebutuhan bukaan dan tampilan bangunan.',
     image:
-      'https://images.pexels.com/photos/5691534/pexels-photo-5691534.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi visual pengukuran presisi pada frame atau kusen sebelum pemasangan',
+      'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi fasad rumah modern dengan kusen, pintu kaca, dan jendela lebar',
     highlight: 'Presisi · Rapi · Adaptif',
     benefits: [
       'Dibuat mengikuti kebutuhan ukuran aktual',
@@ -108,14 +108,14 @@ export const services: Service[] = [
     slug: 'partisi-kaca-tangerang',
     keyword: 'partisi kaca',
     shortTitle: 'Partisi Kaca',
-    title: 'Partisi Kaca Tangerang',
+    title: 'Partisi Kaca Jabodetabek',
     description:
       'Partisi kaca untuk ruang kantor, toko, klinik, studio, atau hunian yang membutuhkan pembagian area tanpa membuat ruang terasa sempit dan gelap.',
     metaDescription:
-      'Jasa partisi kaca Tangerang untuk kantor, toko dan hunian. Pilihan frameless atau kombinasi aluminium untuk ruang yang terasa terang dan modern.',
+      'Jasa partisi kaca area Jabodetabek untuk kantor, toko dan hunian. Pilihan frameless atau kombinasi aluminium untuk ruang yang terasa terang dan modern.',
     image:
-      'https://images.pexels.com/photos/5691501/pexels-photo-5691501.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi pekerjaan pemasangan frame dan panel kaca pada interior bangunan dengan pekerja tidak dikenali',
+      'https://images.pexels.com/photos/5511093/pexels-photo-5511093.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi partisi kaca pada koridor kantor modern yang terang',
     highlight: 'Frameless · Office · Light',
     benefits: [
       'Membagi ruang sambil menjaga aliran cahaya',
@@ -138,14 +138,14 @@ export const services: Service[] = [
     slug: 'shower-box-tangerang',
     keyword: 'shower box',
     shortTitle: 'Shower Box',
-    title: 'Shower Box Tangerang',
+    title: 'Shower Box Jabodetabek',
     description:
       'Shower box kaca untuk memisahkan area basah dan kering dengan tampilan minimal, cocok untuk kamar mandi rumah, apartemen, maupun properti komersial.',
     metaDescription:
-      'Jasa shower box Tangerang dengan kaca untuk kamar mandi rumah, apartemen dan properti komersial. Konsultasi ukuran, bukaan dan hardware.',
+      'Jasa shower box area Jabodetabek dengan kaca untuk kamar mandi rumah, apartemen dan properti komersial. Konsultasi ukuran, bukaan dan hardware.',
     image:
-      'https://images.pexels.com/photos/4239101/pexels-photo-4239101.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    imageAlt: 'Referensi pekerjaan close-up tanpa wajah pada finishing panel kaca shower enclosure',
+      'https://images.pexels.com/photos/7214728/pexels-photo-7214728.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    imageAlt: 'Referensi shower box dengan panel kaca bening pada kamar mandi modern',
     highlight: 'Clean · Dry Zone · Glass',
     benefits: [
       'Membantu memisahkan area basah dan kering',
@@ -172,38 +172,38 @@ export const serviceBySlug = Object.fromEntries(
 
 export const portfolioReferences = [
   {
-    title: 'Finishing pintu kaca sliding',
+    title: 'Ruang dengan sliding kaca',
     category: 'Pintu & Sliding',
     image:
-      'https://images.pexels.com/photos/3615723/pexels-photo-3615723.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi visual teknisi melakukan finishing sealant pada pintu kaca sliding',
+      'https://images.pexels.com/photos/18559636/pexels-photo-18559636/free-photo-of-a-large-empty-room-with-sliding-glass-doors.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi ruang luas dengan sliding glass door',
   },
   {
-    title: 'Pemasangan partisi kaca',
+    title: 'Partisi kaca kantor',
     category: 'Partisi',
     image:
-      'https://images.pexels.com/photos/5691501/pexels-photo-5691501.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi pekerjaan pemasangan partisi kaca pada interior rumah atau ruang usaha dengan pekerja tidak dikenali',
+      'https://images.pexels.com/photos/5511093/pexels-photo-5511093.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi partisi kaca pada koridor kantor modern',
   },
   {
-    title: 'Pemasangan frame jendela',
+    title: 'Sliding kaca modern',
     category: 'Jendela',
     image:
-      'https://images.pexels.com/photos/5768107/pexels-photo-5768107.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi pekerjaan close-up tanpa wajah saat memasang frame jendela',
+      'https://images.pexels.com/photos/34574609/pexels-photo-34574609/free-photo-of-bright-modern-room-with-sliding-glass-door.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi ruang terang dengan sliding glass door',
   },
   {
-    title: 'Finishing shower glass',
+    title: 'Shower box kaca',
     category: 'Shower Box',
     image:
-      'https://images.pexels.com/photos/4239101/pexels-photo-4239101.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi pekerjaan close-up tanpa wajah pada finishing shower glass',
+      'https://images.pexels.com/photos/7214728/pexels-photo-7214728.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi shower box dengan dinding kaca bening',
   },
   {
-    title: 'Pengukuran & alignment frame',
+    title: 'Sliding door hunian',
     category: 'Kusen',
     image:
-      'https://images.pexels.com/photos/5691534/pexels-photo-5691534.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    alt: 'Referensi visual pengukuran presisi pada frame sebelum pemasangan',
+      'https://images.pexels.com/photos/13600834/pexels-photo-13600834.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    alt: 'Referensi sliding door dengan tirai putih pada hunian',
   },
 ];
