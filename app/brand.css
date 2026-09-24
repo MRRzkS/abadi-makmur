@@ -449,3 +449,242 @@ textarea:focus-visible {
     max-height: 38px !important;
   }
 }
+
+
+/* ===== Mobile-first soft redesign · 2026-09 =====
+   The phone experience is the primary composition; desktop progressively expands it. */
+
+.hero-image-wrap > img {
+  filter: brightness(1.14) contrast(1.055) saturate(1.06);
+}
+
+.hero-image-shade {
+  background: linear-gradient(180deg, rgba(22,24,29,.01) 42%, rgba(22,24,29,.24) 100%);
+}
+
+.area-big-wide {
+  font-size: clamp(28px, 4.6vw, 62px) !important;
+  letter-spacing: -.06em !important;
+}
+
+@media (max-width: 820px) {
+  .section {
+    padding: 76px 0;
+  }
+
+  .section-pad,
+  .hero.section-pad {
+    padding-top: 98px;
+  }
+
+  .hero {
+    min-height: 0;
+    padding-bottom: 56px;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 26px;
+  }
+
+  /* Image appears immediately after the navigation on phones. */
+  .hero-visual {
+    order: -1;
+    width: 100%;
+  }
+
+  .hero-copy {
+    order: 0;
+    width: 100%;
+  }
+
+  .hero-image-wrap {
+    min-height: clamp(390px, 66svh, 540px);
+    height: clamp(390px, 66svh, 540px);
+    border-radius: 30px;
+    box-shadow: 0 22px 60px rgba(22,24,29,.18);
+  }
+
+  .hero-image-wrap > img {
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    filter: brightness(1.16) contrast(1.05) saturate(1.07);
+  }
+
+  .hero-glass-card {
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    background: rgba(255,255,255,.07);
+    border-color: rgba(255,255,255,.16);
+    box-shadow:
+      0 8px 32px rgba(0,0,0,.28),
+      inset 0 1px 0 rgba(255,255,255,.24);
+  }
+
+  .hero-glass-card.top {
+    top: 14px;
+    right: 14px;
+    max-width: calc(100% - 28px);
+  }
+
+  .hero-glass-card.bottom {
+    left: 14px;
+    bottom: 14px;
+    min-width: 0;
+    max-width: calc(100% - 28px);
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(42px, 11.8vw, 66px);
+    line-height: .98;
+    letter-spacing: -.055em;
+  }
+
+  .hero-lead {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.68;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    min-height: 54px;
+  }
+
+  .hero-microproof {
+    width: 100%;
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .hero-microproof div {
+    min-width: 0;
+    gap: 5px;
+  }
+
+  .hero-microproof strong {
+    font-size: clamp(13px, 3.6vw, 17px);
+    overflow-wrap: anywhere;
+  }
+
+  .hero-microproof span {
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .split-heading {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 34px;
+  }
+
+  .split-heading > p {
+    justify-self: start;
+    max-width: 100%;
+  }
+
+  .service-bento,
+  .detail-bento,
+  .principle-bento,
+  .local-seo-grid,
+  .inquiry-grid,
+  .contact-planner-grid,
+  .about-visual-grid {
+    gap: 12px;
+  }
+
+  .project-carousel .project-card,
+  .project-carousel.compact .project-card,
+  .process-carousel-track .process-slide {
+    flex-basis: 86%;
+  }
+
+  .carousel-controls button,
+  .vertical-nav button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .system-showcase-grid {
+    gap: 14px;
+  }
+
+  .system-visual {
+    height: min(74svh, 540px);
+  }
+}
+
+@media (max-width: 580px) {
+  .container {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .hero.section-pad {
+    padding-top: 92px;
+  }
+
+  .hero-image-wrap {
+    min-height: 420px;
+    height: 58svh;
+    max-height: 520px;
+    border-radius: 26px;
+  }
+
+  .hero-copy .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .hero-microproof {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .service-bento {
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-card[class*="service-card-"] {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .service-card > a {
+    padding: 22px;
+    gap: 30px;
+    border-radius: 24px;
+  }
+
+  .project-carousel .project-card,
+  .project-carousel.compact .project-card,
+  .process-carousel-track .process-slide {
+    flex-basis: 88%;
+  }
+
+  .process-slide,
+  .project-card {
+    border-radius: 24px;
+  }
+
+  .process-slide-image,
+  .project-image {
+    min-height: 300px;
+  }
+}
