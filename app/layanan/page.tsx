@@ -6,8 +6,8 @@ import { services } from '@/lib/services';
 import { whatsappHref } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Layanan Aluminium & Kaca Tangerang',
-  description: 'Layanan Abadi Makmur Aluminium untuk pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, shower box, sliding, frameless glass dan pekerjaan aluminium kaca di Tangerang.',
+  title: 'Layanan & Produk Aluminium Kaca Jabodetabek',
+  description: 'Layanan dan produk Mestika Abadi Makmur Aluminium untuk pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, shower box, sliding, frameless glass dan kebutuhan aluminium kaca di Jabodetabek dan sekitarnya.',
 };
 
 export default function ServicesPage() {
@@ -18,11 +18,11 @@ export default function ServicesPage() {
       <section className="inner-hero services-page-hero section-pad">
         <div className="container services-hero-grid">
           <Reveal>
-            <p className="eyebrow">LAYANAN · TANGERANG</p>
-            <h1>Pilih layanan<br /><span>aluminium & kaca.</span></h1>
+            <p className="eyebrow">LAYANAN & PRODUK · JABODETABEK</p>
+            <h1>Pilih layanan & produk<br /><span>aluminium & kaca.</span></h1>
           </Reveal>
           <Reveal className="services-hero-copy" delay={0.08}>
-            <p>Melayani pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, serta bangunan komersial di Tangerang.</p>
+            <p>Melayani pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, dan shower box untuk rumah, ruko, kantor, serta bangunan komersial di Jabodetabek dan sekitarnya.</p>
             <a className="text-link" href={whatsappHref({ sourcePath: '/layanan/' })} target="_blank" rel="noreferrer">Konsultasi kebutuhan <span>↗</span></a>
           </Reveal>
         </div>
@@ -51,7 +51,7 @@ export default function ServicesPage() {
 
                     <div className="services-page-actions">
                       <Link className="services-page-detail" href={`/layanan/${service.slug}/`}>
-                        Buka detail layanan <span>↗</span>
+                        Buka detail <span>↗</span>
                       </Link>
                       <a
                         className="services-page-whatsapp"
