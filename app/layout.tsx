@@ -22,18 +22,18 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Mestika Abadi Makmur Aluminium | Aluminium & Kaca Tangerang',
+    default: 'Mestika Abadi Makmur Aluminium | Aluminium & Kaca Jabodetabek',
     template: '%s | Mestika Abadi Makmur Aluminium',
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   category: 'Construction',
   keywords: [
-    'pintu aluminium Tangerang',
-    'jendela aluminium Tangerang',
-    'kusen aluminium Tangerang',
-    'partisi kaca Tangerang',
-    'shower box Tangerang',
+    'pintu aluminium Jabodetabek',
+    'jendela aluminium Jabodetabek',
+    'kusen aluminium Jabodetabek',
+    'partisi kaca Jabodetabek',
+    'shower box Jabodetabek',
   ],
   icons: {
     icon: [
