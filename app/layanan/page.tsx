@@ -39,7 +39,7 @@ export default function ServicesPage() {
               <article className="services-page-card-shell">
                 <div className="services-page-card-layout">
                   <div className="services-page-image">
-                    <img src={service.image} alt={service.imageAlt} width="1000" height="760" loading="lazy" />
+                    <img src={service.image} alt={service.imageAlt} width="1000" height="760" loading="lazy" style={{ objectPosition: service.imagePosition }} />
                     <span className="reference-badge">REFERENSI PEKERJAAN</span>
                   </div>
 
