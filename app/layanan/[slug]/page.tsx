@@ -99,7 +99,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </div>
           </Reveal>
           <Reveal className={`inner-hero-image service-hero-image service-hero-image-${service.slug}`} delay={0.08}>
-            <img src={service.image} alt={service.imageAlt} width="1100" height="1300" fetchPriority="high" />
+            <img src={service.image} alt={service.imageAlt} width="1100" height="1300" fetchPriority="high" style={{ objectPosition: service.imagePosition }} />
             <span className="reference-badge">REFERENSI PEKERJAAN</span>
           </Reveal>
         </div>
@@ -150,7 +150,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <Reveal key={item.slug} className={`related-card related-card-${index + 1}`} delay={index * 0.04}>
                 <Link href={`/layanan/${item.slug}/`}>
                   <div className="related-card-media">
-                    <img src={item.image} alt={item.imageAlt} width="900" height="620" loading="lazy" />
+                    <img src={item.image} alt={item.imageAlt} width="900" height="620" loading="lazy" style={{ objectPosition: item.imagePosition }} />
                     <span className="reference-badge">REFERENSI PEKERJAAN</span>
                   </div>
                   <div className="related-card-body">
