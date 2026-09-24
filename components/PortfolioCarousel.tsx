@@ -45,7 +45,7 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
               transition={{ duration: 0.55, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="project-image">
-                <img src={item.image} alt={item.alt} width="960" height="720" loading="lazy" />
+                <img src={item.image} alt={item.alt} width="960" height="720" loading="lazy" style={{ objectPosition: item.imagePosition }} />
                 <span className="reference-badge">REFERENSI PEKERJAAN</span>
               </div>
               <div className="project-meta">
