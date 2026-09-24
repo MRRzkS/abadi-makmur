@@ -1,23 +1,21 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { portfolioReferences } from '@/lib/services';
-import { LineGlyph } from '@/components/LineGlyph';
-import { useHorizontalScrollTracker } from '@/components/useHorizontalScrollTracker';
+import { motion } from "framer-motion";
+import { portfolioReferences } from "@/lib/services";
+import { LineGlyph } from "@/components/LineGlyph";
+import { useHorizontalScrollTracker } from "@/components/useHorizontalScrollTracker";
 
 export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
-  const {
-    viewportRef,
-    activeIndex,
-    progress,
-    scrollToIndex,
-    scrollByItem,
-  } = useHorizontalScrollTracker(portfolioReferences.length);
+  const { viewportRef, activeIndex, progress, scrollToIndex, scrollByItem } =
+    useHorizontalScrollTracker(portfolioReferences.length);
 
   return (
     <div className="carousel-wrap">
       <div className="carousel-toolbar">
-        <p className="carousel-note">Foto berikut merupakan referensi jenis pekerjaan yang kami layani, bukan dokumentasi proyek Abadi Makmur.</p>
+        <p className="carousel-note">
+          Foto berikut merupakan referensi jenis pekerjaan yang kami layani,
+          bukan dokumentasi proyek Abadi Makmur.
+        </p>
         <div className="carousel-controls" aria-label="Kontrol carousel">
           <button onClick={() => scrollByItem(-1)} aria-label="Geser ke kiri">
             <LineGlyph kind="navLeft" />
@@ -31,9 +29,10 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
       <div
         className="project-carousel-viewport native-horizontal-carousel"
         ref={viewportRef}
+        tabIndex={0}
         aria-label="Portofolio — scroll horizontal"
       >
-        <div className={`project-carousel ${compact ? 'compact' : ''}`}>
+        <div className={`project-carousel ${compact ? "compact" : ""}`}>
           {portfolioReferences.map((item, index) => (
             <motion.article
               className="project-card"
@@ -42,10 +41,21 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.22 }}
-              transition={{ duration: 0.55, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.55,
+                delay: index * 0.04,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
               <div className="project-image">
-                <img src={item.image} alt={item.alt} width="960" height="720" loading="lazy" style={{ objectPosition: item.imagePosition }} />
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  width="960"
+                  height="720"
+                  loading="lazy"
+                  style={{ objectPosition: item.imagePosition }}
+                />
                 <span className="reference-badge">REFERENSI PEKERJAAN</span>
               </div>
               <div className="project-meta">
@@ -65,10 +75,10 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
           {portfolioReferences.map((_, index) => (
             <button
               key={index}
-              className={index === activeIndex ? 'active' : ''}
+              className={index === activeIndex ? "active" : ""}
               onClick={() => scrollToIndex(index)}
               aria-label={`Buka item ${index + 1}`}
-              aria-current={index === activeIndex ? 'true' : undefined}
+              aria-current={index === activeIndex ? "true" : undefined}
             />
           ))}
         </div>
@@ -76,11 +86,12 @@ export function PortfolioCarousel({ compact = false }: { compact?: boolean }) {
           <motion.span
             initial={false}
             animate={{ scaleX: progress }}
-            transition={{ duration: 0.08, ease: 'linear' }}
+            transition={{ duration: 0.08, ease: "linear" }}
           />
         </div>
         <span className="carousel-count">
-          {String(activeIndex + 1).padStart(2, '0')} / {String(portfolioReferences.length).padStart(2, '0')}
+          {String(activeIndex + 1).padStart(2, "0")} /{" "}
+          {String(portfolioReferences.length).padStart(2, "0")}
         </span>
       </div>
     </div>

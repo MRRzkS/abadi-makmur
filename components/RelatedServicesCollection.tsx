@@ -1,25 +1,33 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { LineGlyph } from '@/components/LineGlyph';
-import { useHorizontalScrollTracker } from '@/components/useHorizontalScrollTracker';
-import { services } from '@/lib/services';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { LineGlyph } from "@/components/LineGlyph";
+import { useHorizontalScrollTracker } from "@/components/useHorizontalScrollTracker";
+import { services } from "@/lib/services";
 
-export function RelatedServicesCollection({ currentSlug }: { currentSlug: string }) {
-  const items = services.filter((item) => item.slug !== currentSlug).slice(0, 4);
-  const {
-    viewportRef,
-    activeIndex,
-    progress,
-    scrollToIndex,
-    scrollByItem,
-  } = useHorizontalScrollTracker(items.length);
+export function RelatedServicesCollection({
+  currentSlug,
+}: {
+  currentSlug: string;
+}) {
+  const items = services
+    .filter((item) => item.slug !== currentSlug)
+    .slice(0, 4);
+  const { viewportRef, activeIndex, progress, scrollToIndex, scrollByItem } =
+    useHorizontalScrollTracker(items.length);
 
   const card = (item: (typeof items)[number], index: number) => (
     <Link href={`/layanan/${item.slug}/`}>
       <div className="related-card-media">
-        <img src={item.image} alt={item.imageAlt} width="900" height="620" loading="lazy" style={{ objectPosition: item.imagePosition }} />
+        <img
+          src={item.image}
+          alt={item.imageAlt}
+          width="900"
+          height="620"
+          loading="lazy"
+          style={{ objectPosition: item.imagePosition }}
+        />
         <span className="reference-badge">REFERENSI PEKERJAAN</span>
       </div>
       <div className="related-card-body">
@@ -51,15 +59,37 @@ export function RelatedServicesCollection({ currentSlug }: { currentSlug: string
       <div className="related-mobile-carousel">
         <div className="mobile-carousel-toolbar">
           <p>Geser untuk melihat layanan lainnya.</p>
-          <div className="carousel-controls" aria-label="Kontrol layanan terkait">
-            <button type="button" onClick={() => scrollByItem(-1)} aria-label="Layanan sebelumnya"><LineGlyph kind="navLeft" /></button>
-            <button type="button" onClick={() => scrollByItem(1)} aria-label="Layanan berikutnya"><LineGlyph kind="navRight" /></button>
+          <div
+            className="carousel-controls"
+            aria-label="Kontrol layanan terkait"
+          >
+            <button
+              type="button"
+              onClick={() => scrollByItem(-1)}
+              aria-label="Layanan sebelumnya"
+            >
+              <LineGlyph kind="navLeft" />
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByItem(1)}
+              aria-label="Layanan berikutnya"
+            >
+              <LineGlyph kind="navRight" />
+            </button>
           </div>
         </div>
-        <div className="related-mobile-viewport native-horizontal-carousel" ref={viewportRef}>
+        <div
+          className="related-mobile-viewport native-horizontal-carousel"
+          ref={viewportRef}
+        >
           <div className="related-mobile-track">
             {items.map((item, index) => (
-              <article className="related-card related-mobile-item" data-carousel-item key={item.slug}>
+              <article
+                className="related-card related-mobile-item"
+                data-carousel-item
+                key={item.slug}
+              >
                 {card(item, index)}
               </article>
             ))}
@@ -68,13 +98,27 @@ export function RelatedServicesCollection({ currentSlug }: { currentSlug: string
         <div className="carousel-pagination related-mobile-pagination">
           <div className="carousel-dots">
             {items.map((_, index) => (
-              <button type="button" key={index} className={index === activeIndex ? 'active' : ''} onClick={() => scrollToIndex(index)} aria-label={`Buka layanan ${index + 1}`} />
+              <button
+                type="button"
+                key={index}
+                aria-current={index === activeIndex ? "true" : undefined}
+                className={index === activeIndex ? "active" : ""}
+                onClick={() => scrollToIndex(index)}
+                aria-label={`Buka layanan ${index + 1}`}
+              />
             ))}
           </div>
           <div className="carousel-progress" aria-hidden="true">
-            <motion.span initial={false} animate={{ scaleX: progress }} transition={{ duration: 0.08, ease: 'linear' }} />
+            <motion.span
+              initial={false}
+              animate={{ scaleX: progress }}
+              transition={{ duration: 0.08, ease: "linear" }}
+            />
           </div>
-          <span className="carousel-count">{String(activeIndex + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}</span>
+          <span className="carousel-count">
+            {String(activeIndex + 1).padStart(2, "0")} /{" "}
+            {String(items.length).padStart(2, "0")}
+          </span>
         </div>
       </div>
     </>

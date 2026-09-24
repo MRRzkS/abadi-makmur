@@ -1,46 +1,53 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { LineGlyph } from '@/components/LineGlyph';
-import { MobileMicroAccordion } from '@/components/MobileMicroAccordion';
-import { AboutStoryMoment } from '@/components/AboutStoryMoment';
-import { siteConfig, whatsappHref } from '@/lib/site';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { LineGlyph } from "@/components/LineGlyph";
+import { MobileMicroAccordion } from "@/components/MobileMicroAccordion";
+import { AboutStoryMoment } from "@/components/AboutStoryMoment";
+import { siteConfig, whatsappHref } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'Tentang Mestika Abadi Makmur Aluminium',
+  alternates: { canonical: "/tentang/" },
+  title: "Tentang Mestika Abadi Makmur Aluminium",
   description:
-    'Tentang Mestika Abadi Makmur Aluminium (CV Kristian Abadi), layanan fabrikasi dan pemasangan aluminium & kaca untuk rumah, ruko, kantor, dan bangunan komersial di Jabodetabek dan sekitarnya.',
+    "Tentang Mestika Abadi Makmur Aluminium (CV Kristian Abadi), layanan fabrikasi dan pemasangan aluminium & kaca untuk rumah, ruko, kantor, dan bangunan komersial di Jabodetabek dan sekitarnya.",
 };
 
 const heroImage =
-  'https://images.pexels.com/photos/5511093/pexels-photo-5511093.jpeg?auto=compress&cs=tinysrgb&w=1800';
+  "https://images.pexels.com/photos/5511093/pexels-photo-5511093.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 const principleImage =
-  'https://images.pexels.com/photos/17168858/pexels-photo-17168858/free-photo-of-modern-design-of-room.jpeg?auto=compress&cs=tinysrgb&w=1800';
+  "https://images.pexels.com/photos/17168858/pexels-photo-17168858/free-photo-of-modern-design-of-room.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 const ctaImage =
-  'https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1800';
+  "https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 export default function AboutPage() {
   return (
     <>
-      <section className="about-refined-hero section-pad" data-nav-theme="light">
+      <section
+        className="about-refined-hero section-pad"
+        data-nav-theme="light"
+      >
         <div className="container about-refined-hero-grid">
           <div className="about-refined-hero-copy">
-            <p className="eyebrow">TENTANG · {siteConfig.legalName.toUpperCase()}</p>
+            <p className="eyebrow">
+              TENTANG · {siteConfig.legalName.toUpperCase()}
+            </p>
             <h1>
               Aluminium & kaca
               <br />
               <span>yang menyesuaikan ruang.</span>
             </h1>
             <p>
-              Mestika Abadi Makmur Aluminium melayani fabrikasi dan pemasangan untuk rumah,
-              ruko, kantor, dan bangunan komersial di Jabodetabek dan sekitarnya.
+              Mestika Abadi Makmur Aluminium melayani fabrikasi dan pemasangan
+              untuk rumah, ruko, kantor, dan bangunan komersial di Jabodetabek
+              dan sekitarnya.
             </p>
 
             <div className="about-refined-hero-actions">
               <a
                 className="button button-primary"
-                href={whatsappHref({ sourcePath: '/tentang/' })}
+                href={whatsappHref({ sourcePath: "/tentang/" })}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -87,7 +94,7 @@ export default function AboutPage() {
               width="1300"
               height="1000"
               loading="lazy"
-              style={{ objectPosition: '61% 50%' }}
+              style={{ objectPosition: "61% 50%" }}
             />
             <span className="reference-badge">REFERENSI PEKERJAAN</span>
           </div>
@@ -102,13 +109,16 @@ export default function AboutPage() {
 
             <MobileMicroAccordion summary="Bagaimana kami menentukan pengerjaan?">
               <p>
-                Ukuran aktual, fungsi ruang, arah bukaan, jenis kaca, frame, hardware, dan
-                kondisi lokasi menjadi dasar untuk menentukan sistem yang sesuai sebelum
-                pengerjaan dilakukan.
+                Ukuran aktual, fungsi ruang, arah bukaan, jenis kaca, frame,
+                hardware, dan kondisi lokasi menjadi dasar untuk menentukan
+                sistem yang sesuai sebelum pengerjaan dilakukan.
               </p>
             </MobileMicroAccordion>
 
-            <div className="about-refined-pills" aria-label="Tahapan utama pengerjaan">
+            <div
+              className="about-refined-pills"
+              aria-label="Tahapan utama pengerjaan"
+            >
               <span>Ukur aktual</span>
               <span>Pilih sistem</span>
               <span>Pasang rapi</span>
@@ -131,8 +141,9 @@ export default function AboutPage() {
               </h2>
             </div>
             <p>
-              Setiap proyek bisa berbeda. Karena itu keputusan material dan sistem harus
-              mengikuti kondisi ruang, bukan sekadar memilih tampilan.
+              Setiap proyek bisa berbeda. Karena itu keputusan material dan
+              sistem harus mengikuti kondisi ruang, bukan sekadar memilih
+              tampilan.
             </p>
           </div>
 
@@ -144,7 +155,10 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3>Konteks lokasi</h3>
-                <p>Ukuran dan kondisi aktual menjadi titik awal sebelum fabrikasi.</p>
+                <p>
+                  Ukuran dan kondisi aktual menjadi titik awal sebelum
+                  fabrikasi.
+                </p>
               </div>
             </article>
 
@@ -155,7 +169,10 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3>Proporsi & fungsi</h3>
-                <p>Frame, kaca, arah bukaan, dan hardware harus bekerja sebagai satu sistem.</p>
+                <p>
+                  Frame, kaca, arah bukaan, dan hardware harus bekerja sebagai
+                  satu sistem.
+                </p>
               </div>
             </article>
 
@@ -166,7 +183,10 @@ export default function AboutPage() {
               </div>
               <div>
                 <h3>Hasil yang rapi</h3>
-                <p>Finishing dan alignment diarahkan agar hasil akhir terasa menyatu dengan ruang.</p>
+                <p>
+                  Finishing dan alignment diarahkan agar hasil akhir terasa
+                  menyatu dengan ruang.
+                </p>
               </div>
             </article>
           </div>
@@ -193,11 +213,14 @@ export default function AboutPage() {
               <br />
               <span>aluminium atau kaca?</span>
             </h2>
-            <p>Kirim kebutuhan, lokasi, dan foto kondisi ruang agar konsultasi lebih terarah.</p>
+            <p>
+              Kirim kebutuhan, lokasi, dan foto kondisi ruang agar konsultasi
+              lebih terarah.
+            </p>
             <div className="about-refined-cta-actions">
               <a
                 className="button button-light"
-                href={whatsappHref({ sourcePath: '/tentang/' })}
+                href={whatsappHref({ sourcePath: "/tentang/" })}
                 target="_blank"
                 rel="noreferrer"
               >

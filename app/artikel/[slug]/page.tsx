@@ -1,19 +1,19 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { Reveal } from '@/components/Reveal';
-import { ArticleBodyMobile } from '@/components/ArticleBodyMobile';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Reveal } from "@/components/Reveal";
+import { ArticleBodyMobile } from "@/components/ArticleBodyMobile";
 import {
   featuredImage,
   getArticleBySlug,
   getArticleSlugs,
   plainText,
-} from '@/lib/wordpress';
-import { siteConfig } from '@/lib/site';
+} from "@/lib/wordpress";
+import { siteConfig } from "@/lib/site";
 
 export const dynamicParams = false;
 
-const CMS_PLACEHOLDER = '__cms-placeholder';
+const CMS_PLACEHOLDER = "__cms-placeholder";
 
 export async function generateStaticParams() {
   const slugs = await getArticleSlugs();
@@ -28,7 +28,7 @@ export async function generateMetadata({
   const { slug } = await params;
   if (slug === CMS_PLACEHOLDER) {
     return {
-      title: 'Artikel CMS',
+      title: "Artikel CMS",
       robots: { index: false, follow: false },
     };
   }
@@ -44,11 +44,11 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `${siteConfig.url}/artikel/${post.slug}`,
+      canonical: `${siteConfig.url}/artikel/${post.slug}/`,
     },
     openGraph: {
-      type: 'article',
-      locale: 'id_ID',
+      type: "article",
+      locale: "id_ID",
       title,
       description,
       publishedTime: post.date,
@@ -71,8 +71,13 @@ export default async function ArticleDetailPage({
         <div className="container article-empty">
           <p className="eyebrow">ARTIKEL</p>
           <h1>Artikel belum tersedia.</h1>
-          <p>Silakan kembali ke halaman artikel untuk melihat panduan yang sudah tersedia.</p>
-          <Link className="text-link" href="/artikel/">Kembali ke artikel <span>↗</span></Link>
+          <p>
+            Silakan kembali ke halaman artikel untuk melihat panduan yang sudah
+            tersedia.
+          </p>
+          <Link className="text-link" href="/artikel/">
+            Kembali ke artikel <span>↗</span>
+          </Link>
         </div>
       </section>
     );
@@ -83,19 +88,19 @@ export default async function ArticleDetailPage({
 
   const title = plainText(post.title.rendered);
   const image = featuredImage(post);
-  const published = new Intl.DateTimeFormat('id-ID', {
-    dateStyle: 'long',
+  const published = new Intl.DateTimeFormat("id-ID", {
+    dateStyle: "long",
   }).format(new Date(post.date));
 
   const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
     headline: title,
     datePublished: post.date,
     dateModified: post.modified || post.date,
-    mainEntityOfPage: `${siteConfig.url}/artikel/${post.slug}`,
+    mainEntityOfPage: `${siteConfig.url}/artikel/${post.slug}/`,
     publisher: {
-      '@type': 'Organization',
+      "@type": "Organization",
       name: siteConfig.name,
     },
     ...(image ? { image: [image.src] } : {}),
@@ -105,21 +110,33 @@ export default async function ArticleDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
+        }}
       />
 
       <article className="article-detail section-pad">
         <div className="container article-detail-shell">
           <Reveal className="article-detail-header">
-            <Link className="back-link" href="/artikel/">← Semua artikel</Link>
+            <Link className="back-link" href="/artikel/">
+              ← Semua artikel
+            </Link>
             <p className="eyebrow">ARTIKEL · {published.toUpperCase()}</p>
             <h1>{title}</h1>
-            <p className="article-detail-intro">{plainText(post.excerpt.rendered)}</p>
+            <p className="article-detail-intro">
+              {plainText(post.excerpt.rendered)}
+            </p>
           </Reveal>
 
           {image && (
             <Reveal className="article-detail-cover" delay={0.06}>
-              <img src={image.src} alt={image.alt} width="1400" height="900" fetchPriority="high" />
+              <img
+                src={image.src}
+                alt={image.alt}
+                width="1400"
+                height="900"
+                fetchPriority="high"
+              />
             </Reveal>
           )}
 

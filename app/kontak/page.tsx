@@ -1,24 +1,28 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
-import { siteConfig, whatsappHref } from '@/lib/site';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { WhatsAppPlanner } from "@/components/WhatsAppPlanner";
+import { siteConfig, whatsappHref } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'Kontak & Konsultasi Aluminium Kaca Jabodetabek',
+  alternates: { canonical: "/kontak/" },
+  title: "Kontak & Konsultasi Aluminium Kaca Jabodetabek",
   description:
-    'Hubungi Mestika Abadi Makmur Aluminium untuk konsultasi pintu, jendela, kusen aluminium, partisi kaca, shower box, dan kebutuhan aluminium kaca di Jabodetabek dan sekitarnya.',
+    "Hubungi Mestika Abadi Makmur Aluminium untuk konsultasi pintu, jendela, kusen aluminium, partisi kaca, shower box, dan kebutuhan aluminium kaca di Jabodetabek dan sekitarnya.",
 };
 
 const heroImage =
-  'https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1800';
+  "https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 const locationImage =
-  'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1800';
+  "https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 export default function ContactPage() {
   return (
     <>
-      <section className="contact-refined-hero section-pad" data-nav-theme="light">
+      <section
+        className="contact-refined-hero section-pad"
+        data-nav-theme="light"
+      >
         <div className="container contact-refined-hero-grid">
           <div className="contact-refined-hero-copy">
             <p className="eyebrow">KONTAK · JABODETABEK</p>
@@ -28,20 +32,26 @@ export default function ContactPage() {
               <span>kebutuhan Anda.</span>
             </h1>
             <p>
-              Kirim jenis kebutuhan, lokasi proyek, dan foto kondisi bila ada. Informasi awal itu
-              sudah cukup untuk memulai konsultasi aluminium dan kaca.
+              Kirim jenis kebutuhan, lokasi proyek, dan foto kondisi bila ada.
+              Informasi awal itu sudah cukup untuk memulai konsultasi aluminium
+              dan kaca.
             </p>
 
             <div className="contact-refined-hero-actions">
               <a
                 className="button button-primary"
-                href={whatsappHref({ sourcePath: '/kontak/' })}
+                href={whatsappHref({ sourcePath: "/kontak/" })}
                 target="_blank"
                 rel="noreferrer"
               >
                 Chat WhatsApp <span>↗</span>
               </a>
-              <a className="contact-refined-number" href={whatsappHref({ sourcePath: '/kontak/' })} target="_blank" rel="noreferrer">
+              <a
+                className="contact-refined-number"
+                href={whatsappHref({ sourcePath: "/kontak/" })}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {siteConfig.whatsappDisplay}
               </a>
             </div>
@@ -72,11 +82,18 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="container contact-refined-facts" aria-label="Informasi kontak utama">
+        <div
+          className="container contact-refined-facts"
+          aria-label="Informasi kontak utama"
+        >
           <article>
             <span>WHATSAPP</span>
             <strong>{siteConfig.whatsappDisplay}</strong>
-            <a href={whatsappHref({ sourcePath: '/kontak/' })} target="_blank" rel="noreferrer">
+            <a
+              href={whatsappHref({ sourcePath: "/kontak/" })}
+              target="_blank"
+              rel="noreferrer"
+            >
               Mulai chat ↗
             </a>
           </article>
@@ -105,11 +122,14 @@ export default function ContactPage() {
               <span>form yang rumit.</span>
             </h2>
             <p>
-              Pilih kebutuhan, tulis lokasi proyek, dan tambahkan catatan singkat. Pesan akan
-              disiapkan otomatis untuk WhatsApp.
+              Pilih kebutuhan, tulis lokasi proyek, dan tambahkan catatan
+              singkat. Pesan akan disiapkan otomatis untuk WhatsApp.
             </p>
 
-            <div className="contact-refined-checks" aria-label="Informasi yang membantu konsultasi">
+            <div
+              className="contact-refined-checks"
+              aria-label="Informasi yang membantu konsultasi"
+            >
               <span>Jenis produk</span>
               <span>Lokasi proyek</span>
               <span>Ukuran / foto bila ada</span>
@@ -143,7 +163,12 @@ export default function ContactPage() {
             <p>{siteConfig.address}</p>
 
             <div className="contact-refined-location-actions">
-              <a className="button button-light" href={siteConfig.mapsUrl} target="_blank" rel="noreferrer">
+              <a
+                className="button button-light"
+                href={siteConfig.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Buka Google Maps <span>↗</span>
               </a>
               <Link className="button button-dark-ghost" href="/layanan/">

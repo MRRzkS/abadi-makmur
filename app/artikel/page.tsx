@@ -1,13 +1,15 @@
-import type { Metadata } from 'next';
-import { Reveal } from '@/components/Reveal';
-import { ArticlesCollection } from '@/components/ArticlesCollection';
-import { featuredImage, getArticles, plainText } from '@/lib/wordpress';
+import type { Metadata } from "next";
+import { Reveal } from "@/components/Reveal";
+import { ArticlesCollection } from "@/components/ArticlesCollection";
+import { featuredImage, getArticles, plainText } from "@/lib/wordpress";
 
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: 'Artikel Aluminium & Kaca',
-  description: 'Artikel, panduan, inspirasi dan tips seputar pintu aluminium, jendela aluminium, kusen, partisi kaca, shower box dan perawatan aluminium kaca.',
+  alternates: { canonical: "/artikel/" },
+  title: "Artikel Aluminium & Kaca",
+  description:
+    "Artikel, panduan, inspirasi dan tips seputar pintu aluminium, jendela aluminium, kusen, partisi kaca, shower box dan perawatan aluminium kaca.",
 };
 
 export default async function ArticlesPage() {
@@ -19,10 +21,18 @@ export default async function ArticlesPage() {
         <div className="container article-hero-grid">
           <Reveal>
             <p className="eyebrow">PANDUAN ALUMINIUM & KACA</p>
-            <h1>Lebih yakin sebelum<br /><span>memilih layanan.</span></h1>
+            <h1>
+              Lebih yakin sebelum
+              <br />
+              <span>memilih layanan.</span>
+            </h1>
           </Reveal>
           <Reveal className="article-hero-copy" delay={0.08}>
-            <p>Panduan praktis seputar pintu, jendela, kusen aluminium, partisi kaca, shower box, perawatan, dan hal yang perlu dipertimbangkan sebelum pemasangan.</p>
+            <p>
+              Panduan praktis seputar pintu, jendela, kusen aluminium, partisi
+              kaca, shower box, perawatan, dan hal yang perlu dipertimbangkan
+              sebelum pemasangan.
+            </p>
           </Reveal>
         </div>
       </section>
@@ -36,7 +46,9 @@ export default async function ArticlesPage() {
                 return {
                   id: post.id,
                   slug: post.slug,
-                  date: new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium' }).format(new Date(post.date)),
+                  date: new Intl.DateTimeFormat("id-ID", {
+                    dateStyle: "medium",
+                  }).format(new Date(post.date)),
                   title: plainText(post.title.rendered),
                   excerpt: plainText(post.excerpt.rendered),
                   image,
@@ -47,7 +59,11 @@ export default async function ArticlesPage() {
             <Reveal className="article-empty">
               <p className="eyebrow">PANDUAN & TIPS</p>
               <h2>Artikel segera hadir.</h2>
-              <p>Kami sedang menyiapkan panduan seputar aluminium dan kaca agar Anda lebih mudah memahami pilihan material, perawatan, dan kebutuhan pemasangan.</p>
+              <p>
+                Kami sedang menyiapkan panduan seputar aluminium dan kaca agar
+                Anda lebih mudah memahami pilihan material, perawatan, dan
+                kebutuhan pemasangan.
+              </p>
               <div className="article-topics">
                 <span>Pintu aluminium</span>
                 <span>Jendela aluminium</span>

@@ -1138,309 +1138,6 @@ textarea:focus-visible {
 }
 
 
-/* ===== Micro-scroll image-first hero ===== */
-.home-scroll-hero {
-  position: relative;
-  height: calc(100svh + 112px);
-  background: var(--secondary);
-}
-
-.home-scroll-hero-stage {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100svh;
-  overflow: hidden;
-  background: #0f1116;
-  isolation: isolate;
-}
-
-.home-scroll-hero-media,
-.home-scroll-hero-ambient,
-.home-scroll-hero-image,
-.home-scroll-hero-veil {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.home-scroll-hero-media {
-  overflow: hidden;
-  background: #0f1116;
-}
-
-.home-scroll-hero-ambient {
-  object-fit: cover;
-  transform: scale(1.08);
-  filter: blur(28px) brightness(.56) saturate(1.08);
-  opacity: .58;
-}
-
-.home-scroll-hero-image {
-  z-index: 1;
-  object-fit: contain;
-  object-position: 50% 50%;
-  will-change: filter, transform;
-}
-
-.home-scroll-hero-veil {
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(8,10,14,.04) 0%, rgba(8,10,14,.12) 52%, rgba(8,10,14,.28) 100%);
-}
-
-.home-scroll-hero-copy {
-  position: absolute;
-  z-index: 4;
-  inset: 0;
-  width: min(100% - 40px, 900px);
-  height: max-content;
-  margin: auto;
-  padding: 26px 30px;
-  text-align: center;
-  color: #fff;
-  pointer-events: none;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 32px;
-  background: rgba(255,255,255,.04);
-  box-shadow:
-    0 8px 32px rgba(0,0,0,.32),
-    inset 0 1px 0 rgba(255,255,255,.14);
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
-}
-
-.home-scroll-hero-copy::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  opacity: .018;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E");
-}
-
-.home-scroll-hero-copy[data-active='true'] {
-  pointer-events: auto;
-}
-
-.home-scroll-hero-copy .eyebrow {
-  justify-content: center;
-  margin-bottom: 14px;
-  color: rgba(255,255,255,.58);
-}
-
-.home-scroll-hero-copy h1 {
-  max-width: 12ch;
-  margin: 0 auto;
-  color: #fff;
-  font-size: clamp(46px, 5.4vw, 72px);
-  line-height: .96;
-  letter-spacing: -.055em;
-  text-wrap: balance;
-}
-
-.home-scroll-hero-copy h1 span {
-  color: rgba(255,255,255,.7);
-}
-
-.home-scroll-hero-lead {
-  max-width: 650px;
-  margin: 18px auto 0;
-  color: rgba(255,255,255,.72);
-  font-size: clamp(14px, 1.25vw, 17px);
-  line-height: 1.62;
-}
-
-.home-scroll-hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 22px;
-}
-
-.home-scroll-hero-actions .button {
-  min-height: 46px;
-  border-radius: 999px;
-  padding-inline: 20px;
-}
-
-.home-scroll-hero-secondary {
-  color: rgba(255,255,255,.9);
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.045);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-}
-
-.home-scroll-hero-secondary:hover {
-  color: #fff;
-  background: rgba(255,255,255,.085);
-}
-
-.home-scroll-hero-glass {
-  width: fit-content;
-  margin: 18px auto 0;
-  padding: 9px 13px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 999px;
-  background: rgba(255,255,255,.035);
-  backdrop-filter: blur(20px) saturate(200%);
-  -webkit-backdrop-filter: blur(20px) saturate(200%);
-}
-
-.home-scroll-hero-glass small,
-.home-scroll-hero-glass strong {
-  display: block;
-  text-align: left;
-}
-
-.home-scroll-hero-glass small {
-  color: rgba(255,255,255,.42);
-  font-size: 9px;
-  letter-spacing: .1em;
-}
-
-.home-scroll-hero-glass strong {
-  margin-top: 2px;
-  color: #fff;
-  font-size: 12px;
-  letter-spacing: -.02em;
-}
-
-.home-scroll-hint {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  display: grid;
-  justify-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,.62);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  pointer-events: none;
-}
-
-.home-scroll-hint i {
-  width: 1px;
-  height: 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,.7), transparent);
-}
-
-@media (max-width: 820px) {
-  .home-scroll-hero {
-    height: calc(100svh + 92px);
-  }
-
-  .home-scroll-hero-image {
-    object-position: 50% 50%;
-  }
-
-  .home-scroll-hero-copy {
-    width: min(100% - 24px, 620px);
-    padding: 22px 18px;
-    border-radius: 26px;
-  }
-
-  .home-scroll-hero-copy h1 {
-    max-width: 11ch;
-    font-size: clamp(36px, 9.7vw, 50px);
-    line-height: .98;
-  }
-
-  .home-scroll-hero-lead {
-    max-width: 35ch;
-    margin-top: 14px;
-    font-size: 13px;
-    line-height: 1.55;
-  }
-
-  .home-scroll-hero-actions {
-    margin-top: 18px;
-  }
-
-  .home-scroll-hero-actions .button {
-    min-height: 44px;
-    padding-inline: 16px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 520px) {
-  .home-scroll-hero {
-    height: calc(100svh + 84px);
-  }
-
-  .home-scroll-hero-copy {
-    width: calc(100% - 20px);
-    padding: 20px 14px;
-    border-radius: 22px;
-  }
-
-  .home-scroll-hero-copy .eyebrow {
-    margin-bottom: 11px;
-    font-size: 9px;
-  }
-
-  .home-scroll-hero-copy h1 {
-    font-size: clamp(32px, 9.6vw, 43px);
-  }
-
-  .home-scroll-hero-lead {
-    max-width: 32ch;
-    font-size: 12.5px;
-  }
-
-  .home-scroll-hero-actions {
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .home-scroll-hero-glass {
-    margin-top: 14px;
-  }
-
-  .home-scroll-hint {
-    bottom: 16px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-scroll-hero {
-    height: 100svh;
-  }
-
-  .home-scroll-hero-image {
-    filter: brightness(.82) !important;
-  }
-
-  .home-scroll-hero-veil {
-    opacity: .34 !important;
-  }
-}
-
-
-/* ===== Product-first photography framing =====
-   Keep every client-selected source photo; only change the visible crop. */
-.home-scroll-hero-image {
-  object-fit: cover !important;
-  object-position: 50% 40% !important;
-}
-
-.home-scroll-hero-ambient {
-  object-fit: cover !important;
-  object-position: 50% 40% !important;
-}
-
 /* Cards should sell the aluminium/glass element, not the entire room/building. */
 .services-page-image,
 .related-card-media,
@@ -1491,18 +1188,10 @@ textarea:focus-visible {
   transform-origin: center;
 }
 
-@media (min-width: 821px) {
-  .home-scroll-hero-image,
-  .home-scroll-hero-ambient {
-    object-position: 50% 39% !important;
-  }
-}
+
 
 @media (max-width: 820px) {
-  .home-scroll-hero-image,
-  .home-scroll-hero-ambient {
-    object-position: 50% 41% !important;
-  }
+
 
   .services-page-image img,
   .project-image img,
@@ -1517,10 +1206,7 @@ textarea:focus-visible {
 }
 
 @media (max-width: 520px) {
-  .home-scroll-hero-image,
-  .home-scroll-hero-ambient {
-    object-position: 50% 42% !important;
-  }
+
 }
 
 
@@ -1529,7 +1215,6 @@ textarea:focus-visible {
 /* Exact Liquid-Glass matrix for navigational glass, floating trays, and interactive controls. */
 .glass-panel,
 .liquid-glass,
-.home-scroll-hero-copy,
 .site-header .nav-shell,
 .site-header .mobile-nav {
   background: rgba(255,255,255,.04) !important;
@@ -1555,7 +1240,6 @@ textarea:focus-visible {
 /* The exact glass matrix includes a physical micro-grain under 3% opacity. */
 .site-header .nav-shell::after,
 .site-header .mobile-nav::after,
-.home-scroll-hero-copy::after,
 .liquid-glass::after,
 .glass-panel::after {
   opacity: .02 !important;
@@ -1638,7 +1322,6 @@ textarea:focus-visible {
 }
 
 /* Premium typography: only configured Geist / Plus Jakarta Sans, with deliberate tight tracking. */
-.home-scroll-hero-copy h1,
 .inner-hero h1,
 .section-heading h2,
 .process-intro h2,
@@ -5646,7 +5329,7 @@ textarea {
   }
 
   .footer-links a {
-    min-height: 28px;
+    min-height: 44px;
     display: flex;
     align-items: center;
     font-size: 11px !important;
@@ -5732,8 +5415,8 @@ textarea {
   }
 
   .carousel-dots button {
-    min-width: 20px !important;
-    width: 20px;
+    min-width: 44px !important;
+    width: 44px;
     min-height: 44px !important;
     height: 44px;
   }

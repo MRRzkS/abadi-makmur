@@ -1,23 +1,27 @@
-import type { Metadata } from 'next';
-import { ServicesPageCatalog } from '@/components/ServicesPageCatalog';
-import { whatsappHref } from '@/lib/site';
+import type { Metadata } from "next";
+import { ServicesPageCatalog } from "@/components/ServicesPageCatalog";
+import { whatsappHref } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: 'Layanan dan Produk Aluminium Kaca Jabodetabek',
+  alternates: { canonical: "/layanan/" },
+  title: "Layanan dan Produk Aluminium Kaca Jabodetabek",
   description:
-    'Layanan dan produk Mestika Abadi Makmur Aluminium untuk pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, shower box, sliding, frameless glass dan kebutuhan aluminium kaca di Jabodetabek dan sekitarnya.',
+    "Layanan dan produk Mestika Abadi Makmur Aluminium untuk pintu aluminium, jendela aluminium, kusen aluminium, partisi kaca, shower box, sliding, frameless glass dan kebutuhan aluminium kaca di Jabodetabek dan sekitarnya.",
 };
 
 const heroImage =
-  'https://images.pexels.com/photos/19963718/pexels-photo-19963718/free-photo-of-modern-house-windows.jpeg?auto=compress&cs=tinysrgb&w=1800';
+  "https://images.pexels.com/photos/19963718/pexels-photo-19963718/free-photo-of-modern-house-windows.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 const ctaImage =
-  'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1800';
+  "https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1800";
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="services-refined-hero section-pad" data-nav-theme="light">
+      <section
+        className="services-refined-hero section-pad"
+        data-nav-theme="light"
+      >
         <div className="container services-refined-hero-grid">
           <div className="services-refined-hero-copy">
             <p className="eyebrow">LAYANAN DAN PRODUK · JABODETABEK</p>
@@ -27,14 +31,14 @@ export default function ServicesPage() {
               <span>untuk kebutuhan ruang Anda.</span>
             </h1>
             <p>
-              Pilih pintu, jendela, kusen, partisi kaca, atau shower box. Kami bantu dari
-              pengukuran, pemilihan sistem, hingga pemasangan.
+              Pilih pintu, jendela, kusen, partisi kaca, atau shower box. Kami
+              bantu dari pengukuran, pemilihan sistem, hingga pemasangan.
             </p>
 
             <div className="services-refined-hero-actions">
               <a
                 className="button button-primary"
-                href={whatsappHref({ sourcePath: '/layanan/' })}
+                href={whatsappHref({ sourcePath: "/layanan/" })}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -45,7 +49,10 @@ export default function ServicesPage() {
               </a>
             </div>
 
-            <div className="services-refined-tags" aria-label="Pilihan layanan utama">
+            <div
+              className="services-refined-tags"
+              aria-label="Pilihan layanan utama"
+            >
               <span>Pintu</span>
               <span>Jendela</span>
               <span>Kusen</span>
@@ -99,11 +106,12 @@ export default function ServicesPage() {
               <span>spandrel, atau custom.</span>
             </h2>
             <p>
-              Kirim kebutuhan dan foto kondisi lokasi. Kami bantu arahkan pilihan yang sesuai.
+              Kirim kebutuhan dan foto kondisi lokasi. Kami bantu arahkan
+              pilihan yang sesuai.
             </p>
             <a
               className="button button-light"
-              href={whatsappHref({ sourcePath: '/layanan/' })}
+              href={whatsappHref({ sourcePath: "/layanan/" })}
               target="_blank"
               rel="noreferrer"
             >

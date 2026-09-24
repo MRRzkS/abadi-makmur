@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "check:brand": "node scripts/check-brand-assets.mjs",
-    "audit:prod": "npm audit --omit=dev --audit-level=high"
+    "audit:prod": "npm audit --omit=dev --audit-level=high",
+    "test:ui": "playwright test"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
@@ -17,6 +18,8 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^22.18.10",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value));
@@ -17,7 +17,7 @@ export function useHorizontalScrollTracker(itemCount: number) {
     if (!viewport || itemCount <= 0) return;
 
     const cards = Array.from(
-      viewport.querySelectorAll<HTMLElement>('[data-carousel-item]'),
+      viewport.querySelectorAll<HTMLElement>("[data-carousel-item]"),
     );
 
     if (!cards.length) {
@@ -27,35 +27,28 @@ export function useHorizontalScrollTracker(itemCount: number) {
     }
 
     const viewportRect = viewport.getBoundingClientRect();
-    const firstRect = cards[0].getBoundingClientRect();
-    const lastRect = cards[cards.length - 1].getBoundingClientRect();
-
-    const firstFullyVisible = firstRect.left >= viewportRect.left - 2;
-    const lastFullyVisible =
-      lastRect.right <= viewportRect.right + 2 &&
-      lastRect.left < viewportRect.right;
-
     const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
-    const rawRatio = maxScroll === 0 ? 0 : clamp(viewport.scrollLeft / maxScroll);
-
-    const visualRatio = lastFullyVisible
-      ? 1
-      : firstFullyVisible
-        ? 0
-        : rawRatio;
-
-    const index = lastFullyVisible
-      ? itemCount - 1
-      : firstFullyVisible
-        ? 0
-        : Math.round(visualRatio * (itemCount - 1));
+    const visualRatio =
+      maxScroll === 0 ? 0 : clamp(viewport.scrollLeft / maxScroll);
+    const nearestIndex = cards.reduce(
+      (nearest, card, index) =>
+        Math.abs(card.getBoundingClientRect().left - viewportRect.left) <
+        Math.abs(
+          cards[nearest].getBoundingClientRect().left - viewportRect.left,
+        )
+          ? index
+          : nearest,
+      0,
+    );
+    const index =
+      maxScroll > 0 && viewport.scrollLeft >= maxScroll - 2
+        ? itemCount - 1
+        : nearestIndex;
 
     setActiveIndex(clamp(index, 0, itemCount - 1));
 
     const trackedProgress =
-      itemCount <= 1
-        ? 1
-        : (1 + visualRatio * (itemCount - 1)) / itemCount;
+      itemCount <= 1 ? 1 : (1 + visualRatio * (itemCount - 1)) / itemCount;
 
     setProgress(clamp(trackedProgress));
   }, [itemCount]);
@@ -74,15 +67,15 @@ export function useHorizontalScrollTracker(itemCount: number) {
     };
 
     sync();
-    viewport.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    viewport.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
 
     const resizeObserver = new ResizeObserver(onScroll);
     resizeObserver.observe(viewport);
 
     return () => {
-      viewport.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      viewport.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       resizeObserver.disconnect();
 
       if (frameRef.current !== null) {
@@ -97,12 +90,25 @@ export function useHorizontalScrollTracker(itemCount: number) {
       if (!viewport || itemCount <= 1) return;
 
       const targetIndex = Math.max(0, Math.min(itemCount - 1, index));
-      const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
-      const ratio = targetIndex / (itemCount - 1);
+      const maxScroll = Math.max(
+        0,
+        viewport.scrollWidth - viewport.clientWidth,
+      );
+      const cards = viewport.querySelectorAll<HTMLElement>(
+        "[data-carousel-item]",
+      );
+      const target = cards[targetIndex];
+      if (!target) return;
+      const offset =
+        target.getBoundingClientRect().left -
+        viewport.getBoundingClientRect().left +
+        viewport.scrollLeft;
 
       viewport.scrollTo({
-        left: maxScroll * ratio,
-        behavior: 'smooth',
+        left: clamp(offset, 0, maxScroll),
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
       });
     },
     [itemCount],

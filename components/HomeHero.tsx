@@ -1,102 +1,61 @@
-'use client';
-
-import Link from 'next/link';
-import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { useState } from 'react';
-import { whatsappHref } from '@/lib/site';
+import Link from "next/link";
+import { whatsappHref } from "@/lib/site";
 
 const heroImage =
-  'https://images.pexels.com/photos/34880778/pexels-photo-34880778/free-photo-of-modern-minimalist-house-facade-in-jakarta.jpeg?auto=compress&cs=tinysrgb&w=2000';
+  "https://images.pexels.com/photos/34880778/pexels-photo-34880778/free-photo-of-modern-minimalist-house-facade-in-jakarta.jpeg";
 
 export function HomeHero() {
-  const reduceMotion = useReducedMotion();
-  const { scrollY } = useScroll();
-  const [revealed, setRevealed] = useState(false);
-
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setRevealed(latest > 28);
-  });
-
-  const copyOpacity = useTransform(scrollY, [18, 78], [0, 1]);
-  const copyY = useTransform(scrollY, [18, 78], [18, 0]);
-  const mediaFilter = useTransform(
-    scrollY,
-    [0, 88],
-    [
-      'blur(0px) brightness(1.14) contrast(1.04) saturate(1.04)',
-      'blur(13px) brightness(.67) contrast(1.03) saturate(1.16)',
-    ],
-  );
-  const mediaScale = useTransform(scrollY, [0, 88], [1, 1.018]);
-  const veilOpacity = useTransform(scrollY, [0, 88], [0.03, 0.4]);
-  const hintOpacity = useTransform(scrollY, [0, 34], [1, 0]);
-
   return (
-    <section className="home-scroll-hero" data-nav-theme="dark" aria-label="Mestika Abadi Makmur Aluminium">
-      <div className="home-scroll-hero-stage">
-        <div className="home-scroll-hero-media" aria-hidden="true">
-          <motion.img
-            className="home-scroll-hero-ambient"
-            src={heroImage}
-            alt=""
-            style={reduceMotion ? undefined : { scale: mediaScale }}
-          />
-          <motion.img
-            className="home-scroll-hero-image"
-            src={heroImage}
-            alt="Jendela kaca dan frame aluminium pada rumah modern di Jakarta"
-            width="1600"
-            height="2000"
-            fetchPriority="high"
-            style={reduceMotion ? undefined : { filter: mediaFilter, scale: mediaScale }}
-          />
-          <motion.div
-            className="home-scroll-hero-veil"
-            style={reduceMotion ? undefined : { opacity: veilOpacity }}
-          />
+    <section
+      className="home-hero"
+      data-nav-theme="dark"
+      aria-labelledby="home-hero-title"
+    >
+      <img
+        className="home-hero-image"
+        src={`${heroImage}?auto=compress&cs=tinysrgb&w=1600`}
+        srcSet={[640, 960, 1600, 2400]
+          .map(
+            (width) =>
+              `${heroImage}?auto=compress&cs=tinysrgb&w=${width} ${width}w`,
+          )
+          .join(", ")}
+        sizes="100vw"
+        alt="Fasad rumah modern dengan bukaan kaca lebar dan frame aluminium hitam"
+        width="1600"
+        height="2000"
+        fetchPriority="high"
+        loading="eager"
+      />
+      <div className="home-hero-shade" aria-hidden="true" />
+      <div className="container home-hero-content">
+        <p className="eyebrow">ALUMINIUM & KACA &middot; JABODETABEK</p>
+        <h1 id="home-hero-title">
+          Buka ruang.
+          <br />
+          <span>Hadirkan cahaya.</span>
+        </h1>
+        <p className="home-hero-lead">
+          Pintu, jendela, kusen, partisi kaca, dan shower box. Dibuat sesuai
+          ruang Anda, dari pengukuran hingga pemasangan.
+        </p>
+        <div className="home-hero-actions">
+          <a
+            className="button home-hero-primary"
+            href={whatsappHref({ sourcePath: "/" })}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Konsultasi WhatsApp <span aria-hidden="true">&#8599;</span>
+          </a>
+          <Link className="button home-hero-secondary" href="/layanan/">
+            Lihat layanan <span aria-hidden="true">&#8599;</span>
+          </Link>
         </div>
-
-        <motion.div
-          className="home-scroll-hero-copy"
-          data-active={reduceMotion || revealed ? 'true' : 'false'}
-          style={reduceMotion ? { opacity: 1 } : { opacity: copyOpacity, y: copyY }}
-        >
-          <p className="eyebrow"><span /> FABRIKASI ALUMINIUM & KACA · JABODETABEK</p>
-          <h1>Aluminium & kaca<br /><span>untuk ruang Anda.</span></h1>
-          <p className="home-scroll-hero-lead">
-            Pintu, jendela, kusen, partisi kaca, dan shower box untuk rumah, ruko, kantor,
-            serta bangunan komersial di Jabodetabek dan sekitarnya.
-          </p>
-
-          <div className="home-scroll-hero-actions">
-            <a
-              className="button button-primary"
-              href={whatsappHref({ sourcePath: '/' })}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Konsultasi WhatsApp <span>↗</span>
-            </a>
-            <Link className="button home-scroll-hero-secondary" href="/layanan/">
-              Layanan dan Produk <span>↗</span>
-            </Link>
-          </div>
-
-          <div className="home-scroll-hero-glass" aria-label="Area layanan">
-            <span className="status-dot" />
-            <div>
-              <small>AREA LAYANAN</small>
-              <strong>Jabodetabek & sekitarnya</strong>
-            </div>
-          </div>
-        </motion.div>
-
-        {!reduceMotion && (
-          <motion.div className="home-scroll-hint" style={{ opacity: hintOpacity }} aria-hidden="true">
-            <span>Scroll</span>
-            <i />
-          </motion.div>
-        )}
+        <p className="home-hero-caption">
+          Hunian & komersial <span aria-hidden="true">&middot;</span> Foto
+          referensi
+        </p>
       </div>
     </section>
   );

@@ -1,33 +1,36 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { LineGlyph } from '@/components/LineGlyph';
-import { useHorizontalScrollTracker } from '@/components/useHorizontalScrollTracker';
+import { motion } from "framer-motion";
+import { LineGlyph } from "@/components/LineGlyph";
+import { useHorizontalScrollTracker } from "@/components/useHorizontalScrollTracker";
 
 const steps = [
   {
-    index: '01',
-    title: 'Kirim kebutuhan',
-    body: 'Jenis pekerjaan, lokasi, foto kondisi bila ada, serta ukuran perkiraan.',
-    image: 'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    alt: 'Referensi rumah modern dengan bukaan kaca untuk tahap survey dan pengukuran',
-    imagePosition: '50% 44%',
+    index: "01",
+    title: "Kirim kebutuhan",
+    body: "Jenis pekerjaan, lokasi, foto kondisi bila ada, serta ukuran perkiraan.",
+    image:
+      "https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    alt: "Referensi rumah modern dengan bukaan kaca untuk tahap survey dan pengukuran",
+    imagePosition: "50% 44%",
   },
   {
-    index: '02',
-    title: 'Pilih sistem & material',
-    body: 'Bahas jenis bukaan, frame, kaca, serta penyesuaian yang dibutuhkan di lokasi.',
-    image: 'https://images.pexels.com/photos/17168858/pexels-photo-17168858/free-photo-of-modern-design-of-room.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    alt: 'Referensi ruang modern untuk pembahasan konfigurasi bukaan dan material',
-    imagePosition: '61% 50%',
+    index: "02",
+    title: "Pilih sistem & material",
+    body: "Bahas jenis bukaan, frame, kaca, serta penyesuaian yang dibutuhkan di lokasi.",
+    image:
+      "https://images.pexels.com/photos/17168858/pexels-photo-17168858/free-photo-of-modern-design-of-room.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    alt: "Referensi ruang modern untuk pembahasan konfigurasi bukaan dan material",
+    imagePosition: "61% 50%",
   },
   {
-    index: '03',
-    title: 'Fabrikasi & pasang',
-    body: 'Pekerjaan dilanjutkan mengikuti detail yang telah disepakati.',
-    image: 'https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    alt: 'Referensi pekerjaan pemasangan panel kaca pada bangunan modern dengan pekerja terlihat dari jarak jauh',
-    imagePosition: '62% 48%',
+    index: "03",
+    title: "Fabrikasi & pasang",
+    body: "Pekerjaan dilanjutkan mengikuti detail yang telah disepakati.",
+    image:
+      "https://images.pexels.com/photos/34048291/pexels-photo-34048291.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    alt: "Referensi pekerjaan pemasangan panel kaca pada bangunan modern dengan pekerja terlihat dari jarak jauh",
+    imagePosition: "62% 48%",
   },
 ];
 
@@ -35,7 +38,14 @@ function StepCard({ step }: { step: (typeof steps)[number] }) {
   return (
     <article className="process-slide">
       <div className="process-slide-image">
-        <img src={step.image} alt={step.alt} width="1000" height="700" loading="lazy" style={{ objectPosition: step.imagePosition }} />
+        <img
+          src={step.image}
+          alt={step.alt}
+          width="1000"
+          height="700"
+          loading="lazy"
+          style={{ objectPosition: step.imagePosition }}
+        />
         <span className="reference-badge">REFERENSI PEKERJAAN</span>
       </div>
       <div className="process-slide-copy">
@@ -48,23 +58,24 @@ function StepCard({ step }: { step: (typeof steps)[number] }) {
 }
 
 export function ProcessCarousel() {
-  const {
-    viewportRef,
-    activeIndex,
-    progress,
-    scrollToIndex,
-    scrollByItem,
-  } = useHorizontalScrollTracker(steps.length);
+  const { viewportRef, activeIndex, progress, scrollToIndex, scrollByItem } =
+    useHorizontalScrollTracker(steps.length);
 
   return (
     <div className="process-carousel">
       <div className="process-carousel-desktop">
         <div className="process-carousel-toolbar">
           <div className="carousel-controls">
-            <button onClick={() => scrollByItem(-1)} aria-label="Langkah sebelumnya">
+            <button
+              onClick={() => scrollByItem(-1)}
+              aria-label="Langkah sebelumnya"
+            >
               <LineGlyph kind="navLeft" />
             </button>
-            <button onClick={() => scrollByItem(1)} aria-label="Langkah berikutnya">
+            <button
+              onClick={() => scrollByItem(1)}
+              aria-label="Langkah berikutnya"
+            >
               <LineGlyph kind="navRight" />
             </button>
           </div>
@@ -73,6 +84,7 @@ export function ProcessCarousel() {
         <div
           className="process-carousel-viewport native-horizontal-carousel"
           ref={viewportRef}
+          tabIndex={0}
           aria-label="Proses layanan — scroll horizontal"
         >
           <div className="process-carousel-track">
@@ -89,21 +101,30 @@ export function ProcessCarousel() {
             {steps.map((_, index) => (
               <button
                 key={index}
-                className={index === activeIndex ? 'active' : ''}
+                className={index === activeIndex ? "active" : ""}
                 onClick={() => scrollToIndex(index)}
                 aria-label={`Buka langkah ${index + 1}`}
-                aria-current={index === activeIndex ? 'true' : undefined}
+                aria-current={index === activeIndex ? "true" : undefined}
               />
             ))}
           </div>
           <div className="carousel-progress" aria-hidden="true">
-            <motion.span initial={false} animate={{ scaleX: progress }} transition={{ duration: 0.08, ease: 'linear' }} />
+            <motion.span
+              initial={false}
+              animate={{ scaleX: progress }}
+              transition={{ duration: 0.08, ease: "linear" }}
+            />
           </div>
-          <span className="carousel-count">{String(activeIndex + 1).padStart(2, '0')} / 03</span>
+          <span className="carousel-count">
+            {String(activeIndex + 1).padStart(2, "0")} / 03
+          </span>
         </div>
       </div>
 
-      <div className="process-mobile-short-grid" aria-label="Tiga langkah proses layanan">
+      <div
+        className="process-mobile-short-grid"
+        aria-label="Tiga langkah proses layanan"
+      >
         {steps.map((step) => (
           <StepCard step={step} key={step.index} />
         ))}
