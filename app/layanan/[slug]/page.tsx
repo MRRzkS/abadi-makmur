@@ -5,6 +5,7 @@ import { LineGlyph } from '@/components/LineGlyph';
 import { Reveal } from '@/components/Reveal';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
 import { ProcessCarousel } from '@/components/ProcessCarousel';
+import { MobileMicroAccordion } from '@/components/MobileMicroAccordion';
 import { serviceBySlug, services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -110,7 +111,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <Reveal className="detail-card detail-main">
             <p className="eyebrow">SEBELUM DIPASANG</p>
             <h2>Ukur dengan tepat.<br /><span>Pasang sesuai kebutuhan.</span></h2>
-            <p>Setiap pekerjaan aluminium dan kaca perlu menyesuaikan ukuran bukaan, arah buka, kondisi dinding, pemakaian ruang, serta pilihan material agar hasil akhirnya rapi dan berfungsi dengan baik.</p>
+            <MobileMicroAccordion summary="Kenapa perlu disesuaikan?">
+              <p>Setiap pekerjaan aluminium dan kaca perlu menyesuaikan ukuran bukaan, arah buka, kondisi dinding, pemakaian ruang, serta pilihan material agar hasil akhirnya rapi dan berfungsi dengan baik.</p>
+            </MobileMicroAccordion>
           </Reveal>
           <Reveal className="detail-card detail-benefits" delay={0.04}>
             <LineGlyph kind="frame" />
@@ -172,7 +175,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="faq-list">
             {service.faq.map((item, index) => (
               <Reveal key={item.q} className="faq-item" delay={index * 0.04}>
-                <span>0{index + 1}</span><div><h3>{item.q}</h3><p>{item.a}</p></div>
+                <MobileMicroAccordion summary={item.q} index={`0${index + 1}`}>
+                  <p>{item.a}</p>
+                </MobileMicroAccordion>
               </Reveal>
             ))}
           </div>
