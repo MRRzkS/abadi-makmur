@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { LineGlyph } from '@/components/LineGlyph';
 import { useHorizontalScrollTracker } from '@/components/useHorizontalScrollTracker';
 
@@ -49,17 +48,7 @@ export function ArticlesCollection({ posts }: { posts: ArticleCardData[] }) {
   return (
     <>
       <div className="article-bento article-bento-desktop">
-        {posts.map((post, index) => (
-          <motion.div
-            key={post.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.16 }}
-            transition={{ duration: 0.44, delay: (index % 5) * 0.035 }}
-          >
-            <Card post={post} index={index} />
-          </motion.div>
-        ))}
+        {posts.map((post, index) => <Card post={post} index={index} key={post.id} />)}
       </div>
 
       {carousel ? (
