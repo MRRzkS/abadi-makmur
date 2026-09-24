@@ -1733,3 +1733,373 @@ textarea {
   border: 1px solid rgba(22,24,29,.08);
   box-shadow: 0 20px 64px rgba(22,24,29,.08);
 }
+
+
+/* ===== Module 7 · Mobile-friendly scroll-bound parity ===== */
+
+.micro-accordion-toggle {
+  display: none;
+}
+
+.micro-accordion-desktop-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.micro-accordion-desktop-summary h3 {
+  flex: 1;
+  margin: 0 0 10px;
+}
+
+.micro-accordion-index {
+  flex: 0 0 32px;
+  padding-top: 4px;
+  color: rgba(22,24,29,.38);
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+.micro-accordion-content {
+  display: block;
+}
+
+.faq-item {
+  display: block !important;
+}
+
+.faq-item .micro-accordion-content {
+  padding-left: 50px;
+}
+
+.faq-item .micro-accordion-content p {
+  margin: 0;
+  max-width: 700px;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+@media (max-width: 820px) {
+  /* Collections mirror desktop breadth through one horizontal row, never a long vertical stack. */
+  .service-bento,
+  .services-page-grid,
+  .detail-bento,
+  .related-grid,
+  .principle-bento,
+  .article-bento,
+  .contact-facts {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    gap: 12px !important;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 0;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .service-bento::-webkit-scrollbar,
+  .services-page-grid::-webkit-scrollbar,
+  .detail-bento::-webkit-scrollbar,
+  .related-grid::-webkit-scrollbar,
+  .principle-bento::-webkit-scrollbar,
+  .article-bento::-webkit-scrollbar,
+  .contact-facts::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-bento > *,
+  .services-page-grid > *,
+  .detail-bento > *,
+  .related-grid > *,
+  .principle-bento > *,
+  .article-bento > *,
+  .contact-facts > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    min-width: 0;
+  }
+
+  .service-bento > * {
+    flex: 0 0 min(84vw, 370px);
+  }
+
+  .services-page-grid > * {
+    flex: 0 0 min(88vw, 430px);
+  }
+
+  .detail-bento > * {
+    flex: 0 0 min(84vw, 380px);
+  }
+
+  .related-grid > * {
+    flex: 0 0 min(86vw, 400px);
+  }
+
+  .principle-bento > * {
+    flex: 0 0 min(82vw, 360px);
+  }
+
+  .article-bento > * {
+    flex: 0 0 min(86vw, 400px);
+  }
+
+  .contact-facts > * {
+    flex: 0 0 min(82vw, 350px);
+  }
+
+  .contact-facts {
+    border-top: 0 !important;
+    padding-bottom: 4px;
+  }
+
+  .contact-facts > div {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px !important;
+    min-height: 132px;
+    padding: 20px !important;
+    border: 1px solid rgba(22,24,29,.08) !important;
+    border-radius: 22px;
+    background: #fff;
+  }
+
+  .service-bento .service-card > a {
+    min-height: 360px !important;
+    max-height: 72svh;
+  }
+
+  .services-page-card-shell {
+    height: 100%;
+  }
+
+  .services-page-card-layout,
+  .services-page-card-2 .services-page-card-layout,
+  .services-page-card-3 .services-page-card-layout,
+  .services-page-card-5 .services-page-card-layout {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 220px auto;
+    min-height: 0 !important;
+  }
+
+  .services-page-card .services-page-image {
+    min-height: 220px !important;
+    height: 220px;
+  }
+
+  .services-page-card .services-page-content {
+    min-height: 0 !important;
+    padding: 22px !important;
+  }
+
+  .services-page-icon {
+    margin-bottom: 18px !important;
+  }
+
+  .detail-card,
+  .detail-main {
+    min-height: 300px !important;
+    max-height: 72svh;
+  }
+
+  .detail-main {
+    padding: 26px !important;
+  }
+
+  .related-card > a {
+    grid-template-rows: 220px auto !important;
+  }
+
+  .related-card-media,
+  .related-card:nth-child(1) .related-card-media,
+  .related-card:nth-child(4) .related-card-media {
+    min-height: 220px !important;
+  }
+
+  .principle-card {
+    min-height: 280px !important;
+    max-height: 62svh;
+  }
+
+  .article-card > a {
+    height: 100%;
+  }
+
+  /* Micro-accordion: desktop stays fully readable, mobile collapses long copy until tapped. */
+  .micro-accordion-desktop-summary {
+    display: none;
+  }
+
+  .micro-accordion-toggle {
+    width: 100%;
+    min-height: 48px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .micro-accordion-summary {
+    font-family: var(--font-jakarta), var(--font-geist), sans-serif;
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.25;
+    letter-spacing: -.035em;
+  }
+
+  .micro-accordion-icon {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(22,24,29,.10);
+    border-radius: 999px;
+    background: rgba(255,255,255,.04);
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .detail-main .micro-accordion-icon {
+    border-color: rgba(255,255,255,.12);
+  }
+
+  .micro-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+      max-height .32s cubic-bezier(.22,1,.36,1),
+      opacity .22s ease,
+      transform .32s cubic-bezier(.22,1,.36,1);
+  }
+
+  .micro-accordion[data-open='true'] .micro-accordion-content {
+    max-height: 460px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .micro-accordion-content > :first-child {
+    margin-top: 12px !important;
+  }
+
+  .faq-item {
+    padding: 12px 0 !important;
+  }
+
+  .faq-item .micro-accordion-content {
+    padding-left: 42px;
+  }
+
+  /* Heavy visual assets are reduced so context stays inside roughly one screen. */
+  .about-photo-large,
+  .about-photo-large img {
+    min-height: 300px !important;
+    height: 300px !important;
+  }
+
+  .about-visual-grid {
+    gap: 18px !important;
+  }
+
+  .about-principle {
+    padding: 24px !important;
+  }
+
+  .system-visual {
+    height: min(44svh, 360px) !important;
+  }
+
+  .system-showcase-grid {
+    gap: 12px !important;
+  }
+
+  .system-accordion {
+    padding: 10px !important;
+  }
+
+  .system-tab {
+    padding: 14px 10px !important;
+  }
+
+  .system-tab-copy strong {
+    font-size: 19px !important;
+  }
+
+  .line-glyph {
+    max-width: 44px;
+    max-height: 44px;
+  }
+
+  .service-card-1 .line-glyph {
+    max-width: 52px;
+    max-height: 52px;
+  }
+
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+@media (max-width: 580px) {
+  .service-bento > * {
+    flex-basis: 86vw;
+  }
+
+  .services-page-grid > *,
+  .related-grid > *,
+  .article-bento > * {
+    flex-basis: 90vw;
+  }
+
+  .detail-bento > *,
+  .principle-bento > *,
+  .contact-facts > * {
+    flex-basis: 84vw;
+  }
+
+  .service-bento .service-card > a {
+    min-height: 330px !important;
+  }
+
+  .services-page-card-layout,
+  .services-page-card-2 .services-page-card-layout,
+  .services-page-card-3 .services-page-card-layout,
+  .services-page-card-5 .services-page-card-layout {
+    grid-template-rows: 200px auto;
+  }
+
+  .services-page-card .services-page-image {
+    min-height: 200px !important;
+    height: 200px;
+  }
+
+  .detail-card,
+  .detail-main {
+    min-height: 280px !important;
+  }
+
+  .about-photo-large,
+  .about-photo-large img {
+    min-height: 260px !important;
+    height: 260px !important;
+  }
+
+  .system-visual {
+    height: min(40svh, 330px) !important;
+  }
+}
