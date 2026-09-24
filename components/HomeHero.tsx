@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { useState } from 'react';
 import { whatsappHref } from '@/lib/site';
 
 const heroImage =
@@ -10,6 +11,11 @@ const heroImage =
 export function HomeHero() {
   const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
+  const [revealed, setRevealed] = useState(false);
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setRevealed(latest > 28);
+  });
 
   const copyOpacity = useTransform(scrollY, [18, 78], [0, 1]);
   const copyY = useTransform(scrollY, [18, 78], [18, 0]);
@@ -52,6 +58,7 @@ export function HomeHero() {
 
         <motion.div
           className="home-scroll-hero-copy"
+          data-active={reduceMotion || revealed ? 'true' : 'false'}
           style={reduceMotion ? { opacity: 1 } : { opacity: copyOpacity, y: copyY }}
         >
           <p className="eyebrow"><span /> FABRIKASI ALUMINIUM & KACA · JABODETABEK</p>
