@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Reveal } from '@/components/Reveal';
-import { LineGlyph } from '@/components/LineGlyph';
 import { PortfolioCarousel } from '@/components/PortfolioCarousel';
 import { ProcessCarousel } from '@/components/ProcessCarousel';
 import { WhatsAppPlanner } from '@/components/WhatsAppPlanner';
@@ -9,6 +8,7 @@ import { TrustMarquee } from '@/components/TrustMarquee';
 import { HomeHero } from '@/components/HomeHero';
 import { MobileMicroAccordion } from '@/components/MobileMicroAccordion';
 import { MarketingMoment } from '@/components/MarketingMoment';
+import { ServiceCollection } from '@/components/ServiceCollection';
 import { services } from '@/lib/services';
 import { siteConfig, whatsappHref } from '@/lib/site';
 
@@ -75,27 +75,7 @@ export default function HomePage() {
             <p>Pilih kebutuhan Anda—pintu, jendela, kusen, partisi kaca, atau shower box. Kami bantu dari pengukuran hingga pemasangan.</p>
           </Reveal>
 
-          <div className="service-bento">
-            {services.map((service, index) => {
-              const kinds = ['door', 'window', 'frame', 'partition', 'shower'] as const;
-              return (
-                <Reveal key={service.slug} className={`service-card service-card-${index + 1}`} delay={index * 0.04}>
-                  <Link href={`/layanan/${service.slug}/`}>
-                    <div className="service-card-top">
-                      <LineGlyph kind={kinds[index]} />
-                      <span className="service-index">0{index + 1}</span>
-                    </div>
-                    <div>
-                      <p className="service-keyword">{service.keyword}</p>
-                      <h3>{service.shortTitle}</h3>
-                      <p>{service.description}</p>
-                    </div>
-                    <div className="service-link">Detail layanan <span>↗</span></div>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </div>
+          <ServiceCollection />
         </div>
       </section>
 
