@@ -19,7 +19,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
     return {
       title: service.title,
       description: service.metaDescription,
-      keywords: [service.keyword, `${service.keyword} Tangerang`, 'aluminium Tangerang', 'kaca Tangerang'],
+      keywords: [service.keyword, `${service.keyword} Jabodetabek`, 'aluminium Jabodetabek', 'kaca Jabodetabek'],
       alternates: {
         canonical: `${siteConfig.url}/layanan/${service.slug}`,
       },
@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         addressCountry: 'ID',
       },
     },
-    areaServed: { '@type': 'City', name: 'Tangerang' },
+    areaServed: ['Jakarta', 'Bogor', 'Depok', 'Tangerang', 'Bekasi'].map((name) => ({ '@type': 'City', name })),
     description: service.metaDescription,
   };
 
@@ -79,8 +79,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="inner-hero service-hero section-pad">
         <div className="container inner-hero-grid">
           <Reveal className="inner-hero-copy">
-            <Link className="back-link" href="/layanan/">← Semua layanan</Link>
-            <p className="eyebrow">{service.keyword.toUpperCase()} · TANGERANG</p>
+            <Link className="back-link" href="/layanan/">← Semua layanan & produk</Link>
+            <p className="eyebrow">{service.keyword.toUpperCase()} · JABODETABEK</p>
             <h1 className="service-hero-title">
               <strong className="service-hero-title-main">{service.shortTitle}</strong>
               <span className="service-hero-title-support">untuk ruang yang tepat.</span>
@@ -120,12 +120,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <Reveal className="detail-card detail-use" delay={0.08}>
             <p className="detail-label">COCOK UNTUK</p>
             <div className="tag-cloud">{service.suitableFor.map((item) => <span key={item}>{item}</span>)}</div>
-            <strong>{service.keyword}<br />Tangerang</strong>
+            <strong>{service.keyword}<br />Jabodetabek</strong>
           </Reveal>
           <Reveal className="detail-card detail-area" delay={0.12}>
             <p className="detail-label">AREA UTAMA</p>
-            <span className="area-big">TGR</span>
-            <p>Tangerang, Banten. Konfirmasi detail lokasi proyek melalui WhatsApp.</p>
+            <span className="area-big area-big-wide">JABODETABEK</span>
+            <p>Jakarta, Bogor, Depok, Tangerang, Bekasi, dan area sekitar. Konfirmasi lokasi proyek melalui WhatsApp.</p>
           </Reveal>
         </div>
       </section>
@@ -143,7 +143,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="section related-services">
         <div className="container">
           <Reveal className="section-heading split-heading">
-            <div><p className="eyebrow">LAYANAN LAINNYA</p><h2>Butuh pekerjaan<br /><span>aluminium atau kaca lainnya?</span></h2></div>
+            <div><p className="eyebrow">LAYANAN & PRODUK LAINNYA</p><h2>Butuh pekerjaan<br /><span>aluminium atau kaca lainnya?</span></h2></div>
           </Reveal>
           <div className="related-grid">
             {services.filter((item) => item.slug !== service.slug).slice(0, 4).map((item, index) => (
@@ -155,7 +155,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
                   <div className="related-card-body">
                     <span className="related-card-index">0{index + 1}</span>
-                    <p>{item.keyword} Tangerang</p>
+                    <p>{item.keyword} Jabodetabek</p>
                     <h3>{item.shortTitle}</h3>
                     <b aria-hidden="true">↗</b>
                   </div>
