@@ -1522,3 +1522,205 @@ textarea:focus-visible {
     object-position: 50% 42% !important;
   }
 }
+
+
+/* ===== Jobs-inspired UI system enforcement ===== */
+
+/* Exact Liquid-Glass matrix for navigational glass, floating trays, and interactive controls. */
+.glass-panel,
+.liquid-glass,
+.home-scroll-hero-copy,
+.site-header .nav-shell,
+.site-header .mobile-nav {
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow:
+    0 8px 32px 0 rgba(0,0,0,.37),
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -1px 0 rgba(255,255,255,.025) !important;
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+}
+
+.site-header.nav-dark .nav-shell,
+.site-header.nav-dark .mobile-nav {
+  background: rgba(0,0,0,.05) !important;
+}
+
+.site-header.nav-light .nav-shell,
+.site-header.nav-light .mobile-nav {
+  background: rgba(255,255,255,.04) !important;
+}
+
+/* The exact glass matrix includes a physical micro-grain under 3% opacity. */
+.site-header .nav-shell::after,
+.site-header .mobile-nav::after,
+.home-scroll-hero-copy::after,
+.liquid-glass::after,
+.glass-panel::after {
+  opacity: .02 !important;
+}
+
+/* Circular carousel and vertical navigation controls use the same physical material. */
+.carousel-controls button,
+.vertical-nav button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  background: rgba(0,0,0,.05) !important;
+  color: rgba(22,24,29,.72);
+  box-shadow:
+    0 8px 32px 0 rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -1px 0 rgba(255,255,255,.025) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+}
+
+.dark-surface .carousel-controls button,
+.portfolio-section .carousel-controls button {
+  background: rgba(255,255,255,.04) !important;
+  color: rgba(255,255,255,.82);
+}
+
+.carousel-controls button:hover,
+.vertical-nav button:hover {
+  border-color: rgba(255,255,255,.12) !important;
+  background: color-mix(in srgb, var(--primary) 84%, transparent) !important;
+  color: #fff !important;
+}
+
+/* Semi-transparent dots + stretched active capsule, while retaining generous touch targets. */
+.carousel-dots button::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  transition:
+    width .28s cubic-bezier(.22,1,.36,1),
+    opacity .2s ease,
+    transform .2s ease,
+    background .2s ease;
+}
+
+.carousel-dots button.active::before {
+  width: 24px;
+  opacity: 1;
+  transform: none;
+  background: var(--accent);
+}
+
+.dark-surface .carousel-dots button.active::before {
+  background: var(--accent);
+}
+
+.carousel-progress {
+  height: 6px !important;
+  border-radius: 999px !important;
+  background: rgba(0,0,0,.05) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  overflow: hidden;
+}
+
+.dark-surface .carousel-progress,
+.portfolio-section .carousel-progress {
+  background: rgba(255,255,255,.04) !important;
+}
+
+.carousel-progress span {
+  border-radius: inherit;
+  background: var(--primary) !important;
+}
+
+.dark-surface .carousel-progress span,
+.portfolio-section .carousel-progress span {
+  background: rgba(255,255,255,.82) !important;
+}
+
+/* Premium typography: only configured Geist / Plus Jakarta Sans, with deliberate tight tracking. */
+.home-scroll-hero-copy h1,
+.inner-hero h1,
+.section-heading h2,
+.process-intro h2,
+.local-seo-copy h2,
+.inquiry-copy h2,
+.faq-grid h2,
+.about-principle h2,
+.services-page-content h2,
+.service-card h3,
+.related-card-body h3,
+.project-meta h3,
+.process-slide-copy h3 {
+  font-family: var(--font-jakarta), var(--font-geist), sans-serif;
+  letter-spacing: -.055em;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-geist), var(--font-jakarta), sans-serif;
+}
+
+/* Asymmetric bento rhythm remains explicit for every unsorted 4+ collection. */
+.service-bento,
+.related-grid,
+.detail-bento,
+.principle-bento {
+  grid-auto-flow: dense;
+}
+
+/* Deep-dive stage: keep the visual response immediate and premium, never flashy. */
+.system-visual > img {
+  transition:
+    object-position .42s cubic-bezier(.22,1,.36,1),
+    filter .42s cubic-bezier(.22,1,.36,1);
+  will-change: transform, opacity;
+}
+
+.system-tab.active {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--primary) 7%, transparent), transparent 68%);
+}
+
+.system-tab.active .system-tab-label {
+  color: var(--primary);
+}
+
+/* Segmented controls, when present, use a physical sliding white pill via layoutId. */
+.segmented-control {
+  background: rgba(0,0,0,.05) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,.24);
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+}
+
+.segmented-pill {
+  background: #fff;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,.16);
+}
+
+/* Mobile remains the source composition, not a squeezed desktop afterthought. */
+@media (max-width: 580px) {
+  .section-heading h2,
+  .process-intro h2,
+  .local-seo-copy h2,
+  .inquiry-copy h2,
+  .faq-grid h2,
+  .about-principle h2 {
+    font-size: clamp(34px, 9.5vw, 48px);
+    line-height: .98;
+    letter-spacing: -.06em;
+  }
+
+  .carousel-controls button,
+  .vertical-nav button {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+  }
+}
