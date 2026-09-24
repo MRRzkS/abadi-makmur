@@ -18,9 +18,9 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <p className="footer-label">Layanan & Produk</p>
+          <p className="footer-label">Layanan dan Produk</p>
           <div className="footer-links">
-            <Link href="/layanan/">Semua layanan & produk</Link>
+            <Link href="/layanan/">Semua layanan dan produk</Link>
             {services.map((service) => (
               <Link key={service.slug} href={`/layanan/${service.slug}/`}>{service.shortTitle}</Link>
             ))}
