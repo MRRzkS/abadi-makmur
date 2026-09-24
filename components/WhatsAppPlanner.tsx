@@ -9,7 +9,7 @@ const options = ['Pintu Aluminium', 'Jendela Aluminium', 'Kusen Aluminium', 'Par
 export function WhatsAppPlanner({ defaultService }: { defaultService?: string }) {
   const pathname = usePathname();
   const [service, setService] = useState(defaultService || options[0]);
-  const [location, setLocation] = useState('Tangerang');
+  const [location, setLocation] = useState('');
   const [note, setNote] = useState('');
 
   const href = useMemo(() => {
@@ -36,14 +36,14 @@ export function WhatsAppPlanner({ defaultService }: { defaultService?: string })
       </div>
       <div className="planner-grid">
         <label>
-          <span>Layanan</span>
+          <span>Layanan & Produk</span>
           <select value={service} onChange={(event) => setService(event.target.value)}>
             {options.map((option) => <option key={option}>{option}</option>)}
           </select>
         </label>
         <label>
           <span>Lokasi proyek</span>
-          <input value={location} onChange={(event) => setLocation(event.target.value)} placeholder="Contoh: Cikupa, Tangerang" />
+          <input value={location} onChange={(event) => setLocation(event.target.value)} placeholder="Contoh: Jakarta Selatan, Depok, Bekasi..." />
         </label>
         <label className="planner-wide">
           <span>Catatan singkat</span>
