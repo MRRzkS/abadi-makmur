@@ -7,6 +7,7 @@ export type Service = {
   metaDescription: string;
   image: string;
   imageAlt: string;
+  imagePosition: string;
   highlight: string;
   benefits: string[];
   suitableFor: string[];
@@ -26,6 +27,7 @@ export const services: Service[] = [
     image:
       'https://images.pexels.com/photos/1098982/pexels-photo-1098982.jpeg?auto=compress&cs=tinysrgb&w=1800',
     imageAlt: 'Referensi pintu kaca dengan frame aluminium hitam untuk hunian modern',
+    imagePosition: '58% 50%',
     highlight: 'Swing · Sliding · Kaca',
     benefits: [
       'Rangka aluminium ringan dan rapi untuk penggunaan harian',
@@ -56,6 +58,7 @@ export const services: Service[] = [
     image:
       'https://images.pexels.com/photos/19963718/pexels-photo-19963718/free-photo-of-modern-house-windows.jpeg?auto=compress&cs=tinysrgb&w=1800',
     imageAlt: 'Referensi jendela modern pada rumah dengan frame ramping',
+    imagePosition: '52% 43%',
     highlight: 'Ventilasi · Cahaya · Proporsi',
     benefits: [
       'Profil ramping membantu tampilan fasad terasa lebih bersih',
@@ -86,6 +89,7 @@ export const services: Service[] = [
     image:
       'https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1800',
     imageAlt: 'Referensi fasad rumah modern dengan kusen, pintu kaca, dan jendela lebar',
+    imagePosition: '50% 45%',
     highlight: 'Presisi · Rapi · Adaptif',
     benefits: [
       'Dibuat mengikuti kebutuhan ukuran aktual',
@@ -116,6 +120,7 @@ export const services: Service[] = [
     image:
       'https://images.pexels.com/photos/5511093/pexels-photo-5511093.jpeg?auto=compress&cs=tinysrgb&w=1800',
     imageAlt: 'Referensi partisi kaca pada koridor kantor modern yang terang',
+    imagePosition: '67% 50%',
     highlight: 'Frameless · Office · Light',
     benefits: [
       'Membagi ruang sambil menjaga aliran cahaya',
@@ -146,6 +151,7 @@ export const services: Service[] = [
     image:
       'https://images.pexels.com/photos/7214728/pexels-photo-7214728.jpeg?auto=compress&cs=tinysrgb&w=1800',
     imageAlt: 'Referensi shower box dengan panel kaca bening pada kamar mandi modern',
+    imagePosition: '58% 50%',
     highlight: 'Clean · Dry Zone · Glass',
     benefits: [
       'Membantu memisahkan area basah dan kering',
@@ -177,6 +183,7 @@ export const portfolioReferences = [
     image:
       'https://images.pexels.com/photos/18559636/pexels-photo-18559636/free-photo-of-a-large-empty-room-with-sliding-glass-doors.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi ruang luas dengan sliding glass door',
+    imagePosition: '62% 50%',
   },
   {
     title: 'Partisi kaca kantor',
@@ -184,6 +191,7 @@ export const portfolioReferences = [
     image:
       'https://images.pexels.com/photos/5511093/pexels-photo-5511093.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi partisi kaca pada koridor kantor modern',
+    imagePosition: '67% 50%',
   },
   {
     title: 'Sliding kaca modern',
@@ -191,6 +199,7 @@ export const portfolioReferences = [
     image:
       'https://images.pexels.com/photos/34574609/pexels-photo-34574609/free-photo-of-bright-modern-room-with-sliding-glass-door.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi ruang terang dengan sliding glass door',
+    imagePosition: '68% 50%',
   },
   {
     title: 'Shower box kaca',
@@ -198,6 +207,7 @@ export const portfolioReferences = [
     image:
       'https://images.pexels.com/photos/7214728/pexels-photo-7214728.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi shower box dengan dinding kaca bening',
+    imagePosition: '58% 50%',
   },
   {
     title: 'Sliding door hunian',
@@ -205,5 +215,6 @@ export const portfolioReferences = [
     image:
       'https://images.pexels.com/photos/13600834/pexels-photo-13600834.jpeg?auto=compress&cs=tinysrgb&w=1600',
     alt: 'Referensi sliding door dengan tirai putih pada hunian',
+    imagePosition: '52% 50%',
   },
 ];
